@@ -31,27 +31,26 @@ export default {
 
   actions: {
     async login({ dispatch }, credentials) {
-      await axios.get("/sanctum/csrf-cookie").then(() => {
-        axios
-          .post("/login", credentials)
-          .then(() => {
-            return dispatch("getUser");
-          })
-          .catch(({ response: data }) => {
-            throw data;
-          });
-      });
+      await axios.get("/sanctum/csrf-cookie");
+      await axios
+        .post("/api/login", credentials)
+        .then(() => {
+          return dispatch("getUser");
+        })
+        .catch(({ response: data }) => {
+          throw data;
+        });
     },
 
     async logout({ dispatch }) {
-      await axios.post("/logout");
+      await axios.post("/api/logout");
       dispatch("clearCharacterData", null, { root: true });
       return dispatch("getUser");
     },
 
     async register({ dispatch }, credentials) {
       await axios
-        .post("/register", credentials)
+        .post("/api/register", credentials)
         .then(({ data }) => {
           console.log(data.message);
           return dispatch("getUser");
