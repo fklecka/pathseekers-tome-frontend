@@ -1,0 +1,351 @@
+.progress-container {
+  width: 80%;
+  padding: 50px 0;
+  display: flex;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+}
+.progress-container .progress {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.progress-container .progress:not(:last-child) {
+  flex: 1;
+}
+.progress-container .progress .node {
+  text-align: center;
+  margin: 0 9px !important;
+  position: relative;
+  z-index: 5;
+  width: 40px;
+  height: 40px;
+  padding: 3px;
+  border-radius: 50%;
+  color: #555;
+  font-size: 16px;
+  font-weight: 700;
+  background-color: #ebebeb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s;
+}
+.progress-container .progress .node:before {
+  content: "";
+  position: absolute;
+  z-index: 4;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  padding: 2px;
+  background-color: transparent;
+  border: 2px solid #bbb;
+  border-radius: inherit;
+}
+.progress-container .progress .node:after {
+  content: "✓";
+  opacity: 0;
+  visibility: hidden;
+  font-size: 22px;
+  font-weight: 700;
+  color: #fff;
+  position: absolute;
+  z-index: 4;
+  left: 48%;
+  top: 50%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.progress-container .progress .node-circle {
+  position: absolute;
+  z-index: 6;
+  width: 100%;
+  cursor: pointer;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.progress-container .progress .node-content {
+  color: #9a9a9a;
+  font-weight: 400;
+  position: absolute;
+  top: 50px;
+  width: 100px;
+  left: 50%;
+  transform: translate(-50%);
+}
+.progress-container .progress .node-content p {
+  margin: 1rem 0 0 !important;
+}
+.progress-container .progress .node .tooltip-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.progress-container .progress .node .tooltip-container .node-tooltip {
+  width: 110px;
+  position: absolute;
+  z-index: 6;
+  border-radius: 10px;
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: 50%;
+  background-color: #f28241;
+  color: #fff;
+}
+.progress-container
+  .progress
+  .node
+  .tooltip-container
+  .node-tooltip
+  .tooltip-text {
+  margin: 0;
+}
+.progress-container .progress .node .tooltip-container .node-tooltip-top {
+  transform: translateX(-50%) !important;
+  bottom: 60px;
+}
+.progress-container .progress .node .tooltip-container .node-tooltip-top:after {
+  content: "";
+  width: 12px;
+  height: 15px;
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  background-color: #f28241;
+  bottom: -14px;
+  transform: translateX(-50%);
+  -webkit-clip-path: polygon(100% 0, 0 0, 50% 40%);
+  clip-path: polygon(100% 0, 0 0, 50% 50%);
+}
+.progress-container .progress .node .tooltip-container .node-tooltip-down {
+  transform: translateX(-50%) !important;
+  top: 65px;
+}
+.progress-container
+  .progress
+  .node
+  .tooltip-container
+  .node-tooltip-down:after {
+  content: "";
+  width: 12px;
+  height: 15px;
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  background-color: #f28241;
+  top: -14px;
+  transform: translateX(-50%);
+  -webkit-clip-path: polygon(0 100%, 50% 50%, 100% 100%);
+  clip-path: polygon(0 100%, 50% 50%, 100% 100%);
+}
+.progress-container .progress .node.active {
+  z-index: 5;
+  background-color: #ebebeb;
+}
+.progress-container .progress .node.active .node-content {
+  transition: color 0.4s, font-weight 0.4s;
+  color: #f28241;
+  font-weight: 700;
+}
+.progress-container .progress .node.active .node-circle {
+  color: #f28241;
+}
+.progress-container .progress .node.active:before {
+  border-color: #f28241;
+}
+.progress-container .progress .node.checked {
+  z-index: 5;
+  color: #555;
+  background-color: #f28241;
+}
+.progress-container .progress .node.checked:before {
+  border-color: #f28241;
+}
+.progress-container .progress .node.checked:after {
+  animation: fade-up 0.4s ease forwards;
+}
+.progress-container .progress-bar {
+  position: relative;
+  flex: 2;
+}
+.progress-container .progress-bar .progress-bar-active {
+  top: 50%;
+  transform: translateY(-50%);
+  position: absolute;
+  z-index: 1;
+  height: 1px;
+  background-color: transparent;
+  width: 100%;
+}
+.progress-container .progress-bar .progress-bar-checked {
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  position: absolute;
+  content: "";
+  height: 1px;
+  width: 0;
+  border-top: 3px solid #f28241;
+  transition: all 0.4s;
+}
+.progress-container .progress-bar.checked .progress-bar-checked {
+  width: 100%;
+}
+.option-holder {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: 50px auto 0;
+}
+.option-holder .button-holder,
+.option-holder .input-holder {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.option-holder .input-holder .input-container {
+  width: 55%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.option-holder .input-holder .input-container input {
+  margin: 10px 10px 10px auto;
+  padding: 10px;
+  border-radius: 5px;
+  border: 2px solid #ccc;
+}
+.option-holder .input-holder .input-container input:focus {
+  outline: none;
+}
+.option-holder .input-holder .input-container label {
+  display: block;
+}
+.option-holder .button-holder {
+  width: 50%;
+  flex-direction: row;
+}
+.option-holder .button-holder button {
+  background-color: #f28241;
+  padding: 10px 20px;
+  font-weight: 700;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+.option-holder .button-holder button:focus {
+  outline: none;
+}
+.option-holder .toggle-holder {
+  padding: 20px;
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.option-holder .toggle-holder .toggle-container {
+  margin: 10px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.option-holder .toggle-holder .toggle-container .switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+.option-holder .toggle-holder .toggle-container .switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.option-holder .toggle-holder .toggle-container .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+}
+.option-holder .toggle-holder .toggle-container .slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: #fff;
+  transition: 0.4s;
+}
+.option-holder .toggle-holder .toggle-container input:checked + .slider {
+  background-color: #f28241;
+}
+.option-holder .toggle-holder .toggle-container input:focus + .slider {
+  box-shadow: 0 0 1px #f28241;
+}
+.option-holder .toggle-holder .toggle-container input:checked + .slider:before {
+  transform: translateX(26px);
+}
+.option-holder .toggle-holder .toggle-container .slider.round {
+  border-radius: 34px;
+}
+.option-holder .toggle-holder .toggle-container .slider.round:before {
+  border-radius: 50%;
+}
+.show-tooltip {
+  animation: show-tooltip 0.2s ease forwards;
+}
+.remove-tooltip {
+  animation: r-tooltip 0.2s ease forwards;
+}
+@keyframes fade-up {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+    transform: translate(-50%, -50%) scale(0);
+  }
+  50% {
+    opacity: 0.5;
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1.3);
+  }
+  to {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+@keyframes show-tooltip {
+  to {
+    padding: 7px 10px;
+    opacity: 1;
+    visibility: visible;
+  }
+}
+@keyframes r-tooltip {
+  0% {
+    opacity: 1;
+    padding: 7px 10px;
+  }
+  to {
+    opacity: 0;
+    transform: scale(0);
+  }
+}

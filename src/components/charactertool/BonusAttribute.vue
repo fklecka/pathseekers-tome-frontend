@@ -1,0 +1,107 @@
+<template>
+  <div class="bg-white bg-opacity-5 py-6 px-24 my-6">
+    <p class="pb-6 text-center text-xl">Wähle ein Bonusattribut</p>
+    <div class="flex space-x-3 pb-6 justify-between">
+      <custom-button
+        class="bg-card border border-card hover:bg-bg text-center"
+        @click="setAndPassAttribute('Stärke')"
+        v-bind:class="{ active: attribute === 'Stärke' }"
+        >Stärke</custom-button
+      >
+      <custom-button
+        class="bg-card border border-card hover:bg-bg text-center"
+        @click="setAndPassAttribute('Geschicklichkeit')"
+        v-bind:class="{ active: attribute === 'Geschicklichkeit' }"
+        >Geschicklichkeit</custom-button
+      >
+      <custom-button
+        class="bg-card border border-card hover:bg-bg text-center"
+        @click="setAndPassAttribute('Konstitution')"
+        v-bind:class="{ active: attribute === 'Konstitution' }"
+        >Konstitution</custom-button
+      >
+    </div>
+    <div class="flex space-x-3 justify-between">
+      <custom-button
+        class="bg-card border border-card hover:bg-bg text-center"
+        @click="setAndPassAttribute('Intelligenz')"
+        v-bind:class="{ active: attribute === 'Intelligenz' }"
+        >Intelligenz</custom-button
+      >
+      <custom-button
+        class="bg-card border border-card hover:bg-bg text-center"
+        @click="setAndPassAttribute('Weisheit')"
+        v-bind:class="{ active: attribute === 'Weisheit' }"
+        >Weisheit</custom-button
+      >
+      <custom-button
+        class="bg-card border border-card hover:bg-bg text-center"
+        @click="setAndPassAttribute('Charisma')"
+        v-bind:class="{ active: attribute === 'Charisma' }"
+        >Charisma</custom-button
+      >
+    </div>
+  </div>
+</template>
+
+<script>
+import CustomButton from "../CustomButton";
+export default {
+  data: () => {
+    return {
+      attribute: "",
+      bonusAttributes: {
+        st: 0,
+        ge: 0,
+        kon: 0,
+        int: 0,
+        wei: 0,
+        ch: 0,
+      },
+    };
+  },
+  components: { CustomButton },
+  methods: {
+    setAndPassAttribute(value) {
+      this.attribute = value;
+      if (value === "Stärke") {
+        this.clearAttributes();
+        this.bonusAttributes.st = 2;
+      } else if (value === "Geschicklichkeit") {
+        this.clearAttributes();
+        this.bonusAttributes.ge = 2;
+      } else if (value === "Konstitution") {
+        this.clearAttributes();
+        this.bonusAttributes.kon = 2;
+      } else if (value === "Intelligenz") {
+        this.clearAttributes();
+        this.bonusAttributes.int = 2;
+      } else if (value === "Weisheit") {
+        this.clearAttributes();
+        this.bonusAttributes.wei = 2;
+      } else if (value === "Charisma") {
+        this.clearAttributes();
+        this.bonusAttributes.ch = 2;
+      }
+      console.log(this.bonusAttributes, "Bonus Attribute Component");
+      this.$emit("setAndPassAttribute", this.bonusAttributes);
+    },
+    clearAttributes() {
+      this.bonusAttributes = {
+        st: 0,
+        ge: 0,
+        kon: 0,
+        int: 0,
+        wei: 0,
+        ch: 0,
+      };
+    },
+  },
+};
+</script>
+
+<style scoped>
+.active {
+  background: #2c3540;
+}
+</style>

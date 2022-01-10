@@ -1,0 +1,259 @@
+[
+  {
+    "name": "Akrobatik",
+    "kf": ["Barde", "Barbar", "Mönch", "Schurke"],
+    "trained": true,
+    "attribute": "GE"
+  },
+  {
+    "name": "Auftreten",
+    "kf": ["Barde", "Mönch", "Schurke"],
+    "trained": true,
+    "attribute": "CH"
+  },
+  {
+    "name": "Beruf",
+    "kf": [
+      "Barbar",
+      "Druide",
+      "Hexenmeister",
+      "Kämpfer",
+      "Kleriker",
+      "Magier",
+      "Mönch",
+      "Paladin",
+      "Schurke",
+      "Waldläufer"
+    ],
+    "trained": false,
+    "attribute": "WE"
+  },
+  {
+    "name": "Bluffen",
+    "kf": ["Barde", "Hexenmeister", "Schurke"],
+    "trained": true,
+    "attribute": "CH"
+  },
+  {
+    "name": "Diplomatie",
+    "kf": ["Barde", "Kleriker", "Paladin", "Schurke"],
+    "trained": true,
+    "attribute": "CH"
+  },
+  {
+    "name": "Einschüchtern",
+    "kf": [
+      "Barbar",
+      "Barde",
+      "Hexenmeister",
+      "Kämpfer",
+      "Mönch",
+      "Schurke",
+      "Waldläufer"
+    ],
+    "trained": true,
+    "attribute": "CH"
+  },
+  {
+    "name": "Entfesselungskunst",
+    "kf": ["Barde", "Mönch", "Schurke"],
+    "trained": true,
+    "attribute": "GE"
+  },
+  {
+    "name": "Fingerfertigkeit",
+    "kf": ["Barde", "Schurke"],
+    "trained": false,
+    "attribute": "GE"
+  },
+  {
+    "name": "Fliegen",
+    "kf": ["Druide", "Hexenmeister", "Magier"],
+    "trained": true,
+    "attribute": "GE"
+  },
+  {
+    "name": "Handwerk",
+    "kf": [
+      "Barbar",
+      "Barde",
+      "Druide",
+      "Hexenmeister",
+      "Kämpfer",
+      "Kleriker",
+      "Magier",
+      "Mönch",
+      "Paladin",
+      "Schurke",
+      "Waldläufer"
+    ],
+    "trained": true,
+    "attribute": "IN"
+  },
+  {
+    "name": "Heilkunde",
+    "kf": ["Druide", "Kleriker", "Paladin", "Waldläufer"],
+    "trained": true,
+    "attribute": "WE"
+  },
+  {
+    "name": "Heimlichkeit",
+    "kf": ["Barde", "Mönch", "Schurke", "Waldläufer"],
+    "trained": true,
+    "attribute": "GE"
+  },
+  {
+    "name": "Klettern",
+    "kf": [
+      "Barbar",
+      "Barde",
+      "Druide",
+      "Kämpfer",
+      "Mönch",
+      "Schurke",
+      "Waldläufer"
+    ],
+    "trained": true,
+    "attribute": "ST"
+  },
+  {
+    "name": "Magische Gegenstände benutzen",
+    "kf": ["Barde", "Hexenmeister", "Schurke"],
+    "trained": false,
+    "attribute": "CH"
+  },
+  {
+    "name": "Mechanismus ausschalten",
+    "kf": ["Schurke"],
+    "trained": false,
+    "attribute": "GE"
+  },
+  {
+    "name": "Mit Tieren umgehen",
+    "kf": ["Barbar", "Druide", "Kämpfer", "Paladin", "Waldläufer"],
+    "trained": false,
+    "attribute": "CH"
+  },
+  {
+    "name": "Motiv erkennen",
+    "kf": ["Barde", "Kleriker", "Mönch", "Paladin", "Schurke"],
+    "trained": true,
+    "attribute": "WE"
+  },
+  {
+    "name": "Reiten",
+    "kf": ["Barbar", "Druide", "Kämpfer", "Mönch", "Paladin", "Waldläufer"],
+    "trained": true,
+    "attribute": "GE"
+  },
+  {
+    "name": "Schätzen",
+    "kf": ["Barde", "Hexenmeister", "Kleriker", "Magier", "Schurke"],
+    "trained": true,
+    "attribute": "IN"
+  },
+  {
+    "name": "Schwimmen",
+    "kf": ["Barbar", "Druide", "Kämpfer", "Mönch", "Schurke", "Waldläufer"],
+    "trained": true,
+    "attribute": "ST"
+  },
+  {
+    "name": "Sprachenkunde",
+    "kf": ["Barde", "Kleriker", "Magier", "Schurke"],
+    "trained": false,
+    "attribute": "IN"
+  },
+  {
+    "name": "Überlebenskunst",
+    "kf": ["Barbar", "Druide", "Kämpfer", "Waldläufer"],
+    "trained": true,
+    "attribute": "WE"
+  },
+  {
+    "name": "Verkleiden",
+    "kf": ["Barde", "Schurke"],
+    "trained": true,
+    "attribute": "CH"
+  },
+  {
+    "name": "Wahrnehmung",
+    "kf": ["Barde", "Barbar", "Mönch", "Schurke", "Waldläufer"],
+    "trained": true,
+    "attribute": "WE"
+  },
+  {
+    "name": "Wissen (Adel)",
+    "kf": ["Barde", "Kleriker", "Magier", "Paladin"],
+    "trained": false,
+    "attribute": "IN"
+  },
+  {
+    "name": "Wissen (Arkanes)",
+    "kf": ["Barde", "Hexenmeister", "Kleriker", "Magier"],
+    "trained": false,
+    "attribute": "IN"
+  },
+  {
+    "name": "Wissen (Baukunst)",
+    "kf": ["Barde", "Kämpfer", "Magier"],
+    "trained": false,
+    "attribute": "IN"
+  },
+  {
+    "name": "Wissen (Die Ebenen)",
+    "kf": ["Barde", "Kleriker", "Magier"],
+    "trained": false,
+    "attribute": "IN"
+  },
+  {
+    "name": "Wissen (Geographie)",
+    "kf": ["Barde", "Druide", "Waldläufer"],
+    "trained": false,
+    "attribute": "IN"
+  },
+  {
+    "name": "Wissen (Geschichte)",
+    "kf": ["Barde", "Kleriker", "Magier", "Mönch"],
+    "trained": false,
+    "attribute": "IN"
+  },
+  {
+    "name": "Wissen (Gewölbekunde)",
+    "kf": ["Barde", "Kämpfer", "Magier", "Schurke", "Waldläufer"],
+    "trained": false,
+    "attribute": "IN"
+  },
+  {
+    "name": "Wissen (Lokales)",
+    "kf": ["Barde", "Magier", "Schurke"],
+    "trained": false,
+    "attribute": "IN"
+  },
+  {
+    "name": "Wissen (Natur)",
+    "kf": ["Barde", "Barbar", "Druide", "Magier", "Waldläufer"],
+    "trained": false,
+    "attribute": "IN"
+  },
+  {
+    "name": "Wissen (Religion)",
+    "kf": ["Barde", "Kleriker", "Magier", "Mönch", "Paladin"],
+    "trained": false,
+    "attribute": "IN"
+  },
+  {
+    "name": "Zauberkunde",
+    "kf": [
+      "Barde",
+      "Druide",
+      "Hexenmeister",
+      "Kleriker",
+      "Magier",
+      "Paladin",
+      "Waldläufer"
+    ],
+    "trained": false,
+    "attribute": "IN"
+  }
+]
