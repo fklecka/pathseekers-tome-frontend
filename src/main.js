@@ -10,7 +10,7 @@ import "vue-toastification/dist/index.css";
 import config from "../config/index.js";
 
 axios.defaults.withCredentials = true;
-axios.defaults.baseURL = "http://localhost/";
+axios.defaults.baseURL = "https://cryptic-lowlands-38385.herokuapp.com/";
 
 store.dispatch("auth/getUser").then(() => {
   createApp(App)

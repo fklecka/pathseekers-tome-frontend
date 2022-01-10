@@ -1,4 +1,4 @@
-import { createRouter, createWebHashHistory } from "vue-router";
+import { createRouter, createWebHistory } from "vue-router";
 import AuthStore from "../store/auth.js";
 
 import CharacterOverview from "../views/CharacterOverview.vue";
@@ -230,7 +230,7 @@ const routes = [
 ];
 
 const router = createRouter({
-  history: createWebHashHistory(),
+  history: createWebHistory(),
   routes,
   linkActiveClass: "active",
 });
