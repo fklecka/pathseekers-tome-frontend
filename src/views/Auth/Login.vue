@@ -230,7 +230,7 @@ export default {
       try {
         this.$store.state.isLoading = true;
         const returnValues = await AuthService.login(
-          this.$config.apiUrl,
+          this.$config.serverUrl,
           this.form
         );
         if (returnValues.token) {
