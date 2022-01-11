@@ -56,7 +56,10 @@ export default {
         };
         params.remember_token = AuthService.getRememberToken();
         try {
-          const token = await AuthService.rememberLogin(config.apiUrl, params);
+          const token = await AuthService.rememberLogin(
+            config.serverUrl,
+            params
+          );
           if (token) {
             AuthService.setCookie(token);
             const config = {

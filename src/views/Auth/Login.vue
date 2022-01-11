@@ -239,7 +239,7 @@ export default {
             AuthService.setRememberToken(returnValues.remember);
           }
           const config = {
-            apiUrl: this.$config.apiUrl,
+            apiUrl: this.$config.serverUrl,
             headers: {
               headers: {
                 Authorization: AuthService.getFullToken(),
