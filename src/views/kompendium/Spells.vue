@@ -48,7 +48,7 @@ export default {
   async created() {
     try {
       this.$store.state.isLoading = true;
-      const response = await axios.get("http://localhost/api/zauber");
+      const response = await axios.get(this.$config.apiUrl + "/zauber");
       this.zauber = response.data;
     } catch (e) {
       this.errors.push(e);
