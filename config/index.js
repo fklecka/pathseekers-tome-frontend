@@ -1,8 +1,8 @@
 import AuthService from "../services/AuthService";
 
 const config = {
-  apiUrl: "https://pathseekers-tome-api.herokuapp.com/api",
-  serverUrl: "https://pathseekers-tome-api.herokuapp.com",
+  apiUrl: "https://angry-dubinsky-8666f4.netlify.app/api",
+  serverUrl: "https://angry-dubinsky-8666f4.netlify.app/",
   headers: {
     headers: {
       Authorization: AuthService.getFullToken(),
