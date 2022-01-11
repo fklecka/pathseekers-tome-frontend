@@ -33,6 +33,10 @@ export default class AuthService {
     return `Bearer ${Cookies.get(authCookieKey)}`;
   };
 
+  static async csrf(apiUrl) {
+    await axios.get(`${apiUrl}/sanctum/csrf-cookie`);
+  }
+
   static async login(apiUrl, params) {
     const apiEndpoint = `${apiUrl}/login`;
     const returnValues = {
@@ -41,7 +45,7 @@ export default class AuthService {
       message: "",
       errors: {},
     };
-    return axios
+    return await axios
       .post(apiEndpoint, params)
       .then((resp) => {
         returnValues.token = resp?.data?.token ?? null;
@@ -58,7 +62,7 @@ export default class AuthService {
   static async rememberLogin(apiUrl, token) {
     const apiEndpoint = `${apiUrl}/remember`;
 
-    return axios
+    return await axios
       .post(apiEndpoint, token)
       .then((resp) => {
         const token = resp?.data?.token ?? null;
