@@ -30,39 +30,10 @@ export default {
   },
 
   actions: {
-    async login({ dispatch }, credentials) {
-      await axios.get("/sanctum/csrf-cookie");
+    async getUser({ commit }, { apiUrl, headers }) {
+      const apiEndpoint = `${apiUrl}/user`;
       await axios
-        .post("/api/login", credentials)
-        .then(() => {
-          return dispatch("getUser");
-        })
-        .catch(({ response: data }) => {
-          throw data;
-        });
-    },
-
-    async logout({ dispatch }) {
-      await axios.post("/api/logout");
-      dispatch("clearCharacterData", null, { root: true });
-      return dispatch("getUser");
-    },
-
-    async register({ dispatch }, credentials) {
-      await axios
-        .post("/api/register", credentials)
-        .then(({ data }) => {
-          console.log(data.message);
-          return dispatch("getUser");
-        })
-        .catch(({ response: data }) => {
-          throw data;
-        });
-    },
-
-    async getUser({ commit }) {
-      return await axios
-        .get("/api/user")
+        .get(apiEndpoint, headers)
         .then((response) => {
           commit("SET_AUTHENTICATED", true);
           commit("SET_USER", response.data);
@@ -71,6 +42,10 @@ export default {
           commit("SET_AUTHENTICATED", false);
           commit("SET_USER", null);
         });
+    },
+    logout({ commit }) {
+      commit("SET_USER", {});
+      commit("SET_AUTHENTICATED", false);
     },
   },
 };

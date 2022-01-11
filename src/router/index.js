@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
-import AuthStore from "../store/auth.js";
+import store from "../store/index";
 
 import CharacterOverview from "../views/CharacterOverview.vue";
 import Kompendium from "../views/kompendium/Kompendium.vue";
@@ -237,7 +237,7 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
   if (to.meta.requiresAuth) {
-    if (!AuthStore.state.user) {
+    if (!store.getters["auth/authenticated"]) {
       next({ name: "Login" });
     } else {
       next();

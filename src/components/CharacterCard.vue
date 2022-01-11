@@ -31,9 +31,6 @@ export default {
       this.$router.push({ name: "Charakterbogen" });
     },
   },
-  mounted() {
-    console.log(this.character);
-  },
 };
 </script>
 

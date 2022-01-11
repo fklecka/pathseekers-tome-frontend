@@ -105,6 +105,7 @@ import { mapGetters, mapActions } from "vuex";
 import axios from "axios";
 import ConfirmModal from "../../components/ConfirmModal.vue";
 import { useToast } from "vue-toastification";
+import AccountService from "../../../services/AccountService";
 export default {
   name: "AccountOverview",
   components: { CustomButton, AboCard, ConfirmModal },

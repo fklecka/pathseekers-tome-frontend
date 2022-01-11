@@ -47,10 +47,13 @@ export default {
 
   async created() {
     try {
+      this.$store.state.isLoading = true;
       const response = await axios.get("http://localhost/api/zauber");
       this.zauber = response.data;
     } catch (e) {
       this.errors.push(e);
+    } finally {
+      this.$store.state.isLoading = false;
     }
   },
 };

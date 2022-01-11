@@ -10,13 +10,13 @@ import "vue-toastification/dist/index.css";
 import config from "../config/index.js";
 
 axios.defaults.withCredentials = true;
-axios.defaults.baseURL = "https://cryptic-lowlands-38385.herokuapp.com/";
 
-store.dispatch("auth/getUser").then(() => {
-  createApp(App)
-    .use(store)
-    .use(router)
-    .use(config)
-    .use(Toast, { position: POSITION.BOTTOM_RIGHT })
-    .mount("#app");
-});
+const app = createApp(App);
+
+app
+  .use(store)
+  .use(router)
+  .use(Toast, { position: POSITION.BOTTOM_RIGHT })
+  .mount("#app");
+
+app.config.globalProperties.$config = config;

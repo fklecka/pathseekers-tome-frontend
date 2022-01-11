@@ -68,8 +68,9 @@ import Waffen from "../components/charactersheet/Waffen.vue";
 import { mapGetters } from "vuex";
 import ConfirmModal from "../components/ConfirmModal.vue";
 import { useToast } from "vue-toastification";
+import CharacterService from "../../services/CharacterService";
+import AuthService from "../../services/AuthService";
 
-import axios from "axios";
 export default {
   data: () => {
     return {
@@ -100,16 +101,31 @@ export default {
   methods: {
     async deleteCharacter() {
       const toast = useToast();
-      await axios
-        .delete("api/characters/" + this.character.id)
-        .then((response) => {
-          toast.success("Charakter wurde gelöscht!");
-          console.log(response.data);
-        })
-        .catch((e) => {
-          console.log(e);
-        });
-      this.$router.replace({ name: "CharacterOverview" });
+      this.$store.state.isLoading = true;
+      const config = {
+        headers: {
+          headers: {
+            Authorization: AuthService.getFullToken(),
+          },
+        },
+      };
+      try {
+        const response = await CharacterService.deleteCharacter(
+          this.$config.apiUrl,
+          this.character.id,
+          config
+        );
+        if (response.success) {
+          this.$router.replace({ name: "CharacterOverview" });
+          toast.success(response.success);
+        } else if (response.error) {
+          toast.error(response.error);
+        }
+      } catch (e) {
+        console.log(e);
+      } finally {
+        this.$store.state.isLoading = false;
+      }
     },
   },
 };

@@ -66,7 +66,7 @@
           <custom-button
             v-if="step === 8"
             class="bg-card border border-card hover:bg-bg absolute right-0"
-            @click="saveCharacter(this.character)"
+            @click="saveCharacter()"
             >Charakter Speichern</custom-button
           >
         </div>
@@ -88,11 +88,12 @@ import Talents from "../components/charactertool/Talents.vue";
 import Equipment from "../components/charactertool/Equipment.vue";
 import Sum from "../components/charactertool/Summary.vue";
 import { mapGetters, mapActions } from "vuex";
-import axios from "axios";
 import { useToast } from "vue-toastification";
 import StepsProgressBar from "vue-steps-progress-bar";
 import "../css/progressbar.css";
 import NewCharacterModal from "../components/charactertool/NewCharacterModal.vue";
+import CharacterService from "../../services/CharacterService";
+import AuthService from "../../services/AuthService";
 export default {
   data: () => {
     return {
@@ -308,24 +309,36 @@ export default {
     getItems(items) {
       this.character.items = items;
     },
-    async saveCharacter(character) {
+    async saveCharacter() {
       const toast = useToast();
       this.$store.state.isLoading = true;
-      const request = { character: character, user_id: this.user.id };
-      await axios
-        .post("/api/characters/", request)
-        .then(({ data }) => {
-          console.log(data.message);
+      const config = {
+        headers: {
+          headers: {
+            Authorization: AuthService.getFullToken(),
+          },
+        },
+      };
+      const character = {
+        character: this.character,
+      };
+      try {
+        const response = await CharacterService.saveCharacter(
+          this.$config.apiUrl,
+          character,
+          config
+        );
+        if (response.success) {
           this.$router.replace({ name: "CharacterOverview" });
-        })
-        .catch(({ response: data }) => {
-          throw data;
-        })
-        .finally(() => {
-          this.$store.state.isLoading = false;
-          this.clearCharactertoolData();
-          toast.success("Charakter gespeichert!");
-        });
+          toast.success(response.success);
+        } else if (response.error) {
+          toast.error(response.error);
+        }
+      } catch (e) {
+        console.log(e);
+      } finally {
+        this.$store.state.isLoading = false;
+      }
     },
     ...mapActions({
       setCharactertoolData: "setCharactertoolData",

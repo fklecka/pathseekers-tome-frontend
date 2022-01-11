@@ -52,7 +52,12 @@ export default createStore({
   modules: { auth },
   plugins: [
     createPersistedState({
-      paths: ["charactersheetData", "charactertoolData"],
+      paths: [
+        "charactersheetData",
+        "charactertoolData",
+        "auth.user",
+        "auth.authenticated",
+      ],
     }),
   ],
 });

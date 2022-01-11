@@ -49,7 +49,8 @@
 <script>
 import CharacterCard from "../components/CharacterCard.vue";
 import { mapGetters, mapActions } from "vuex";
-import axios from "axios";
+import CharacterService from "../../services/CharacterService";
+import AuthService from "../../services/AuthService";
 export default {
   name: "CharacterOverview",
   components: { CharacterCard },
@@ -70,11 +71,20 @@ export default {
   async mounted() {
     if (this.user) {
       this.$store.state.isLoading = true;
-      const apiUrl = "http://localhost/api/characters/" + this.user.id;
       try {
-        const response = await axios.get(apiUrl);
-        console.log(response.data);
-        this.setCharacterState(response.data);
+        const config = {
+          apiUrl: this.$config.apiUrl,
+          headers: {
+            headers: {
+              Authorization: AuthService.getFullToken(),
+            },
+          },
+        };
+        const characters = await CharacterService.getCharacters(
+          this.$config.apiUrl,
+          config
+        );
+        this.setCharacterState(characters);
       } catch (e) {
         this.errors.push(e);
       } finally {

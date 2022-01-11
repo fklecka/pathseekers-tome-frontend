@@ -62,6 +62,7 @@
 
 <script>
 import { mapGetters, mapActions } from "vuex";
+import AuthService from "../../../services/AuthService";
 export default {
   name: "NavUser",
   data() {
@@ -77,13 +78,14 @@ export default {
         this.openMenu = true;
       }
     },
+
     ...mapActions({
       logout: "auth/logout",
     }),
 
-    async menuLogout() {
-      await this.logout();
-
+    menuLogout() {
+      AuthService.logout();
+      this.logout();
       this.$router.push("/");
     },
   },
