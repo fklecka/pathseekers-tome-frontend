@@ -51,7 +51,7 @@ export default class AuthService {
         return returnValues;
       })
       .catch((e) => {
-        throw e;
+        throw e.response.data;
       });
   }
 

@@ -251,7 +251,13 @@ export default {
           this.$router.replace({ name: "CharacterOverview" });
         }
       } catch (e) {
-        console.log(e);
+        if (e.errors) {
+          for (let error of e.errors) {
+            toast.error(error);
+          }
+        } else if (e.message) {
+          toast.error(e.message);
+        }
       } finally {
         this.$store.state.isLoading = false;
       }

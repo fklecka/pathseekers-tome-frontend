@@ -1,8 +1,7 @@
 import AuthService from "../services/AuthService";
 
 const config = {
-  // apiUrl: "https://cryptic-lowlands-38385.herokuapp.com/api/",
-  apiUrl: "http://localhost/api",
+  apiUrl: "https://pathseekers-tome-api.herokuapp.com/api",
   headers: {
     headers: {
       Authorization: AuthService.getFullToken(),
