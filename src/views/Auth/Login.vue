@@ -194,9 +194,7 @@ input[type="checkbox"]:checked::before {
 </style>
 
 <script>
-import AuthService from "../../../services/AuthService";
 import { mapActions } from "vuex";
-import { useToast } from "vue-toastification";
 export default {
   data() {
     return {
@@ -212,9 +210,6 @@ export default {
     };
   },
   methods: {
-    ...mapActions({
-      getUser: "auth/getUser",
-    }),
     showPassword(e) {
       e.preventDefault();
       if (this.pwtype === "password") {
@@ -225,39 +220,17 @@ export default {
         this.showButton = "Anzeigen";
       }
     },
+    ...mapActions({
+      login: "auth/login",
+    }),
     async submit() {
-      const toast = useToast();
       try {
         this.$store.state.isLoading = true;
-        const returnValues = await AuthService.login(
-          this.$config.serverUrl,
-          this.form
-        );
-        if (returnValues.token) {
-          AuthService.setCookie(returnValues.token);
-          if (returnValues.remember) {
-            AuthService.setRememberToken(returnValues.remember);
-          }
-          const config = {
-            apiUrl: this.$config.serverUrl,
-            headers: {
-              headers: {
-                Authorization: AuthService.getFullToken(),
-              },
-            },
-          };
-          this.getUser(config);
-          toast.success(returnValues.message);
-          this.$router.replace({ name: "CharacterOverview" });
-        }
-      } catch (e) {
-        if (e.errors) {
-          for (let error of e.errors) {
-            toast.error(error);
-          }
-        } else if (e.message) {
-          toast.error(e.message);
-        }
+        await this.login(this.form);
+        this.$router.replace({ name: "CharacterOverview" });
+      } catch ({ data }) {
+        console.log(data);
+        this.errors = data.errors;
       } finally {
         this.$store.state.isLoading = false;
       }
