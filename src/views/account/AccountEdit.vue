@@ -89,7 +89,8 @@
 <script>
 import CustomButton from "../../components/CustomButton.vue";
 import { mapGetters, mapActions } from "vuex";
-import axios from "axios";
+import AccountService from "../../../services/AccountService";
+import AuthService from "../../../services/AuthService";
 import { useToast } from "vue-toastification";
 export default {
   name: "AccountEdit",
@@ -111,24 +112,29 @@ export default {
     async submit() {
       this.$store.state.isLoading = true;
       const toast = useToast();
-      if (this.email === this.email_confirmation) {
-        await axios
-          .put("/api/account/edit/" + this.user.id, this.form)
-          .then((response) => {
-            if (response.data.errors) {
-              for (let error of Object.keys(response.data.errors)) {
-                toast.error(response.data.errors[error][0]);
-              }
-            } else if (response.data.success) {
-              toast.success(response.data.success);
-              this.$router.push("/account/overview");
-            }
-          })
-          .catch((e) => console.log(e))
-          .finally(() => {
-            this.$store.state.isLoading = false;
-            this.getUser();
-          });
+      const config = {
+        apiUrl: this.$config.apiUrl,
+        headers: {
+          headers: {
+            Authorization: AuthService.getFullToken(),
+          },
+        },
+      };
+      try {
+        const response = await AccountService.editAccount(
+          this.$config.apiUrl,
+          this.form,
+          config
+        );
+        if (response.success) {
+          toast.success(response.success);
+          this.$router.push("/account/overview");
+        }
+      } catch (e) {
+        console.log(e);
+      } finally {
+        this.getUser(config);
+        this.$store.state.isLoading = false;
       }
     },
   },

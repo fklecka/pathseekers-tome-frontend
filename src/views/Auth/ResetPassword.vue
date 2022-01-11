@@ -127,8 +127,9 @@
 </template>
 
 <script>
-import axios from "axios";
 import { useToast } from "vue-toastification";
+import AccountService from "../../../services/AccountService";
+import AuthService from "../../../services/AuthService";
 export default {
   data() {
     return {
@@ -147,25 +148,36 @@ export default {
   },
   props: ["token"],
   methods: {
-    submit() {
+    async submit() {
       const request = this.form;
       request.token = this.token;
       const toast = useToast();
       this.$store.state.isLoading = true;
-      axios
-        .post("/api/password/reset/", request)
-        .then((response) => {
-          toast.success(response.data.message);
-          this.$router.push("/login");
-        })
-        .catch((e) => {
-          for (const error of Object.keys(e.response.data.errors)) {
-            toast.error(e.response.data.errors[error][0]);
-          }
-        })
-        .finally(() => {
-          this.$store.state.isLoading = false;
-        });
+      const config = {
+        headers: {
+          headers: {
+            Authorization: AuthService.getFullToken(),
+          },
+        },
+      };
+      try {
+        const response = await AccountService.resetPassword(
+          this.$config.apiUrl,
+          request,
+          config
+        );
+        toast.success(response.message);
+        this.$router.push("/login");
+      } catch (e) {
+        if (e.errors.email) {
+          toast.error(e.errors.email[0]);
+        }
+        if (e.errors.password) {
+          toast.error(e.errors.password[0]);
+        }
+      } finally {
+        this.$store.state.isLoading = false;
+      }
     },
     showPassword(e) {
       e.preventDefault();

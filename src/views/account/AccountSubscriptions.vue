@@ -73,7 +73,8 @@
 <script>
 import AboCard from "../../components/AboCard.vue";
 import ConfirmModal from "../../components/ConfirmModal.vue";
-import axios from "axios";
+import AccountService from "../../../services/AccountService";
+import AuthService from "../../../services/AuthService";
 import { mapGetters, mapActions } from "vuex";
 import { useToast } from "vue-toastification";
 
@@ -89,27 +90,33 @@ export default {
     };
   },
   methods: {
-    async changeAbo() {
+    async changeAbo(abo) {
       this.$store.state.isLoading = true;
       const toast = useToast();
-      await axios
-        .put("/api/account/abo/" + this.user.id, this.selectedAbo)
-        .then((response) => {
-          if (response.data.errors) {
-            for (let error of Object.keys(response.data.errors)) {
-              toast.error(response.data.errors[error][0]);
-            }
-          } else if (response.data.success) {
-            toast.success(response.data.success);
-            this.$router.push("/account/overview");
-          }
-        })
-        .catch((e) => {
-          console.log(e);
-        })
-        .finally(() => {
-          this.$store.state.isLoading = false;
-        });
+      const config = {
+        apiUrl: this.$config.apiUrl,
+        headers: {
+          headers: {
+            Authorization: AuthService.getFullToken(),
+          },
+        },
+      };
+      try {
+        const response = await AccountService.changeAbo(
+          this.$config.apiUrl,
+          abo,
+          config
+        );
+        if (response.success) {
+          toast.success(response.success);
+          this.$router.push("/account/overview");
+        }
+      } catch (e) {
+        console.log(e);
+      } finally {
+        this.getUser(config);
+        this.$store.state.isLoading = false;
+      }
     },
     ...mapActions({
       getUser: "auth/getUser",

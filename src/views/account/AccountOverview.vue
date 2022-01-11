@@ -102,10 +102,10 @@
 import CustomButton from "../../components/CustomButton.vue";
 import AboCard from "../../components/AboCard.vue";
 import { mapGetters, mapActions } from "vuex";
-import axios from "axios";
 import ConfirmModal from "../../components/ConfirmModal.vue";
 import { useToast } from "vue-toastification";
 import AccountService from "../../../services/AccountService";
+import AuthService from "../../../services/AuthService";
 export default {
   name: "AccountOverview",
   components: { CustomButton, AboCard, ConfirmModal },
@@ -128,33 +128,44 @@ export default {
     }),
     async resetPassword() {
       const toast = useToast();
-      const request = {};
-      request.email = this.user.email;
       try {
-        axios.post("/api/password/email", request);
-      } catch ({ data }) {
-        this.errors = data.errors;
+        const response = await AccountService.sendPasswordResetMail(
+          this.$config.apiUrl,
+          this.user.email
+        );
+        if (response.message) {
+          toast.success("E-Mail zum ändern des Passworts wurde versendet.");
+        }
+      } catch (e) {
+        toast.error("Etwas ist schiefgelaufen.");
       } finally {
         this.$store.state.isLoading = false;
-        toast.success("E-Mail zum ändern des Passworts wurde gesendet!");
-        console.log(this.errors);
       }
     },
     async deleteAccount() {
       const toast = useToast();
-      await axios
-        .delete("/api/account/delete/" + this.user.id)
-        .then(() => {
+      const config = {
+        headers: {
+          headers: {
+            Authorization: AuthService.getFullToken(),
+          },
+        },
+      };
+      try {
+        const response = await AccountService.deleteAccount(
+          this.$config.apiUrl,
+          config
+        );
+        if (response.success) {
+          toast.success(response.success);
           this.logout();
-        })
-        .finally(() => {
-          toast.success("Account wurde gelöscht!");
+          AuthService.logout();
           this.$router.push("/");
-        });
+        }
+      } catch (e) {
+        console.log(e);
+      }
     },
-  },
-  mounted() {
-    this.getUser();
   },
 };
 </script>
