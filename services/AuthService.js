@@ -34,7 +34,7 @@ export default class AuthService {
   };
 
   static async login(apiUrl, params) {
-    const apiEndpoint = `${apiUrl}/login/`;
+    const apiEndpoint = `${apiUrl}/login`;
     const returnValues = {
       token: null,
       remember: null,
