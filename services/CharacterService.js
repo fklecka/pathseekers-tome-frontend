@@ -2,7 +2,7 @@ import axios from "axios";
 
 export default class CharacterService {
   static async getCharacters(apiUrl, { headers }) {
-    const apiEndpoint = `${apiUrl}/characters/`;
+    const apiEndpoint = `${apiUrl}/characters`;
     return await axios
       .get(apiEndpoint, headers)
       .then((resp) => {
@@ -15,7 +15,7 @@ export default class CharacterService {
   }
 
   static async saveCharacter(apiUrl, character, { headers }) {
-    const apiEndpoint = `${apiUrl}/characters/`;
+    const apiEndpoint = `${apiUrl}/characters`;
     return await axios
       .post(apiEndpoint, character, headers)
       .then((resp) => {
@@ -28,7 +28,7 @@ export default class CharacterService {
   }
 
   static async updateCharacter(apiUrl, character, { headers }) {
-    const apiEndpoint = `${apiUrl}/characters/`;
+    const apiEndpoint = `${apiUrl}/characters`;
     return await axios
       .put(apiEndpoint, character, headers)
       .then((resp) => {
