@@ -4,7 +4,6 @@
       <div class="flex items-center">
         <div
           class="
-            rounded-full
             px-4
             py-1
             text-2xl

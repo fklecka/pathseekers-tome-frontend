@@ -16,7 +16,6 @@
               {{ this.item.preis }}
               <div
                 class="
-                  rounded-full
                   px-4
                   py-1
                   text-2xl

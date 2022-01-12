@@ -99,6 +99,7 @@ export default {
     return {
       step: 0,
       newCharacterModal: false,
+      saved: false,
       progressOptions: {
         maxWidth: "75%",
         nodeWidth: 40,
@@ -329,6 +330,8 @@ export default {
           config
         );
         if (response.success) {
+          this.saved = true;
+          this.clearCharactertoolData();
           this.$router.replace({ name: "CharacterOverview" });
           toast.success(response.success);
         } else if (response.error) {
@@ -360,14 +363,14 @@ export default {
       }
     },
   },
-  mounted() {
-    if (Object.keys(this.charactertoolData).length !== 0) {
+  created() {
+    if (Object.keys(this.charactertoolData) !== 0) {
       this.newCharacterModal = true;
     }
     this.onResize();
   },
   beforeUnmount() {
-    if (this.step !== 0) {
+    if (this.step !== 0 && this.saved === false) {
       this.setCharactertoolData(this.character);
     }
     window.removeEventListener("resize", this.onResize);
