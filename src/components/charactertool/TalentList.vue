@@ -1,30 +1,36 @@
 <template>
   <div>
-    <table class="overflow-x-scroll">
+    <table>
       <tr class="text-left">
+        <th class="text-center hidden md:table-cell">+</th>
         <th>Name</th>
-        <th>Typ</th>
-        <th>Beschreibung</th>
-        <th>Voraussetzung</th>
+        <th class="hidden md:table-cell">Typ</th>
+        <th class="hidden md:table-cell">Beschreibung</th>
+        <th class="hidden md:table-cell">Voraussetzung</th>
       </tr>
-      <tr
+      <talent-desktop
         v-for="item in filteredData"
         :key="item.id"
-        @click="selectTalent(item.name)"
-        class="cursor-pointer"
-      >
-        <td>{{ item.name }}</td>
-        <td>{{ item.art }}</td>
-        <td>{{ item.beschreibung }}</td>
-        <td>{{ item.voraussetzung }}</td>
-      </tr>
+        :item="item"
+        @passTalent="selectTalent($event)"
+      />
+      <talent-mobile
+        v-for="item in filteredData"
+        :key="item.id"
+        class="md:hidden"
+        :item="item"
+        @passTalent="selectTalent($event)"
+      />
     </table>
   </div>
 </template>
 
 <script>
+import TalentMobile from "./mobile/TalentMobile.vue";
+import TalentDesktop from "./desktop/TalentDesktop.vue";
 export default {
   props: ["listData", "searchKey"],
+  components: { TalentMobile, TalentDesktop },
   data() {
     return {
       talents: [],

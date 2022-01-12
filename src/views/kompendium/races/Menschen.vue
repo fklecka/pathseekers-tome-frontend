@@ -1,6 +1,6 @@
 <template>
-  <div class="w-full bg-bg pt-6 md:pt-12 pb-36 md:pb-16 md:px-12 text-font">
-    <div class="w-2/4">
+  <div class="w-full bg-bg pt-6 px-3 md:px-0 md:pt-12 pb-36 md:pb-16 text-font">
+    <div class="md:w-758">
       <h2 class="text-4xl my-4 border-b">Menschen</h2>
       <p class="pb-6">
         Menschen besitzen einen außergewöhnlichen Tatendrang und den

@@ -29,6 +29,7 @@ import Talents from "../views/kompendium/Talents.vue";
 import Spells from "../views/kompendium/Spells.vue";
 import Classes from "../views/kompendium/Classes.vue";
 import Weapons from "../views/kompendium/Weapons.vue";
+import Armor from "../views/kompendium/Armor.vue";
 
 import Races from "../views/kompendium/Races.vue";
 import RacesOverview from "../views/kompendium/races/RacesOverview.vue";
@@ -95,6 +96,11 @@ const routes = [
             path: "spells",
             name: "Spells",
             component: Spells,
+          },
+          {
+            path: "armor",
+            name: "Armor",
+            component: Armor,
           },
           {
             path: "classes",

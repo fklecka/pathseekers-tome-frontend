@@ -6,7 +6,13 @@ module.exports = {
       sans: ["Raleway", "sans-serif"],
       headline: "'Goudy Bookletter 1911'",
     },
+    screens: {
+      md: "800px",
+    },
     extend: {
+      fontSize: {
+        xs2: ".3rem",
+      },
       borderStyle: ["responsive", "hover"],
       colors: {
         dark: "#232A33",

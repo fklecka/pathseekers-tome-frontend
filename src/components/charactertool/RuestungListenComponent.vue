@@ -4,32 +4,42 @@
       class="flex justify-between w-full items-center p-2 hover:bg-highlight"
       v-bind:class="{ active: !hidden }"
     >
-      <table>
-        <tr>
-          <td @click="openCard()">{{ this.item.rüstung }}</td>
-          <td>{{ this.item.preis }}</td>
+      <table class="w-full">
+        <tr @click="openCard()" class="w-full">
+          <td>
+            <span class="transition mr-3" v-bind:class="{ open: !hidden }"
+              >></span
+            >{{ this.item.rüstung }}
+          </td>
+          <td>
+            <div class="flex justify-between items-center">
+              {{ this.item.preis }}
+              <div
+                class="
+                  rounded-full
+                  px-4
+                  py-1
+                  text-2xl
+                  bg-card
+                  border border-card
+                  hover:bg-bg
+                  cursor-pointer
+                  select-none
+                "
+                @click="passItem()"
+              >
+                +
+              </div>
+            </div>
+          </td>
         </tr>
       </table>
-
-      <div
-        class="
-          rounded-full
-          px-4
-          py-1
-          text-2xl
-          bg-card
-          border border-card
-          hover:bg-bg
-          cursor-pointer
-          select-none
-        "
-        @click="passItem()"
-      >
-        +
-      </div>
     </div>
-    <div class="flex overflow-hidden p-2 justify-between bg-bg" v-if="!hidden">
-      <table class="border-opacity-10 border-font border-t w-full">
+    <div
+      class="flex overflow-hidden p-2 justify-between bg-dark"
+      v-if="!hidden"
+    >
+      <table class="w-full">
         <tr>
           <td>Rüstungsbonus:</td>
           <td>{{ this.item.rüstungsbonus }}</td>
@@ -79,9 +89,6 @@ export default {
 <style scoped>
 td:first-child {
   width: 12rem;
-}
-td:nth-child(2) {
-  padding-right: 10rem;
 }
 td:nth-child(3) {
   width: 12rem;

@@ -7,7 +7,7 @@
       Wähle ein Volk aus um Informationen über deren Volksmerkmale zu erhalten.
       Genauere Informationen erhältst du im Kompendium.
     </p>
-    <div class="bg-white bg-opacity-5 py-6 px-24 my-6">
+    <div class="bg-white bg-opacity-5 py-6 md:px-24 my-6">
       <p class="pb-6 text-center text-xl">Wähle ein Volk</p>
       <div class="flex flex-wrap space gap-6 justify-center">
         <custom-button

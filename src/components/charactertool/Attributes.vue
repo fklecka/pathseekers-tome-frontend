@@ -17,9 +17,11 @@
       stehen. Frage dafür deinen Spieleleiter welcher Kampagnentyp gespielt
       wird.
     </p>
-    <div class="bg-white bg-opacity-5 py-6 px-6 my-6">
+    <div class="bg-white bg-opacity-5 p-3 md:p-6 my-6">
       <p class="pb-6 text-center text-xl">Wähle einen Kampagnentyp</p>
-      <div class="flex justify-between">
+      <div
+        class="flex flex-col space-y-3 md:space-y-0 md:flex-row justify-between"
+      >
         <custom-button
           class="bg-card border border-card hover:bg-bg text-center"
           @click="setCampaignType('low')"
@@ -58,7 +60,7 @@
           Punkte: {{ countSpent }}/{{ points.sum }}
         </p>
         <div class="flex justify-center">
-          <table class="gap-6">
+          <table class="w-full">
             <tr>
               <th>Attributswert</th>
               <th>Punkte</th>
@@ -66,7 +68,7 @@
               <th>Kosten</th>
             </tr>
             <tr>
-              <td><strong>Stärke</strong></td>
+              <td class="text-sm md:text-base"><strong>Stärke</strong></td>
               <td>{{ sum.st }}</td>
               <td>{{ Math.floor((sum.st - 10) / 2) }}</td>
               <td>{{ costs.st }}</td>
@@ -90,7 +92,9 @@
               </td>
             </tr>
             <tr>
-              <td><strong>Geschicklichkeit</strong></td>
+              <td class="text-sm md:text-base">
+                <strong>Geschicklichkeit</strong>
+              </td>
               <td>{{ sum.ge }}</td>
               <td>{{ Math.floor((sum.ge - 10) / 2) }}</td>
               <td>{{ costs.ge }}</td>
@@ -114,7 +118,9 @@
               </td>
             </tr>
             <tr>
-              <td><strong>Konstitution</strong></td>
+              <td class="text-sm md:text-base">
+                <strong>Konstitution</strong>
+              </td>
               <td>{{ sum.kon }}</td>
               <td>{{ Math.floor((sum.kon - 10) / 2) }}</td>
               <td>{{ costs.kon }}</td>
@@ -138,7 +144,7 @@
               </td>
             </tr>
             <tr>
-              <td><strong>Intelligenz</strong></td>
+              <td class="text-sm md:text-base"><strong>Intelligenz</strong></td>
               <td>{{ sum.int }}</td>
               <td>{{ Math.floor((sum.int - 10) / 2) }}</td>
               <td>{{ costs.int }}</td>
@@ -162,7 +168,7 @@
               </td>
             </tr>
             <tr>
-              <td><strong>Weisheit</strong></td>
+              <td class="text-sm md:text-base"><strong>Weisheit</strong></td>
               <td>{{ sum.wei }}</td>
               <td>{{ Math.floor((sum.wei - 10) / 2) }}</td>
               <td>{{ costs.wei }}</td>
@@ -186,7 +192,7 @@
               </td>
             </tr>
             <tr>
-              <td><strong>Charisma</strong></td>
+              <td class="text-sm md:text-base"><strong>Charisma</strong></td>
               <td>{{ sum.ch }}</td>
               <td>{{ Math.floor((sum.ch - 10) / 2) }}</td>
               <td>{{ costs.ch }}</td>
@@ -322,11 +328,18 @@ export default {
 }
 th,
 td {
-  padding: 15px;
+  padding: 5px;
   text-align: left;
 }
+@media screen and (min-width: 768px) {
+  th,
+  td {
+    padding: 15px;
+    text-align: left;
+  }
+}
 th {
-  font-size: 0.8rem;
+  font-size: 0.6rem;
   padding-bottom: 0;
 }
 </style>

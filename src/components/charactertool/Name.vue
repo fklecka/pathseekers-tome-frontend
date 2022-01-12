@@ -7,7 +7,7 @@
       Wir beginnen damit dem Charakter einen Namen zu geben und sein Geschlecht
       zu bestimmen.
     </p>
-    <div class="bg-white bg-opacity-5 py-6 px-24 my-6">
+    <div class="bg-white bg-opacity-5 py-6 px-3 md:px-24 my-6">
       <div class="pb-12">
         <p class="pb-6 text-center text-xl">
           Wie lautet der Name deines Charakters?

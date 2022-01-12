@@ -32,7 +32,7 @@
           items-center
           p-5
           justify-center
-          shadow-card
+          newChar
         "
       >
         <div>
@@ -114,5 +114,15 @@ export default {
 }
 ::-webkit-scrollbar-thumb {
   background: rgba(256, 256, 256, 0.2);
+}
+.newChar {
+  cursor: pointer;
+  user-select: none;
+  transition: 0.2s;
+  box-shadow: 5px 10px 5px #00000020;
+}
+.newChar:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 0px 0px 0px #00000020;
 }
 </style>

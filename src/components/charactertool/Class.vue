@@ -8,46 +8,54 @@
     </p>
     <div class="bg-white bg-opacity-5 py-6 my-6">
       <p class="pb-6 text-center text-xl">Wähle eine Klasse</p>
-      <div class="flex gap-6 justify-evenly flex-wrap">
-        <custom-button
-          class="bg-card border border-card hover:bg-bg"
+      <div class="flex gap-6 justify-evenly flex-wrap p-3">
+        <class-card
+          :title="'Kämpfer'"
+          :url="require('../../assets/classicons/fighter.svg')"
           @click="setAndPassClass('Kämpfer')"
           v-bind:class="{ active: classAttributes.classname === 'Kämpfer' }"
-          >Kämpfer</custom-button
+          >Kämpfer</class-card
         >
-        <custom-button
-          class="bg-card border border-card hover:bg-bg"
+        <class-card
+          :title="'Schurke'"
+          :url="require('../../assets/classicons/rogue.svg')"
           @click="setAndPassClass('Schurke')"
           v-bind:class="{ active: classAttributes.classname === 'Schurke' }"
-          >Schurke</custom-button
+          >Schurke</class-card
         >
-        <custom-button
-          class="bg-card border border-card hover:bg-bg"
+        <class-card
+          :title="'Paladin'"
+          :url="require('../../assets/classicons/paladin.svg')"
           @click="setAndPassClass('Paladin')"
           v-bind:class="{ active: classAttributes.classname === 'Paladin' }"
-          >Paladin</custom-button
+          >Paladin</class-card
         >
-        <custom-button
-          class="bg-card border border-card hover:bg-bg"
+        <class-card
+          :title="'Mönch'"
+          :url="require('../../assets/classicons/monk.svg')"
           @click="setAndPassClass('Mönch')"
           v-bind:class="{ active: classAttributes.classname === 'Mönch' }"
-          >Mönch</custom-button
+          >Mönch</class-card
         >
       </div>
     </div>
     <kaempfer
+      id="Kämpfer"
       v-if="classAttributes.classname === 'Kämpfer'"
       @passFavoredBonus="getFavoredBonus($event)"
     />
     <schurke
+      id="Schurke"
       v-if="classAttributes.classname === 'Schurke'"
       @passFavoredBonus="getFavoredBonus($event)"
     />
     <paladin
+      id="Paladin"
       v-if="classAttributes.classname === 'Paladin'"
       @passFavoredBonus="getFavoredBonus($event)"
     />
     <moench
+      id="Mönch"
       v-if="classAttributes.classname === 'Mönch'"
       @passFavoredBonus="getFavoredBonus($event)"
     />
@@ -55,7 +63,7 @@
 </template>
 
 <script>
-import CustomButton from "../CustomButton.vue";
+import ClassCard from "./ClassCard.vue";
 import Kaempfer from "./classinfo/Kaempfer.vue";
 import Paladin from "./classinfo/Paladin.vue";
 import Schurke from "./classinfo/Schurke.vue";
@@ -78,7 +86,7 @@ export default {
       },
     };
   },
-  components: { CustomButton, Kaempfer, Schurke, Paladin, Moench },
+  components: { Kaempfer, Schurke, Paladin, Moench, ClassCard },
   methods: {
     setAndPassClass(value) {
       this.classAttributes.classname = value;

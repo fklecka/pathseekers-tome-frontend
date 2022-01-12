@@ -1,16 +1,6 @@
 <template>
   <div
-    class="
-      w-full
-      sm:w-96
-      h-28
-      bg-card
-      flex
-      items-center
-      p-2
-      cursor-pointer
-      shadow-card
-    "
+    class="w-full sm:w-96 h-28 bg-card flex items-center p-2 cursor-pointer"
     @click="linkToCharactersheet()"
   >
     <div class="w-20 h-20 opacity-80">
@@ -109,4 +99,15 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+div {
+  cursor: pointer;
+  user-select: none;
+  transition: 0.2s;
+  box-shadow: 5px 10px 5px #00000020;
+}
+div:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 0px 0px 0px #00000020;
+}
+</style>

@@ -40,6 +40,13 @@
             :url="require('../../assets/icons/crossed-swords.svg')"
           />
         </router-link>
+        <router-link to="armor">
+          <category-card
+            class="flex-grow-0"
+            title="Rüstung"
+            :url="require('../../assets/icons/chest-armor.svg')"
+          />
+        </router-link>
         <router-link to="talents">
           <category-card
             class="flex-grow-0"

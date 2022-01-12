@@ -34,6 +34,7 @@
         :middleArmor="middleArmor"
         :heavyArmor="heavyArmor"
         :armorExtra="armorExtra"
+        :shields="shields"
         class="overflow-y-scroll h-96 overflow-x-scroll"
         @passWeapon="getAndPassWeapon($event)"
         @passArmor="getAndPassArmor($event)"
@@ -81,6 +82,7 @@ export default {
       middleArmor: [],
       heavyArmor: [],
       armorExtra: [],
+      shields: [],
       errors: [],
       selectedItems: {
         weapons: [],
@@ -99,6 +101,7 @@ export default {
     getAndPassArmor(item) {
       this.selectedItems.armor.push(item);
       this.passItems();
+      console.log(this.selectedItems);
     },
     getDeleteItem(item) {
       if (item.waffe) {
@@ -122,12 +125,22 @@ export default {
   computed: {
     countSpent() {
       let sum = 0;
-      for (let i = 0; i < this.selectedItems.length; i++) {
+      for (let i = 0; i < this.selectedItems.weapons.length; i++) {
         if (
-          (this.selectedItems[i].preis !== "Speziell") |
-          (this.selectedItems[i].preis !== "-")
+          this.selectedItems.weapons[i].preis !== "Speziell" &&
+          this.selectedItems.weapons[i].preis !== "-"
         ) {
-          sum += parseInt(this.selectedItems[i].preis.replace(" GM", ""));
+          sum += parseInt(
+            this.selectedItems.weapons[i].preis.replace(" GM", "")
+          );
+        }
+      }
+      for (let i = 0; i < this.selectedItems.armor.length; i++) {
+        if (
+          this.selectedItems.armor[i].preis !== "Speziell" &&
+          this.selectedItems.armor[i].preis !== "-"
+        ) {
+          sum += parseInt(this.selectedItems.armor[i].preis.replace(" GM", ""));
         }
       }
       return sum;
@@ -135,46 +148,58 @@ export default {
   },
   async created() {
     try {
-      const response = await axios.get("http://localhost/api/einfachewaffen");
+      const response = await axios.get(this.$config.apiUrl + "/einfachewaffen");
       this.lightWeapons = response.data;
     } catch (e) {
       this.errors.push(e);
     }
     try {
-      const response = await axios.get("http://localhost/api/kriegswaffen");
+      const response = await axios.get(this.$config.apiUrl + "/kriegswaffen");
       this.warWeapons = response.data;
     } catch (e) {
       this.errors.push(e);
     }
     try {
-      const response = await axios.get("http://localhost/api/exotischewaffen");
+      const response = await axios.get(
+        this.$config.apiUrl + "/exotischewaffen"
+      );
       this.exoticWeapons = response.data;
     } catch (e) {
       this.errors.push(e);
     }
     try {
-      const response = await axios.get("http://localhost/api/leichteruestung");
+      const response = await axios.get(
+        this.$config.apiUrl + "/leichteruestung"
+      );
       this.lightArmor = response.data;
     } catch (e) {
       this.errors.push(e);
     }
     try {
       const response = await axios.get(
-        "http://localhost/api/mittelschwereruestung"
+        this.$config.apiUrl + "/mittelschwereruestung"
       );
       this.middleArmor = response.data;
     } catch (e) {
       this.errors.push(e);
     }
     try {
-      const response = await axios.get("http://localhost/api/schwereruestung");
+      const response = await axios.get(
+        this.$config.apiUrl + "/schwereruestung"
+      );
       this.heavyArmor = response.data;
     } catch (e) {
       this.errors.push(e);
     }
     try {
-      const response = await axios.get("http://localhost/api/ruestungextra");
+      const response = await axios.get(this.$config.apiUrl + "/ruestungextra");
       this.armorExtra = response.data;
+    } catch (e) {
+      this.errors.push(e);
+    }
+    try {
+      const response = await axios.get(this.$config.apiUrl + "/schilde");
+      this.shields = response.data;
     } catch (e) {
       this.errors.push(e);
     }

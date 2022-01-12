@@ -16,7 +16,7 @@
 }
 .progress-container .progress .node {
   text-align: center;
-  margin: 0 9px !important;
+  margin: 0 3px !important;
   position: relative;
   z-index: 5;
   width: 40px;
@@ -32,6 +32,7 @@
   justify-content: center;
   transition: all 0.4s;
 }
+
 .progress-container .progress .node:before {
   content: "";
   position: absolute;
@@ -347,5 +348,11 @@
   to {
     opacity: 0;
     transform: scale(0);
+  }
+}
+@media screen and (min-width: 640px) {
+  .node {
+    width: 20px;
+    height: 20px;
   }
 }

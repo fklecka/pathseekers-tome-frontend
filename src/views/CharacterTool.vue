@@ -15,16 +15,16 @@
       <steps-progress-bar
         :options="progressOptions"
         ref="progress"
-        class="mb-12"
+        class="mb-6"
       />
     </div>
-    <div class="flex justify-center">
+    <div class="flex flex-col-reverse md:flex-row justify-center">
       <info-box
         :character="character"
-        class="sticky top-0"
+        class="md:sticky top-0 w-full md:w-80 mt-16 md:mt-0"
         v-if="this.step !== 8"
       />
-      <div class="w-758 px-6">
+      <div class="md:w-758 px-3">
         <intro v-if="this.step === 0" />
         <name
           v-if="this.step === 1"
@@ -350,16 +350,27 @@ export default {
     loadCharacter() {
       this.character = this.charactertoolData;
     },
+    onResize() {
+      if (window.innerWidth > 768) {
+        this.progressOptions.nodeWidth = 40;
+        this.progressOptions.nodeHeight = 40;
+      } else {
+        this.progressOptions.nodeWidth = 30;
+        this.progressOptions.nodeHeight = 30;
+      }
+    },
   },
   mounted() {
     if (Object.keys(this.charactertoolData).length !== 0) {
       this.newCharacterModal = true;
     }
+    this.onResize();
   },
   beforeUnmount() {
     if (this.step !== 0) {
       this.setCharactertoolData(this.character);
     }
+    window.removeEventListener("resize", this.onResize);
   },
 };
 </script>

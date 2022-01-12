@@ -18,7 +18,7 @@
       einberechnet werden. Ungeübte Fertigkeiten können auch dann eingesetzt
       werden wenn deren Rang 0 ist.
     </p>
-    <div class="bg-white bg-opacity-5 py-6 my-6">
+    <div class="bg-white bg-opacity-5 py-6 my-6 overflow-x-scroll">
       <p class="pb-6 text-center text-xl">Erwerbe Fertigkeiten</p>
       <p
         class="text-center text-2xl pb-6"
@@ -27,7 +27,7 @@
         Fertigkeitspunkte: {{ this.countSpent }} /
         {{ this.calcSkillPoints }}
       </p>
-      <div class="flex justify-center">
+      <div class="flex md:justify-center">
         <table>
           <tr>
             <th>Fertigkeit</th>
@@ -57,9 +57,9 @@
               {{ this.skills[fertigkeit.name] }}
             </td>
             <td v-else>0</td>
-            <td>
+            <td class="flex">
               <custom-button
-                class="bg-card border border-card hover:bg-bg text-center mr-2"
+                class="bg-card border border-card hover:bg-bg text-center mr-3"
                 @click="subSkillRank(fertigkeit.name)"
                 >-</custom-button
               >
@@ -145,8 +145,15 @@ export default {
 <style scoped>
 th,
 td {
-  padding: 10px;
-  text-align: center;
+  padding: 5px;
+  text-align: left;
+}
+@media screen and (min-width: 768px) {
+  th,
+  td {
+    padding: 15px;
+    text-align: left;
+  }
 }
 td:first-child {
   text-align: left;

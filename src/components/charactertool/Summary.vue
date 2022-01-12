@@ -1,8 +1,8 @@
 <template>
   <div class="w-full bg-bg overflow-y-scroll text-font">
     <h2 class="font-headline text-4xl text-center">Zusammenfassung</h2>
-    <div class="flex gap-12 pt-12">
-      <div class="w-2/4">
+    <div class="flex flex-col md:flex-row items-center gap-12 pt-12">
+      <div class="md:w-2/4 w-full">
         <div>
           <div class="flex justify-between">
             <p>Name:</p>
@@ -86,7 +86,7 @@
           </div>
         </div>
       </div>
-      <div class="w-2/4">
+      <div class="md:w-2/4 w-full">
         <h3 class="text-2xl">Erworbene Fähigkeiten</h3>
         <hr class="pb-3" />
         <ul class="pb-6">

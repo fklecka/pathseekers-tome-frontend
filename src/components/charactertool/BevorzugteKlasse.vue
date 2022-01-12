@@ -1,29 +1,41 @@
 <template>
-  <div class="bg-white bg-opacity-5 py-6 px-24 my-6">
+  <div class="bg-white bg-opacity-5 py-6 px-3 md:px-24 my-6">
     <p class="pb-6 text-center text-xl">
       Wähle einen Bonus für deine Bevorzugte Klasse
     </p>
-    <div class="flex justify-evenly">
-      <custom-button
-        class="bg-card border border-card hover:bg-bg text-center"
+    <div
+      class="
+        flex flex-col
+        md:flex-row
+        justify-evenly
+        space-y-0
+        items-center
+        space-y-3
+        md:space-y-0
+      "
+    >
+      <class-card
+        :url="require('../../assets/icons/heart-shield.svg')"
+        :title="'Trefferpunkt'"
+        class="text-center"
         @click="setAndPassBonus('hp')"
         v-bind:class="{ active: bonus === 'hp' }"
-        >Bonus Trefferpunkt</custom-button
-      >
-      <custom-button
-        class="bg-card border border-card hover:bg-bg text-center"
+      />
+      <class-card
+        :url="require('../../assets/icons/scroll-unfurled.svg')"
+        :title="'Fertigkeitspunkt'"
+        class="text-center"
         @click="setAndPassBonus('skill')"
         v-bind:class="{ active: bonus === 'skill' }"
-        >Bonus Fertigkeitspunkt</custom-button
-      >
+      />
     </div>
   </div>
 </template>
 
 <script>
-import CustomButton from "../CustomButton.vue";
+import ClassCard from "./ClassCard.vue";
 export default {
-  components: { CustomButton },
+  components: { ClassCard },
   data: () => {
     return {
       bonus: "",

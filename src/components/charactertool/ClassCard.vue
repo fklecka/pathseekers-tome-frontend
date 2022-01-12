@@ -8,7 +8,6 @@
       flex flex-col
       justify-center
       items-center
-      hover:bg-cardlight
       cursor-pointer
     "
   >

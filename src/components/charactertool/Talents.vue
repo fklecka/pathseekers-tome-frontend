@@ -24,7 +24,7 @@
         class="sticky -top-6 md:-top-12"
       />
 
-      <talentList
+      <talent-list
         :listData="talents"
         :searchKey="searchKeyword"
         class="overflow-y-scroll h-96"
@@ -37,9 +37,9 @@
 <script>
 import searchBar from "../kompendium/SearchBar.vue";
 import axios from "axios";
-import talentList from "./TalentList.vue";
+import TalentList from "./TalentList.vue";
 export default {
-  components: { searchBar, talentList },
+  components: { searchBar, TalentList },
   data() {
     return {
       searchKeyword: "",
@@ -59,10 +59,13 @@ export default {
   },
   async created() {
     try {
-      const response = await axios.get("http://localhost/api/talente");
+      this.$store.state.isLoading = true;
+      const response = await axios.get(this.$config.apiUrl + "/talente");
       this.talents = response.data;
     } catch (e) {
       this.errors.push(e);
+    } finally {
+      this.$store.state.isLoading = false;
     }
   },
 };

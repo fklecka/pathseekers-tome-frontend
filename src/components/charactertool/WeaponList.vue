@@ -76,6 +76,16 @@
         class="w-full"
         @passItem="getAndPassArmor($event)"
       />
+      <tr v-if="shieldsfilteredData != ''">
+        <p class="font-bold col text-center border py-2">Schilde</p>
+      </tr>
+      <ruestung-listen-component
+        v-for="item in shieldsfilteredData"
+        :key="item.id"
+        :item="item"
+        class="w-full"
+        @passItem="getAndPassArmor($event)"
+      />
     </table>
   </div>
 </template>
@@ -93,6 +103,7 @@ export default {
     "middleArmor",
     "heavyArmor",
     "armorExtra",
+    "shields",
     "searchKey",
   ],
   data() {
@@ -151,6 +162,13 @@ export default {
     },
     armorExtrafilteredData() {
       return this.armorExtra.filter((item) => {
+        return (
+          item.rüstung.toLowerCase().indexOf(this.searchKey.toLowerCase()) > -1
+        );
+      });
+    },
+    shieldsfilteredData() {
+      return this.shields.filter((item) => {
         return (
           item.rüstung.toLowerCase().indexOf(this.searchKey.toLowerCase()) > -1
         );
