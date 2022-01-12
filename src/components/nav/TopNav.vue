@@ -13,7 +13,7 @@
   >
     <div class="flex items-center h-full">
       <img
-        class="w-150 cursor-pointer"
+        class="w-32 md:w-150 cursor-pointer"
         src="../../assets/tome_logo_white.svg"
         alt="Tome Logo"
         @click="this.$router.push('/')"

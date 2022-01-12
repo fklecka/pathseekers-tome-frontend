@@ -9,6 +9,7 @@ module.exports = {
     extend: {
       borderStyle: ["responsive", "hover"],
       colors: {
+        dark: "#232A33",
         bg: "#2C3540",
         font: "rgba(256,256,256,0.87)",
         highlight: "rgba(256,256,256,0.05)",

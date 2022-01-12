@@ -1,7 +1,11 @@
 <template>
   <div class="w-full h-full bg-bg flex justify-center items-center">
     <div class="m-auto w-screen px-4 sm:w-400 pt-50 pb-6">
-      <img src="../../assets/tome_logo_white.svg" alt="" />
+      <img
+        src="../../assets/tome_logo_white.svg"
+        alt=""
+        @click="this.$router.push('/')"
+      />
       <h2 class="text-4xl font-semibold text-font pt-50">
         Erstelle einen Account
       </h2>
@@ -173,8 +177,8 @@
             </button>
           </div>
         </form>
-        <p class="bottom-4 text-lg text-center text-white opacity-50 pt-14">
-          Sie haben bereits einen Account?
+        <p class="bottom-4 text-lg text-center text-white opacity-50 pt-8">
+          Sie haben bereits einen Account? <br />
           <router-link to="/login">
             <span class="text-orange">Login</span></router-link
           >

@@ -12,7 +12,7 @@
       text-font
     "
   >
-    <div class="border-b border-opacity-25">
+    <div class="border-b border-opacity-25 px-3">
       <router-link to="/kompendium" class="text-xl">Kompendium</router-link>
       <span> > </span>
       <router-link to="/kompendium/talents" class="text-lg">Waffen</router-link>
@@ -54,7 +54,7 @@ export default {
   async created() {
     try {
       this.$store.state.isLoading = true;
-      const response = await axios.get("http://localhost/api/einfachewaffen");
+      const response = await axios.get(this.$config.apiUrl + "/einfachewaffen");
       this.lightWeapons = response.data;
     } catch (e) {
       this.errors.push(e);
@@ -63,7 +63,7 @@ export default {
     }
     try {
       this.$store.state.isLoading = true;
-      const response = await axios.get("http://localhost/api/kriegswaffen");
+      const response = await axios.get(this.$config.apiUrl + "/kriegswaffen");
       this.warWeapons = response.data;
     } catch (e) {
       this.errors.push(e);
@@ -72,7 +72,9 @@ export default {
     }
     try {
       this.$store.state.isLoading = true;
-      const response = await axios.get("http://localhost/api/exotischewaffen");
+      const response = await axios.get(
+        this.$config.apiUrl + "/exotischewaffen"
+      );
       this.exoticWeapons = response.data;
     } catch (e) {
       this.errors.push(e);

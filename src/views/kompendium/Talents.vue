@@ -6,13 +6,14 @@
       bg-bg
       pt-6
       md:pt-12
-      pb-36
-      md:pb-16 md:px-12
+      pb-3
+      px-0
+      md:pb-16 md:px-6
       overflow-y-scroll
       text-font
     "
   >
-    <div class="border-b border-opacity-25">
+    <div class="border-b border-opacity-25 px-3">
       <router-link to="/kompendium" class="text-xl">Kompendium</router-link>
       <span> > </span>
       <router-link to="/kompendium/talents" class="text-lg"
@@ -49,7 +50,7 @@ export default {
   async mounted() {
     try {
       this.$store.state.isLoading = true;
-      const response = await axios.get("http://localhost/api/talente");
+      const response = await axios.get(this.$config.apiUrl + "/talente");
       this.talents = response.data;
     } catch (e) {
       this.errors.push(e);

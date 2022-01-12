@@ -1,5 +1,5 @@
 <template>
-  <div class="py-2 px-6 rounded-md text-white inline-block">
+  <div class="py-2 px-3 md:py-2 md:px-6 rounded-md text-white inline-block">
     <slot />
   </div>
 </template>

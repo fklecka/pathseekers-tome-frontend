@@ -1,7 +1,11 @@
 <template>
-  <div class="w-full h-full bg-bg flex justify-center items-center">
+  <div class="w-full h-full bg-bg flex justify-center items-center pb-24">
     <div class="m-auto w-screen px-4 sm:w-400 pt-50">
-      <img src="../../assets/tome_logo_white.svg" alt="" />
+      <img
+        src="../../assets/tome_logo_white.svg"
+        alt=""
+        @click="this.$router.push('/')"
+      />
       <h2 class="text-4xl font-semibold text-font pt-50">
         Willkommen zurück, Abenteurer
       </h2>
@@ -119,7 +123,7 @@
             </button>
           </div>
         </form>
-        <p class="bottom-4 text-lg text-center text-white opacity-50 pt-14">
+        <p class="bottom-4 text-lg text-center text-white opacity-50 pt-8">
           Sie haben noch keinen Account?
           <router-link to="/register">
             <span class="text-orange">Registrieren</span></router-link

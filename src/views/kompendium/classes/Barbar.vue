@@ -1,6 +1,8 @@
 <template>
-  <div class="w-full bg-bg pt-6 md:pt-12 pb-36 md:pb-16 md:px-12 text-font">
-    <div class="w-2/4">
+  <div
+    class="w-full bg-bg pt-6 px-3 md:pt-12 pb-36 md:pb-16 md:px-12 text-font"
+  >
+    <div>
       <h2 class="text-4xl my-4 border-b">Barbar</h2>
       <p class="pb-6">
         Für manche existiert einzig und allein der Zorn. Der Kampf ist das
@@ -50,176 +52,178 @@
       <p class="my-6">
         <strong>Fertigkeitspunkte je Stufe:</strong> 4 + IN-Modifikator
       </p>
-      <table>
-        <tr>
-          <th>Stufe</th>
-          <th>GAB</th>
-          <th>REF</th>
-          <th>WIL</th>
-          <th>ZÄH</th>
-          <th>Speziell</th>
-        </tr>
-        <tr>
-          <td>1</td>
-          <td>+1</td>
-          <td>+0</td>
-          <td>+0</td>
-          <td>+2</td>
-          <td>Schnelle Bewegung , Kampfrausch</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>+2</td>
-          <td>+0</td>
-          <td>+0</td>
-          <td>+3</td>
-          <td>Kampfrauschkraft, Reflexbewegung</td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td>+3</td>
-          <td>+1</td>
-          <td>+1</td>
-          <td>+3</td>
-          <td>Fallengespür +1</td>
-        </tr>
-        <tr>
-          <td>4</td>
-          <td>+4</td>
-          <td>+1</td>
-          <td>+1</td>
-          <td>+4</td>
-          <td>Kampfrauschkraft</td>
-        </tr>
-        <tr>
-          <td>5</td>
-          <td>+5</td>
-          <td>+1</td>
-          <td>+1</td>
-          <td>+4</td>
-          <td>Verbesserte Reflexbewegung</td>
-        </tr>
-        <tr>
-          <td>6</td>
-          <td>+6/+1</td>
-          <td>+2</td>
-          <td>+2</td>
-          <td>+5</td>
-          <td>Kampfrauschkraft, Fallengespür +2</td>
-        </tr>
-        <tr>
-          <td>7</td>
-          <td>+7/+2</td>
-          <td>+2</td>
-          <td>+2</td>
-          <td>+5</td>
-          <td>Schadensreduzierung 1/-</td>
-        </tr>
-        <tr>
-          <td>8</td>
-          <td>+8/+3</td>
-          <td>+2</td>
-          <td>+2</td>
-          <td>+6</td>
-          <td>Kampfrauschkraft</td>
-        </tr>
-        <tr>
-          <td>9</td>
-          <td>+9/+4</td>
-          <td>+3</td>
-          <td>+3</td>
-          <td>+6</td>
-          <td>Fallengespür +3</td>
-        </tr>
-        <tr>
-          <td>10</td>
-          <td>+10/+5</td>
-          <td>+3</td>
-          <td>+3</td>
-          <td>+7</td>
-          <td>Schadensreduzierung 2/-, Kampfrauschkraft</td>
-        </tr>
-        <tr>
-          <td>11</td>
-          <td>+11/+6/+1</td>
-          <td>+3</td>
-          <td>+3</td>
-          <td>+7</td>
-          <td>Stärkerer Kampfrausch</td>
-        </tr>
-        <tr>
-          <td>12</td>
-          <td>+12/+7/+2</td>
-          <td>+4</td>
-          <td>+4</td>
-          <td>+8</td>
-          <td>Kampfrauschkraft, Fallengespür +4</td>
-        </tr>
-        <tr>
-          <td>13</td>
-          <td>+13/+8/+3</td>
-          <td>+4</td>
-          <td>+4</td>
-          <td>+8</td>
-          <td>Schadensreduzierung 3/-</td>
-        </tr>
-        <tr>
-          <td>14</td>
-          <td>+14/+9/+4</td>
-          <td>+4</td>
-          <td>+4</td>
-          <td>+9</td>
-          <td>Unbeugsamer Wille, Kampfrauschkraft</td>
-        </tr>
-        <tr>
-          <td>15</td>
-          <td>+15/+10/+5</td>
-          <td>+5</td>
-          <td>+5</td>
-          <td>+9</td>
-          <td>Fallengespür +5</td>
-        </tr>
-        <tr>
-          <td>16</td>
-          <td>+16/+11/+6/+1</td>
-          <td>+5</td>
-          <td>+5</td>
-          <td>+10</td>
-          <td>Schadensreduzierung 4/-, Kampfrauschkraft</td>
-        </tr>
-        <tr>
-          <td>17</td>
-          <td>+17/+12/+7/+2</td>
-          <td>+5</td>
-          <td>+5</td>
-          <td>+10</td>
-          <td>Unermüdlicher Kampfrausch</td>
-        </tr>
-        <tr>
-          <td>18</td>
-          <td>+18/+13/+8/+3</td>
-          <td>+6</td>
-          <td>+6</td>
-          <td>+11</td>
-          <td>Kampfrauschkraft, Fallengespür +6</td>
-        </tr>
-        <tr>
-          <td>19</td>
-          <td>+19/+14/+9/+4</td>
-          <td>+6</td>
-          <td>+6</td>
-          <td>+11</td>
-          <td>Schadensreduzierung 5/-</td>
-        </tr>
-        <tr>
-          <td>20</td>
-          <td>+20/+15/+10/+5</td>
-          <td>+6</td>
-          <td>+6</td>
-          <td>+12</td>
-          <td>Mächtiger Kampfrausch, Kampfrauschkraft</td>
-        </tr>
-      </table>
+      <div class="overflow-scroll">
+        <table>
+          <tr>
+            <th>Stufe</th>
+            <th>GAB</th>
+            <th>REF</th>
+            <th>WIL</th>
+            <th>ZÄH</th>
+            <th>Speziell</th>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>+1</td>
+            <td>+0</td>
+            <td>+0</td>
+            <td>+2</td>
+            <td>Schnelle Bewegung , Kampfrausch</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>+2</td>
+            <td>+0</td>
+            <td>+0</td>
+            <td>+3</td>
+            <td>Kampfrauschkraft, Reflexbewegung</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>+3</td>
+            <td>+1</td>
+            <td>+1</td>
+            <td>+3</td>
+            <td>Fallengespür +1</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>+4</td>
+            <td>+1</td>
+            <td>+1</td>
+            <td>+4</td>
+            <td>Kampfrauschkraft</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>+5</td>
+            <td>+1</td>
+            <td>+1</td>
+            <td>+4</td>
+            <td>Verbesserte Reflexbewegung</td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td>+6/+1</td>
+            <td>+2</td>
+            <td>+2</td>
+            <td>+5</td>
+            <td>Kampfrauschkraft, Fallengespür +2</td>
+          </tr>
+          <tr>
+            <td>7</td>
+            <td>+7/+2</td>
+            <td>+2</td>
+            <td>+2</td>
+            <td>+5</td>
+            <td>Schadensreduzierung 1/-</td>
+          </tr>
+          <tr>
+            <td>8</td>
+            <td>+8/+3</td>
+            <td>+2</td>
+            <td>+2</td>
+            <td>+6</td>
+            <td>Kampfrauschkraft</td>
+          </tr>
+          <tr>
+            <td>9</td>
+            <td>+9/+4</td>
+            <td>+3</td>
+            <td>+3</td>
+            <td>+6</td>
+            <td>Fallengespür +3</td>
+          </tr>
+          <tr>
+            <td>10</td>
+            <td>+10/+5</td>
+            <td>+3</td>
+            <td>+3</td>
+            <td>+7</td>
+            <td>Schadensreduzierung 2/-, Kampfrauschkraft</td>
+          </tr>
+          <tr>
+            <td>11</td>
+            <td>+11/+6/+1</td>
+            <td>+3</td>
+            <td>+3</td>
+            <td>+7</td>
+            <td>Stärkerer Kampfrausch</td>
+          </tr>
+          <tr>
+            <td>12</td>
+            <td>+12/+7/+2</td>
+            <td>+4</td>
+            <td>+4</td>
+            <td>+8</td>
+            <td>Kampfrauschkraft, Fallengespür +4</td>
+          </tr>
+          <tr>
+            <td>13</td>
+            <td>+13/+8/+3</td>
+            <td>+4</td>
+            <td>+4</td>
+            <td>+8</td>
+            <td>Schadensreduzierung 3/-</td>
+          </tr>
+          <tr>
+            <td>14</td>
+            <td>+14/+9/+4</td>
+            <td>+4</td>
+            <td>+4</td>
+            <td>+9</td>
+            <td>Unbeugsamer Wille, Kampfrauschkraft</td>
+          </tr>
+          <tr>
+            <td>15</td>
+            <td>+15/+10/+5</td>
+            <td>+5</td>
+            <td>+5</td>
+            <td>+9</td>
+            <td>Fallengespür +5</td>
+          </tr>
+          <tr>
+            <td>16</td>
+            <td>+16/+11/+6/+1</td>
+            <td>+5</td>
+            <td>+5</td>
+            <td>+10</td>
+            <td>Schadensreduzierung 4/-, Kampfrauschkraft</td>
+          </tr>
+          <tr>
+            <td>17</td>
+            <td>+17/+12/+7/+2</td>
+            <td>+5</td>
+            <td>+5</td>
+            <td>+10</td>
+            <td>Unermüdlicher Kampfrausch</td>
+          </tr>
+          <tr>
+            <td>18</td>
+            <td>+18/+13/+8/+3</td>
+            <td>+6</td>
+            <td>+6</td>
+            <td>+11</td>
+            <td>Kampfrauschkraft, Fallengespür +6</td>
+          </tr>
+          <tr>
+            <td>19</td>
+            <td>+19/+14/+9/+4</td>
+            <td>+6</td>
+            <td>+6</td>
+            <td>+11</td>
+            <td>Schadensreduzierung 5/-</td>
+          </tr>
+          <tr>
+            <td>20</td>
+            <td>+20/+15/+10/+5</td>
+            <td>+6</td>
+            <td>+6</td>
+            <td>+12</td>
+            <td>Mächtiger Kampfrausch, Kampfrauschkraft</td>
+          </tr>
+        </table>
+      </div>
       <h3 class="text-2xl my-6 border-b">Klassenmerkmale</h3>
       <p class="pb-6">
         <strong>Umgang mit Waffen und Rüstungen:</strong> Ein Barbar ist im

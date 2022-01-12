@@ -1,6 +1,16 @@
 <template>
   <div
-    class="w-96 h-28 bg-card rounded-md flex items-center p-5 cursor-pointer"
+    class="
+      w-full
+      sm:w-96
+      h-28
+      bg-card
+      flex
+      items-center
+      p-5
+      cursor-pointer
+      shadow-card
+    "
     @click="linkToCharactersheet()"
   >
     <div class="w-20 h-20 bg-bg rounded-md border border-orange"></div>

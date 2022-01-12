@@ -33,6 +33,7 @@ import { mapActions, mapGetters } from "vuex";
 import config from "../config/index";
 export default {
   components: { Loading },
+
   computed: {
     loading() {
       return this.$store.state.isLoading;

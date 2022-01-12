@@ -1,24 +1,32 @@
 <template>
   <div>
-    <table class="overflow-x-scroll">
+    <table>
       <tr class="text-left">
-        <th class="w-3/12">Name</th>
-        <th class="w-1/12">Typ</th>
-        <th class="w-4/12">Beschreibung</th>
-        <th class="w-4/12">Voraussetzung</th>
+        <th class="md:table-cell">Name</th>
+        <th class="hidden md:table-cell">Typ</th>
+        <th class="hidden md:table-cell">Beschreibung</th>
+        <th class="hidden md:table-cell">Voraussetzung</th>
       </tr>
-      <tr v-for="item in filteredData" :key="item.id">
-        <td>{{ item.name }}</td>
-        <td>{{ item.art }}</td>
-        <td>{{ item.beschreibung }}</td>
-        <td>{{ item.voraussetzung }}</td>
-      </tr>
+      <talent-desktop
+        v-for="item in filteredData"
+        :key="item.id"
+        :item="item"
+      />
+      <talent-mobile
+        v-for="item in filteredData"
+        :key="item.id"
+        class="md:hidden"
+        :item="item"
+      />
     </table>
   </div>
 </template>
 
 <script>
+import TalentDesktop from "./desktop/TalentDesktop.vue";
+import TalentMobile from "./mobile/TalentMobile.vue";
 export default {
+  components: { TalentMobile, TalentDesktop },
   props: ["listData", "searchKey"],
   data() {
     return {};
@@ -37,14 +45,10 @@ export default {
 </script>
 
 <style scoped>
-th,
-td {
-  padding: 10px;
+th {
+  padding: 10px 0px 10px 0.75rem;
 }
 tr:nth-child(even) {
   background-color: rgba(255, 255, 255, 0.05);
-}
-table {
-  table-layout: fixed;
 }
 </style>

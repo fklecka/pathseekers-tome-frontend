@@ -51,30 +51,30 @@ const routes = [
     component: Home,
   },
   {
-    path: "/login",
-    name: "Login",
-    component: Login,
-  },
-  {
-    path: "/register",
-    name: "Register",
-    component: Register,
-  },
-  {
-    path: "/password/reset/:token",
-    name: "ResetPassword",
-    component: ResetPassword,
-    props: true,
-  },
-  {
-    path: "/forgotpassword",
-    name: "ForgotPassword",
-    component: ForgotPassword,
-  },
-  {
     path: "/dashboard",
     component: DashBoard,
     children: [
+      {
+        path: "/login",
+        name: "Login",
+        component: Login,
+      },
+      {
+        path: "/register",
+        name: "Register",
+        component: Register,
+      },
+      {
+        path: "/password/reset/:token",
+        name: "ResetPassword",
+        component: ResetPassword,
+        props: true,
+      },
+      {
+        path: "/forgotpassword",
+        name: "ForgotPassword",
+        component: ForgotPassword,
+      },
       {
         path: "/kompendium",
         name: "Kompendium",

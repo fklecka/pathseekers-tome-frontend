@@ -1,6 +1,16 @@
 <template>
   <div
-    class="w-full h-app bg-bg pt-3 pb-36 md:px-12 md:pt-16 overflow-y-scroll"
+    class="
+      w-full
+      h-app
+      bg-bg
+      px-3
+      sm:px-12
+      pt-3
+      pb-36
+      md:px-12 md:pt-16
+      overflow-y-scroll
+    "
   >
     <div
       class="flex flex-wrap gap-3 justify-center md:justify-start"
@@ -11,19 +21,21 @@
         :key="character"
         :character="character"
       />
-      <router-link to="/characters/new">
-        <div
-          class="
-            w-96
-            h-28
-            bg-card
-            rounded-md
-            flex
-            items-center
-            p-5
-            justify-center
-          "
-        >
+      <router-link
+        to="/characters/new"
+        class="
+          w-full
+          sm:w-96
+          h-28
+          bg-card
+          flex
+          items-center
+          p-5
+          justify-center
+          shadow-card
+        "
+      >
+        <div>
           <p class="text-center text-font text-xl">Neuen Charakter erstellen</p>
         </div>
       </router-link>
