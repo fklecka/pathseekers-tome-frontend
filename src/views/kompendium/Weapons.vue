@@ -12,7 +12,7 @@
       text-font
     "
   >
-    <div class="border-b border-opacity-25 px-3">
+    <div class="border-b border-opacity-25 pl-3 md:pl-0 mb-6">
       <router-link to="/kompendium" class="text-xl">Kompendium</router-link>
       <span> > </span>
       <router-link to="/kompendium/talents" class="text-lg">Waffen</router-link>

@@ -41,19 +41,29 @@
         bg-bg
         absolute
         top-14
+        w-full
+        left-0
+        md:w-auto md:right-0 md:left-auto
       "
       v-if="openMenu"
     >
       <router-link
         v-on:click="open"
         to="/account"
-        class="hover:bg-card py-2 px-3"
+        class="hover:bg-card py-6 md:py-2 px-12 border border-opacity-10"
         >Account</router-link
       >
       <a
         v-on:click="open"
         @click.prevent="menuLogout"
-        class="hover:bg-card py-2 px-3 text-orange"
+        class="
+          hover:bg-card
+          py-6
+          md:py-2
+          px-12
+          text-orange
+          border border-opacity-10
+        "
         >Abmelden</a
       >
     </ul>

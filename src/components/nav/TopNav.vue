@@ -18,7 +18,7 @@
         alt="Tome Logo"
         @click="this.$router.push('/')"
       />
-      <ul class="h-full ml-8 text-font hidden md:flex">
+      <ul class="h-full ml-4 text-font hidden md:flex">
         <router-link
           class="h-full flex items-center px-6 hover:bg-cardlight"
           :to="{ name: 'CharacterOverview' }"

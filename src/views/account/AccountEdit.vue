@@ -14,7 +14,7 @@
   >
     <div class="w-full xl:w-758 px-2 md:px-0">
       <h3 class="text-white text-xl pb-6 font-semibold">Profil bearbeiten</h3>
-      <div class="py-12">
+      <div class="py-6">
         <form action="">
           <div class="flex flex-col">
             <label for="username" class="text-xl"> Benutzername </label>
@@ -76,7 +76,7 @@
               v-model="this.form.email_confirmation"
             />
           </div>
-          <custom-button class="bg-green" @click="submit()"
+          <custom-button class="bg-orange" @click="submit()"
             >Profil speichern</custom-button
           >
           <router-link to="overview" class="ml-6">abbrechen</router-link>

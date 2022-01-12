@@ -6,14 +6,13 @@
       bg-bg
       pt-6
       md:pt-12
-      pb-3
-      px-0
-      md:pb-16 md:px-6
+      pb-36
+      md:pb-16 md:px-12
       overflow-y-scroll
       text-font
     "
   >
-    <div class="border-b border-opacity-25 px-3">
+    <div class="border-b border-opacity-25 pl-3 md:pl-0 mb-6">
       <router-link to="/kompendium" class="text-xl">Kompendium</router-link>
       <span> > </span>
       <router-link to="/kompendium/talents" class="text-lg"

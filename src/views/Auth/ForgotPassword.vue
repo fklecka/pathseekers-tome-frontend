@@ -55,7 +55,7 @@
 </template>
 
 <script>
-import axios from "axios";
+import AccountService from "../../../services/AccountService";
 import { useToast } from "vue-toastification";
 export default {
   data() {
@@ -69,17 +69,19 @@ export default {
   methods: {
     async resetPassword() {
       const toast = useToast();
-      await axios
-        .post("/api/password/email", this.form)
-        .then(() => {
-          toast.success("Email wurde versendet");
-          this.$router.push("/login");
-        })
-        .catch((e) => {
-          for (const error of Object.keys(e.response.data.errors)) {
-            toast.error(e.response.data.errors[error][0]);
-          }
-        });
+      try {
+        const response = await AccountService.sendPasswordResetMail(
+          this.$config.apiUrl,
+          this.form.email
+        );
+        if (response.message) {
+          toast.success("E-Mail zum ändern des Passworts wurde versendet.");
+        }
+      } catch (e) {
+        toast.error("Etwas ist schiefgelaufen.");
+      } finally {
+        this.$store.state.isLoading = false;
+      }
     },
   },
 };

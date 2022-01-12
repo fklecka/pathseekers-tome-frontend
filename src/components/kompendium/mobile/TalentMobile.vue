@@ -12,7 +12,7 @@
       class="overflow-hidden max-h-64 w-full bg-dark info"
       v-bind:class="{ active: hidden }"
     >
-      <table class="border-opacity-10 border-font">
+      <table class="border-opacity-10 border-font w-full">
         <tr class="w-full">
           <td>Typ:</td>
           <td>{{ this.item.typ }}</td>
@@ -51,7 +51,7 @@ td:first-child {
   padding-right: 1rem;
 }
 td {
-  padding: 0.5rem 0.75rem;
+  padding: 0.5rem 0.75rem 0.5rem 0.75rem;
   text-align: left;
   vertical-align: top;
 }
@@ -64,5 +64,8 @@ td {
 }
 .open {
   transform: rotate(90deg);
+}
+tr:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.01);
 }
 </style>

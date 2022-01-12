@@ -14,7 +14,7 @@
   >
     <div
       class="flex flex-wrap gap-3 justify-center md:justify-start"
-      v-if="this.user"
+      v-if="authenticated"
     >
       <character-card
         v-for="character in this.$store.state.characters"
@@ -48,7 +48,7 @@
         text-white text-3xl
         h-full
       "
-      v-if="!this.user"
+      v-if="!authenticated"
     >
       <p>Um einen Charakter zu erstellen benötigen Sie einen Account</p>
       <p class="pt-6">
@@ -75,6 +75,7 @@ export default {
   computed: {
     ...mapGetters({
       user: "auth/user",
+      authenticated: "auth/authenticated",
     }),
   },
   methods: {

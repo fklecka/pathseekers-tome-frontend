@@ -55,15 +55,20 @@
             <td class="text-white w-2/4">{{ this.user.email }}</td>
           </tr>
         </table>
-        <custom-button class="bg-card mt-6"
-          ><router-link to="edit">Profil bearbeiten</router-link></custom-button
-        >
-        <custom-button
-          class="bg-card mt-6 ml-2 md:ml-6"
-          @click="confirmVisiblePassword = true"
-        >
-          Passwort ändern
-        </custom-button>
+        <div class="flex flex-col md:block w-full">
+          <router-link to="edit">
+            <custom-button class="bg-card mt-6 text-center w-full md:w-auto"
+              >Profil bearbeiten
+            </custom-button></router-link
+          >
+
+          <custom-button
+            class="bg-card mt-6 md:ml-6 text-center"
+            @click="confirmVisiblePassword = true"
+          >
+            Passwort ändern
+          </custom-button>
+        </div>
       </div>
       <h3 class="text-white text-xl pt-12 pb-6 font-semibold">
         Dein Abonnement
@@ -81,19 +86,25 @@
       Anzahl an Charakter-Slots."
         price="3,99€ / Monat"
       />
-      <custom-button class="bg-card mt-6"
-        ><router-link to="subscriptions"
-          >Abonnement ändern</router-link
-        ></custom-button
-      >
+      <div class="flex flex-col md:block">
+        <router-link to="subscriptions">
+          <custom-button class="bg-card mt-6 text-center w-full md:w-auto"
+            >Abonnement ändern</custom-button
+          ></router-link
+        >
+      </div>
     </div>
-    <div>
+    <div class="px-2 md:px-0">
       <h3 class="text-white text-xl pb-6 pt-12 font-semibold">
         Account löschen
       </h3>
-      <custom-button class="bg-red-600" @click="confirmVisibleAccount = true"
-        >Account löschen</custom-button
-      >
+      <div class="flex flex-col md:block">
+        <custom-button
+          class="bg-red-600 text-center"
+          @click="confirmVisibleAccount = true"
+          >Account löschen</custom-button
+        >
+      </div>
     </div>
   </div>
 </template>

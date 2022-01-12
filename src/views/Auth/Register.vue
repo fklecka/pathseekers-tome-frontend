@@ -31,9 +31,6 @@
               "
               v-model="form.username"
             />
-            <span class="text-orange" v-if="this.errors.username">{{
-              this.errors.username.toString()
-            }}</span>
           </div>
           <div>
             <input
@@ -56,9 +53,6 @@
               "
               v-model="form.email"
             />
-            <span class="text-orange" v-if="this.errors.email">{{
-              this.errors.email.toString()
-            }}</span>
           </div>
           <div class="relative">
             <input
@@ -238,8 +232,9 @@ input[type="checkbox"]:checked::before {
 </style>
 
 <script>
-import { mapActions } from "vuex";
+import AuthService from "../../../services/AuthService";
 import { useToast } from "vue-toastification";
+import { mapActions } from "vuex";
 export default {
   name: "register",
   data() {
@@ -249,7 +244,7 @@ export default {
       showButton: "Anzeigen",
       showButtonConfirm: "Anzeigen",
       processing: false,
-      confirmed: false,
+      confirm: false,
       form: {
         username: "test",
         email: "test@test.com",
@@ -280,21 +275,41 @@ export default {
         this.showButtonConfirm = "Anzeigen";
       }
     },
+
     ...mapActions({
-      register: "auth/register",
+      getUser: "auth/getUser",
     }),
+
     async submit() {
       const toast = useToast();
       if (this.confirm) {
         try {
           this.$store.state.isLoading = true;
-          await this.register(this.form);
-          this.$router.replace({ name: "CharacterOverview" });
-        } catch ({ data }) {
-          this.errors = data.errors;
+          const response = await AuthService.register(
+            this.$config.apiUrl,
+            this.form
+          );
+          console.log(response);
+          if (response) {
+            AuthService.setCookie(response);
+            const config = {
+              apiUrl: this.$config.apiUrl,
+              headers: {
+                headers: {
+                  Authorization: AuthService.getFullToken(),
+                },
+              },
+            };
+            this.getUser(config);
+            toast.success("Registrierung erfolgreich");
+            this.$router.replace({ name: "CharacterOverview" });
+          }
+        } catch (e) {
+          for (let error of e.errors) {
+            toast.error(error);
+          }
         } finally {
           this.$store.state.isLoading = false;
-          toast.success("Registrierung erfolgreich!");
         }
       } else {
         toast.error(

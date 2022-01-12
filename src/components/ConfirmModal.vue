@@ -3,7 +3,7 @@
     class="
       w-full
       h-full
-      bg-black bg-opacity-30
+      bg-black bg-opacity-70
       flex
       justify-center
       items-center
@@ -14,7 +14,7 @@
     "
   >
     <div class="bg-bg rounded-md text-white">
-      <div class="p-12 text-center">
+      <div class="p-6 md:p-12 text-center">
         <slot name="text"></slot>
       </div>
       <div class="flex border-t">

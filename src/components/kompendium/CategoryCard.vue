@@ -10,6 +10,7 @@
       items-center
       hover:bg-cardlight
       cursor-pointer
+      shadow-card
     "
   >
     <img :src="url" class="w-24 opacity-80" />

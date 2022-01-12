@@ -1,52 +1,40 @@
 <template>
   <div class="bg-bg text-white">
-    <top-nav class="px-2 lg:px-6 2xl:px-32" />
-    <div class="px-2 lg:px-6 2xl:px-32">
-      <div class="w-full fixed pointer-events-none">
-        <img
-          src="../assets/drache.svg"
-          alt=""
-          class="pointer-events-none w-full"
-        />
-      </div>
-      <div class="pt-8 md:pt-40 pb-80 h-full">
-        <h1 class="text-6xl md:text-7xl text-center md:text-left font-headline">
+    <top-nav class="px-3 lg:px-6" />
+    <div class="w-full fixed pointer-events-none">
+      <img
+        src="../assets/drache.svg"
+        alt=""
+        class="pointer-events-none w-full"
+      />
+    </div>
+    <div class="px-3 lg:px-6">
+      <div class="pt-8 md:pt-16 pb-80 h-full">
+        <div class="flex justify-center">
+          <img src="../assets/tome_logo_white.svg" alt="" class="pb-16 w-512" />
+        </div>
+        <h1 class="text-4xl md:text-7xl text-center font-headline">
           Das digitale Toolset
         </h1>
-        <h2
-          class="
-            text-2xl
-            md:text-5xl
-            text-center
-            md:text-left
-            font-headline
-            pt-5
-          "
-        >
+        <h2 class="text-xl md:text-4xl text-center font-headline pt-4">
           Für Pathfinder First Edition
         </h2>
-        <p class="pt-16 text-lg md:text-xl text-center md:text-left">
+        <p class="pt-12 text-sm md:text-lg text-center">
           Erstelle und verwalte deine Charaktere schnell und einfach.
         </p>
-        <p class="text-lg md:text-xl text-center md:text-left">
-          Schlage Zauber und Gegenstände nach.
+        <p class="text-sm md:text-lg text-center">
+          Oder schlage Zauber und Gegenstände nach.
         </p>
-        <br />
-        <p class="text-lg md:text-xl text-center md:text-left">
-          Verschwende keine Zeit mehr und stürze dich sofort <br />
-          in dein nächstes Abenteuer!
-        </p>
-        <div class="flex justify-center md:justify-start">
+
+        <div class="flex justify-center">
           <router-link to="/characters"
-            ><button
-              class="mt-16 rounded-lg bg-orange font-medium px-8 py-2 text-xl"
-            >
-              Jetzt Charakter erstellen
-            </button></router-link
+            ><custom-button class="bg-orange mt-16 mb-6">
+              Jetzt Account registrieren
+            </custom-button></router-link
           >
         </div>
       </div>
-      <div class="pb-96">
+      <div class="pb-64">
         <div class="flex flex-col lg:flex-row justify-center items-center">
           <div class="w-full lg:w-2/4 rounded-xl bg-bg flex-shrink-0">
             <img src="../assets/tutorial.png" alt="" class="object-cover" />
@@ -77,7 +65,7 @@
           </div>
         </div>
       </div>
-      <div class="pb-96">
+      <div class="pb-64">
         <div
           class="flex flex-col-reverse lg:flex-row justify-center items-center"
         >
@@ -104,7 +92,7 @@
           </div>
         </div>
       </div>
-      <div class="pb-96">
+      <div class="pb-64">
         <div class="flex flex-col lg:flex-row justify-center items-center">
           <div class="w-full lg:w-2/4 rounded-xl bg-bg flex-shrink-0">
             <img src="../assets/sheet.png" alt="" class="object-cover" />
@@ -129,7 +117,7 @@
           </div>
         </div>
       </div>
-      <div class="pb-96">
+      <div class="pb-64">
         <div
           class="flex flex-col-reverse lg:flex-row justify-center items-center"
         >
@@ -158,20 +146,19 @@
           </div>
         </div>
       </div>
-      <div class="text-center pb-96">
+      <div class="text-center pb-64">
         <h2 class="font-headline text-5xl pb-8">
           Beginne jetzt dein neues Abenteuer!
         </h2>
         <p>Registriere dich jetzt und erstelle deinen neuen Charakter!</p>
         <router-link to="/characters"
           ><custom-button class="bg-orange mt-12 mb-6">
-            Jetzt Charakter erstellen
+            Jetzt registrieren
           </custom-button></router-link
         >
         <p class="text-xs">
-          Du möchtest dich nicht registrieren? Kein Problem!<br />
-          Auch ohne Registrierung kannst du einen Charakter<br />
-          erstellen jedoch <strong>nicht speichern</strong>.
+          Ohne Account hast du nur Zugriff auf das Kompendium. <br />
+          Um einen Charakter zu erstellen benötigst du einen Account!
         </p>
       </div>
     </div>
@@ -193,7 +180,7 @@
         src="../assets/tome_logo_white.svg"
         alt="Tome Logo"
       />
-      <div class="text-sm flex space-x-16">
+      <div class="text-sm flex space-x-8">
         <ul class="space-y-3">
           <li class="opacity-50">Quicklinks</li>
           <li>

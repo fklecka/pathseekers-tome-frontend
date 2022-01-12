@@ -1,28 +1,29 @@
 <template>
-  <div class="overflow-x-scroll">
+  <div>
     <table class="w-full">
       <tr class="text-left">
-        <th class="w-2/12">Name</th>
-        <th class="w-2/12">Grad</th>
-        <th class="w-1/12">Schule</th>
-        <th class="w-2/12">Unterschule</th>
-        <th class="w-2/12">Kategorie</th>
-        <th class="w-3/12">Beschreibung</th>
+        <th>Name</th>
+        <th class="hidden xl:table-cell">Grad</th>
+        <th class="hidden xl:table-cell">Schule</th>
+        <th class="hidden xl:table-cell">Unterschule</th>
+        <th class="hidden xl:table-cell">Kategorie</th>
+        <th class="hidden xl:table-cell">Beschreibung</th>
       </tr>
-      <tr v-for="item in filteredData" :key="item.id">
-        <td>{{ item.name }}</td>
-        <td>{{ item.grad }}</td>
-        <td>{{ item.schule }}</td>
-        <td>{{ item.unterschule }}</td>
-        <td>{{ item.kategorie }}</td>
-        <td>{{ item.beschreibung }}</td>
-      </tr>
+      <zauber-desktop
+        v-for="item in filteredData"
+        :key="item.id"
+        :item="item"
+      />
+      <zauber-mobile v-for="item in filteredData" :key="item.id" :item="item" />
     </table>
   </div>
 </template>
 
 <script>
+import ZauberDesktop from "./desktop/ZauberDesktop.vue";
+import ZauberMobile from "./mobile/ZauberMobile.vue";
 export default {
+  components: { ZauberDesktop, ZauberMobile },
   props: ["listData", "searchKey"],
   data() {
     return {};

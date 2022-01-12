@@ -1,15 +1,15 @@
 <template>
-  <div class="bg-bg text-font fixed bottom-0 w-full py-3 z-50 shadow-top">
+  <div class="bg-bg text-font fixed bottom-0 w-full z-50 shadow-top text-xs">
     <ul class="grid grid-cols-3 items-baseline place-content-between">
       <li>
         <router-link :to="{ name: 'CharacterOverview' }">
-          <div class="flex flex-col items-center">
+          <div class="flex flex-col items-center pt-3 pb-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="45"
               height="36"
               viewBox="0 0 45 36"
-              class="h-6"
+              class="h-6 opacity-80"
               fill="#fffefd"
             >
               <path
@@ -18,19 +18,19 @@
                 d="M3.375,0A3.379,3.379,0,0,0,0,3.375v4.5A1.125,1.125,0,0,0,1.125,9H6.75V3.375A3.379,3.379,0,0,0,3.375,0ZM18,29.009V24.75H38.25v-18A6.757,6.757,0,0,0,31.5,0H7.846A5.571,5.571,0,0,1,9,3.375V29.25a4.5,4.5,0,0,0,5.256,4.438A4.667,4.667,0,0,0,18,29.009ZM20.25,27v2.25A6.758,6.758,0,0,1,13.5,36H37.125A7.875,7.875,0,0,0,45,28.125,1.125,1.125,0,0,0,43.875,27Z"
               />
             </svg>
-            Charaktere
+            <span class="mt-1">Charaktere</span>
           </div>
         </router-link>
       </li>
       <li>
         <router-link :to="{ name: 'Kompendium' }">
-          <div class="flex flex-col items-center">
+          <div class="flex flex-col items-center pt-3 pb-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="31.5"
               height="36"
               viewBox="0 0 31.5 36"
-              class="h-6"
+              class="h-6 opacity-80"
               fill="#fffefd"
             >
               <path
@@ -40,19 +40,19 @@
                 opacity="0.87"
               />
             </svg>
-            Kompendium
+            <span class="mt-1">Kompendium</span>
           </div>
         </router-link>
       </li>
       <li>
         <router-link :to="{ name: 'Account' }">
-          <div class="flex flex-col items-center">
+          <div class="flex flex-col items-center pt-3 pb-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="32"
               height="36.571"
               viewBox="0 0 32 36.571"
-              class="h-6"
+              class="h-6 opacity-80"
               fill="#fffefd"
             >
               <path
@@ -62,7 +62,7 @@
                 opacity="0.87"
               />
             </svg>
-            Account
+            <span class="mt-1">Account</span>
           </div>
         </router-link>
       </li>

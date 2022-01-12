@@ -14,25 +14,25 @@
     >
       <table class="w-full hidden md:block">
         <tr>
-          <td>Schaden (K):</td>
+          <td class="w-2/4">Schaden (K):</td>
           <td>{{ this.item.schaden_k }}</td>
-          <td>Schaden (M):</td>
+          <td class="w-2/4">Schaden (M):</td>
           <td>{{ this.item.schaden_m }}</td>
         </tr>
         <tr>
-          <td>Kritischer Treffer:</td>
+          <td class="w-2/4">Kritischer Treffer:</td>
           <td>{{ this.item.kritischer_treffer }}</td>
-          <td>Grundreichweite:</td>
+          <td class="w-2/4">Grundreichweite:</td>
           <td>{{ this.item.grundreichweite }}</td>
         </tr>
         <tr>
-          <td>Gewicht:</td>
+          <td class="w-2/4">Gewicht:</td>
           <td>{{ this.item.gewicht }}</td>
-          <td>Art:</td>
+          <td class="w-2/4">Art:</td>
           <td>{{ this.item.art }}</td>
         </tr>
         <tr>
-          <td>Speziell:</td>
+          <td class="w-2/4">Speziell:</td>
           <td>{{ this.item.speziell }}</td>
         </tr>
       </table>
@@ -91,7 +91,7 @@ td:first-child {
   padding-right: 1rem;
 }
 td {
-  padding: 0.5rem 0rem 0.5rem 0.75rem;
+  padding: 0.5rem 0.75rem 0.5rem 0.75rem;
   text-align: left;
   vertical-align: top;
 }
@@ -104,5 +104,8 @@ td {
 }
 .open {
   transform: rotate(90deg);
+}
+tr:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.01);
 }
 </style>
