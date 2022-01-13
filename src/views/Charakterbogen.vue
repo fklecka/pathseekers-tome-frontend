@@ -1,5 +1,5 @@
 <template>
-  <div class="pb-36 overflow-y-scroll sheet md:w-758 xl:w-auto mt-3">
+  <div class="mb-20 md:pb-3 overflow-y-scroll sheet md:w-758 xl:w-auto mt-3">
     <confirm-modal
       v-if="deleteConfirm"
       @close="this.deleteConfirm = false"

@@ -1,6 +1,6 @@
 <template>
   <div class="w-full h-full flex justify-center items-center">
-    <div class="m-auto w-screen px-4 sm:w-400 pt-50 pb-6">
+    <div class="m-auto w-screen px-4 sm:w-400 pt-50 pb-24">
       <img
         src="../../assets/tome_logo_white.svg"
         alt=""
@@ -26,7 +26,6 @@
                 email
                 bg-bg
                 border-orange
-                rounded-2xl
                 text-font
               "
               v-model="form.username"
@@ -48,7 +47,6 @@
                 email
                 bg-bg
                 border-orange
-                rounded-2xl
                 text-font
               "
               v-model="form.email"
@@ -70,7 +68,6 @@
                 password
                 bg-bg
                 border-orange
-                rounded-2xl
                 text-font
               "
               v-model="form.password"
@@ -106,7 +103,6 @@
                 password
                 bg-bg
                 border-orange
-                rounded-2xl
                 text-font
               "
               v-model="form.password_confirmation"
@@ -126,18 +122,7 @@
               {{ showButtonConfirm }}
             </span>
           </div>
-          <div
-            class="
-              flex
-              justify-between
-              px-3
-              text-lg
-              items
-              center
-              text-orange
-              mt-7
-            "
-          >
+          <div class="text-lg text-orange mt-7">
             <div>
               <label for="accept" class="checkbox-class text-font">
                 <input
@@ -152,23 +137,21 @@
             </div>
           </div>
           <div>
-            <button
-              type="submit"
+            <custom-button
+              @click="submit()"
               class="
                 w-full
                 h-12
                 text-xl
                 font-bold
-                text-white
-                border-0
-                rounded-2xl
+                text-white text-center
                 bg-orange
                 mt-7
               "
             >
               <p v-if="this.$store.state.isLoading === false">Registrieren</p>
               <p v-if="this.$store.state.isLoading === true">Bitte warten</p>
-            </button>
+            </custom-button>
           </div>
         </form>
         <p class="bottom-4 text-lg text-center text-white opacity-50 pt-8">
@@ -233,10 +216,12 @@ input[type="checkbox"]:checked::before {
 
 <script>
 import AuthService from "../../../services/AuthService";
+import CustomButton from "../../components/CustomButton.vue";
 import { useToast } from "vue-toastification";
 import { mapActions } from "vuex";
 export default {
   name: "register",
+  components: { CustomButton },
   data() {
     return {
       pwType: "password",

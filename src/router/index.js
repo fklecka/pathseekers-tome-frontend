@@ -44,17 +44,18 @@ import Zwerge from "../views/kompendium/races/Zwerge.vue";
 
 import ClassesOverview from "../views/kompendium/classes/ClassesOverview.vue";
 import Barbar from "../views/kompendium/classes/Barbar.vue";
+import Barde from "../views/kompendium/classes/Barde.vue";
 
 const routes = [
-  {
-    path: "/",
-    name: "Home",
-    component: Home,
-  },
   {
     path: "/dashboard",
     component: DashBoard,
     children: [
+      {
+        path: "/",
+        name: "Home",
+        component: Home,
+      },
       {
         path: "/login",
         name: "Login",
@@ -117,6 +118,11 @@ const routes = [
                 path: "barbar",
                 name: "Barbar",
                 component: Barbar,
+              },
+              {
+                path: "barde",
+                name: "Barde",
+                component: Barde,
               },
             ],
           },

@@ -1,6 +1,5 @@
 <template>
-  <div class="bg-bg text-white">
-    <top-nav class="px-3 lg:px-6" />
+  <div class="text-white">
     <div class="w-full fixed pointer-events-none z-0">
       <img
         src="../assets/drache.svg"
@@ -23,7 +22,7 @@
           Erstelle und verwalte deine Charaktere schnell und einfach.
         </p>
         <p class="text-sm md:text-lg text-center">
-          Oder schlage Zauber und Gegenstände nach.
+          Schlage Zauber und Gegenstände nach.
         </p>
 
         <div class="flex justify-center">
@@ -36,8 +35,12 @@
       </div>
       <div class="pb-64">
         <div class="flex flex-col lg:flex-row justify-center items-center">
-          <div class="w-full lg:w-2/4 rounded-xl bg-bg flex-shrink-0">
-            <img src="../assets/tutorial.png" alt="" class="object-cover" />
+          <div class="w-full lg:w-2/4 flex-shrink-0">
+            <img
+              src="../assets/charactertool.png"
+              alt=""
+              class="object-cover"
+            />
           </div>
           <div
             class="
@@ -87,15 +90,19 @@
             <br />
             <p>Konfiguriere deinen Charakterbogen wie es dir beliebt!</p>
           </div>
-          <div class="w-full lg:w-2/4 rounded-xl bg-bg flex-shrink-0">
-            <img src="../assets/sheet.png" alt="" class="object-cover" />
+          <div class="w-full lg:w-2/4 flex-shrink-0">
+            <img
+              src="../assets/charactersheet.png"
+              alt=""
+              class="object-cover"
+            />
           </div>
         </div>
       </div>
       <div class="pb-64">
         <div class="flex flex-col lg:flex-row justify-center items-center">
           <div class="w-full lg:w-2/4 rounded-xl bg-bg flex-shrink-0">
-            <img src="../assets/sheet.png" alt="" class="object-cover" />
+            <img src="../assets/kompendium.png" alt="" class="object-cover" />
           </div>
           <div
             class="
@@ -141,8 +148,8 @@
             <br />
             <p>So bist du jederzeit bereit für dein Abenteuer.</p>
           </div>
-          <div class="w-full lg:w-2/4 rounded-xl bg-bg flex-shrink-0">
-            <img src="../assets/sheet.png" alt="" class="object-cover" />
+          <div class="w-full lg:w-2/4 bg-bg flex-shrink-0">
+            <img src="../assets/optimized.png" alt="" class="object-fit" />
           </div>
         </div>
       </div>
@@ -157,8 +164,7 @@
           </custom-button></router-link
         >
         <p class="text-xs">
-          Ohne Account hast du nur Zugriff auf das Kompendium. <br />
-          Um einen Charakter zu erstellen benötigst du einen Account!
+          Ohne Account hast du nur Zugriff auf das Kompendium.
         </p>
       </div>
     </div>
@@ -207,10 +213,9 @@
 </template>
 
 <script>
-import TopNav from "../components/nav/TopNav.vue";
 import CustomButton from "../components/CustomButton.vue";
 export default {
-  components: { TopNav, CustomButton },
+  components: { CustomButton },
   methods: {},
 };
 </script>

@@ -20,18 +20,18 @@
       />
       <ul class="h-full ml-4 text-font hidden md:flex">
         <router-link
-          class="h-full flex items-center px-6 hover:bg-cardlight"
+          class="h-full flex items-center px-4 hover:bg-cardlight"
           :to="{ name: 'CharacterOverview' }"
         >
           Charaktere
         </router-link>
         <router-link
-          class="h-full flex items-center px-6 hover:bg-cardlight"
+          class="h-full flex items-center px-4 hover:bg-cardlight"
           :to="{ name: 'Kompendium' }"
           >Kompendium
         </router-link>
         <router-link
-          class="h-full flex items-center px-6 hover:bg-cardlight text-orange"
+          class="h-full flex items-center px-4 hover:bg-cardlight text-orange"
           to="/characters/new"
           v-if="authenticated"
         >

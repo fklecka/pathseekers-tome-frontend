@@ -7,7 +7,7 @@
         :url="require('../../../assets/classicons/barbarian.svg')"
       />
     </router-link>
-    <router-link to="/">
+    <router-link to="/kompendium/classes/barde">
       <category-card
         class="flex-grow-0"
         title="Barde"

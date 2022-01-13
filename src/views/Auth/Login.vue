@@ -26,7 +26,6 @@
                 email
                 bg-bg
                 border-orange
-                rounded-2xl
                 text-font
               "
               v-model="form.email"
@@ -51,7 +50,6 @@
                 password
                 bg-bg
                 border-orange
-                rounded-2xl
                 text-font
               "
               v-model="form.password"
@@ -76,16 +74,7 @@
             </span>
           </div>
           <div
-            class="
-              flex
-              justify-between
-              px-3
-              text-lg
-              items
-              center
-              text-orange
-              mt-7
-            "
+            class="flex justify-between text-lg items center text-orange mt-7"
           >
             <div>
               <label for="remember" class="checkbox-class text-font">
@@ -104,23 +93,20 @@
             </div>
           </div>
           <div>
-            <button
-              type="submit"
+            <custom-button
+              @click="submit()"
               class="
                 w-full
-                h-12
                 text-xl
                 font-bold
-                text-white
-                border-0
-                rounded-2xl
+                text-white text-center
                 bg-orange
                 mt-7
               "
             >
               <p v-if="this.$store.state.isLoading === false">Login</p>
               <p v-if="this.$store.state.isLoading === true">Bitte warten</p>
-            </button>
+            </custom-button>
           </div>
         </form>
         <p class="bottom-4 text-lg text-center text-white opacity-50 pt-8">
@@ -149,6 +135,7 @@
 .email {
   background-image: url("../../assets/user.svg");
 }
+
 input[type="checkbox"] {
   -webkit-appearance: none;
   appearance: none;
@@ -157,7 +144,6 @@ input[type="checkbox"] {
   width: 1.5rem;
   height: 1.5rem;
   border: 1px solid rgb(255, 255, 255, 0.87);
-  border-radius: 0.15em;
   transform: translateY(0.075em);
   display: grid;
   place-content: center;
@@ -199,9 +185,13 @@ input[type="checkbox"]:checked::before {
 
 <script>
 import AuthService from "../../../services/AuthService";
+import CustomButton from "../../components/CustomButton.vue";
 import { mapActions } from "vuex";
 import { useToast } from "vue-toastification";
 export default {
+  components: {
+    CustomButton,
+  },
   data() {
     return {
       pwtype: "password",
