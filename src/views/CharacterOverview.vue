@@ -49,9 +49,9 @@
       "
       v-if="!authenticated"
     >
-      <p>Um einen Charakter zu erstellen benötigen Sie einen Account</p>
+      <p>Um einen Charakter zu erstellen benötigst du einen Account</p>
       <p class="pt-6">
-        Bitte loggen Sie sich ein oder registrieren einen neuen Account
+        Bitte logge dich ein oder registriere einen neuen Account
       </p>
     </div>
   </div>
