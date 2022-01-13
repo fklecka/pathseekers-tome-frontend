@@ -1,5 +1,5 @@
 <template>
-  <tr class="text-md">
+  <tr class="text-sm">
     <td>
       <strong
         >{{ this.skill.name }} <span v-if="!this.skill.trained">*</span></strong
@@ -203,6 +203,21 @@ export default {
 
 <style scoped>
 td {
-  padding: 0.5rem 0.5rem;
+  padding: 0.3rem 0.2rem;
+}
+td:first-child {
+  min-width: 50px;
+  font-size: 0.7rem;
+}
+
+@media (min-width: 640px) {
+  td {
+    padding: 0.5rem 0.5rem;
+    padding-bottom: 1rem;
+  }
+  td:first-child {
+    width: 150px;
+    font-size: 1rem;
+  }
 }
 </style>

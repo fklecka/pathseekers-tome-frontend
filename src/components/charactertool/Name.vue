@@ -85,5 +85,8 @@ export default {
 <style scoped>
 .active {
   background: #2c3540;
+  border: 5px inset #00000033;
+  transform: translate(2px, 2px);
+  box-shadow: 0px 0px 0px #00000020;
 }
 </style>

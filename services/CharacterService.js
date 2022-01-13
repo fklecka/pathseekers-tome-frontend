@@ -28,7 +28,7 @@ export default class CharacterService {
   }
 
   static async updateCharacter(apiUrl, character, { headers }) {
-    const apiEndpoint = `${apiUrl}/characters`;
+    const apiEndpoint = `${apiUrl}/characters/${character.id}`;
     return await axios
       .put(apiEndpoint, character, headers)
       .then((resp) => {

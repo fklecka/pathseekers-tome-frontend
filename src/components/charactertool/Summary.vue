@@ -23,7 +23,7 @@
         </div>
         <div class="pt-6">
           <h3 class="text-2xl">Attributswerte</h3>
-          <hr class="pb-3" />
+          <hr class="mb-3" />
           <div class="flex justify-between">
             <p>Stärke:</p>
             <p>
@@ -88,21 +88,21 @@
       </div>
       <div class="md:w-2/4 w-full">
         <h3 class="text-2xl">Erworbene Fähigkeiten</h3>
-        <hr class="pb-3" />
+        <hr class="mb-3" />
         <ul class="pb-6">
           <li v-for="(skill, key) in this.character.skills" :key="skill.id">
             <p>{{ key }}: {{ skill }}</p>
           </li>
         </ul>
         <h3 class="text-2xl">Erworbene Talente</h3>
-        <hr class="pb-3" />
+        <hr class="mb-3" />
         <ul class="pb-6">
           <li v-for="talent in this.character.talents" :key="talent.id">
             <p>{{ talent }}</p>
           </li>
         </ul>
         <h3 class="text-2xl">Erworbene Ausrüstung</h3>
-        <hr class="pb-3" />
+        <hr class="mb-3" />
         <ul class="pb-6">
           <li
             v-for="item in this.character.items.weapons"
@@ -183,4 +183,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+hr {
+  border: 1px inset #a7a7a7;
+}
+</style>

@@ -1,14 +1,4 @@
 <template>
-  <!-- <tr class="text-md">
-    <td colspan="2">
-      <value-field-long :value="this.waffeInfo.waffe" :main="true" />
-    </td>
-    <td colspan="2"><value-field-long :value="0" :main="false" /></td>
-    <td colspan="2"><value-field-long :value="0" :main="false" /></td>
-    <td><value-field :value="0" :main="false" /></td>
-    <td><value-field :value="0" :main="false" /></td>
-    <td colspan="2"><value-field-long :value="0" :main="false" /></td>
-  </tr> -->
   <tr class="flex flex-col cursor-pointer select-none">
     <div
       class="flex justify-between w-full items-center p-2 hover:bg-highlight"
@@ -21,8 +11,11 @@
         </tr>
       </table>
     </div>
-    <div class="flex overflow-hidden p-2 justify-between bg-bg" v-if="!hidden">
-      <table class="border-opacity-10 border-font border-t w-full">
+    <div
+      class="flex overflow-hidden p-2 justify-between bg-card"
+      v-if="!hidden"
+    >
+      <table class="w-full">
         <tr>
           <td>Schaden (K):</td>
           <td>{{ this.item.schaden_k }}</td>
@@ -74,4 +67,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.active {
+  background-color: #565d66;
+}
+</style>

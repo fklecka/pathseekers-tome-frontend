@@ -1,6 +1,6 @@
 <template>
   <div
-    class="border rounded-md w-16 h-8 flex justify-center items-center"
+    class="w-12 h-7 sm:w-16 sm:h-8 flex justify-center items-center bg-bg"
     v-bind:class="{ main: main, mod: !main }"
   >
     {{ value }}
@@ -13,12 +13,10 @@ export default {
 };
 </script>
 
-<style>
-.main {
-  border-color: rgba(256, 256, 256, 0.87);
-  border-width: 2px;
-}
-.mod {
-  border-color: rgba(256, 256, 256, 0.45);
+<style scoped>
+div {
+  border: 3px outset #565d66;
+  background-image: url("../../assets/asfalt-dark.png");
+  background-repeat: repeat;
 }
 </style>

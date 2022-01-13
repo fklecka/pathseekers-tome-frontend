@@ -1,10 +1,10 @@
 <template>
-  <div class="flex">
+  <div class="flex justify-center attribute m-1 sm:m-3 px-1 sm:px-3">
     <div class="text-white">
-      <h2 class="text-xl text-center">Attribute</h2>
-      <hr class="opacity-20 pb-3" />
-      <table class="mx-3">
-        <tr class="text-xs">
+      <h2 class="text-xl text-center headline">Attribute</h2>
+      <hr class="opacity-20 mb-3" />
+      <table class="w-full">
+        <tr class="text-sheetHeader sm:text-xs">
           <th></th>
           <th>Wert</th>
           <th>Modifikator</th>
@@ -290,10 +290,34 @@ export default {
 
 <style scoped>
 td {
-  padding: 0rem 0.5rem;
-  padding-bottom: 1rem;
+  padding-right: 0.3rem;
+  padding-bottom: 0.5rem;
 }
 td:first-child {
-  width: 150px;
+  width: 100px;
+  font-size: 0.7rem;
+}
+td:last-child {
+  padding-right: 0rem;
+}
+
+@media (min-width: 640px) {
+  td {
+    padding-right: 0.5rem;
+    padding-bottom: 1rem;
+  }
+  td:last-child {
+    padding-right: 0rem;
+  }
+  td:first-child {
+    width: 150px;
+    font-size: 1rem;
+  }
+}
+.attribute {
+  border: 3px inset #565d66;
+  background-color: #232a33;
+  background-image: url("../../assets/asfalt-dark.png");
+  background-repeat: repeat;
 }
 </style>

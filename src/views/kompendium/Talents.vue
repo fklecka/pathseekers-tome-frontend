@@ -3,7 +3,6 @@
     class="
       w-full
       h-app
-      bg-bg
       pt-6
       md:pt-12
       pb-36

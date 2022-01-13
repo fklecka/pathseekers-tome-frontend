@@ -1,11 +1,11 @@
 <template>
   <input
-    type="text"
+    inputmode="tel"
+    pattern="[0-9]*"
     class="
-      border
-      rounded-md
-      w-40
-      h-8
+      w-28
+      h-7
+      sm:w-40 sm:h-8
       flex
       justify-center
       items-center
@@ -38,12 +38,10 @@ export default {
 };
 </script>
 
-<style>
-.main {
-  border-color: rgba(256, 256, 256, 0.87);
-  border-width: 2px;
-}
-.mod {
-  border-color: rgba(256, 256, 256, 0.45);
+<style scoped>
+input {
+  border: 3px inset #565d66;
+  background-image: url("../../assets/asfalt-dark.png");
+  background-repeat: repeat;
 }
 </style>

@@ -22,6 +22,8 @@ body {
   box-sizing: border-box;
   font-family: "Raleway";
   background-color: #2c3540;
+  background-image: url("./assets/dark-brick-wall2.png");
+  background-repeat: repeat;
 }
 </style>
 

@@ -1,10 +1,10 @@
 <template>
-  <div class="flex">
-    <div class="text-white">
+  <div class="block rettungswuerfe m-1 sm:m-3 px-1 sm:px-3">
+    <div class="text-white overflow-x-scroll">
       <h2 class="text-xl text-center">Rettungswürfe</h2>
-      <hr class="opacity-20 pb-3" />
-      <table class="mx-3">
-        <tr class="text-xs">
+      <hr class="opacity-20 mb-3" />
+      <table>
+        <tr class="text-sheetHeader sm:text-xs text-center">
           <th></th>
           <th>Gesamt</th>
           <th>Grundbonus</th>
@@ -229,10 +229,28 @@ export default {
 
 <style scoped>
 td {
-  padding: 0rem 0.5rem;
-  padding-bottom: 1rem;
+  padding-right: 0.3rem;
+  padding-bottom: 0.5rem;
 }
 td:first-child {
-  width: 150px;
+  min-width: 100px;
+  font-size: 0.7rem;
+}
+
+@media (min-width: 640px) {
+  td {
+    padding-right: 0.5rem;
+    padding-bottom: 1rem;
+  }
+  td:first-child {
+    width: 150px;
+    font-size: 1rem;
+  }
+}
+.rettungswuerfe {
+  border: 3px inset #565d66;
+  background-color: #232a33;
+  background-image: url("../../assets/asfalt-dark.png");
+  background-repeat: repeat;
 }
 </style>

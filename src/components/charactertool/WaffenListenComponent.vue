@@ -20,10 +20,10 @@
                   py-1
                   text-2xl
                   bg-card
-                  border border-card
                   hover:bg-bg
                   cursor-pointer
                   select-none
+                  add
                 "
                 @click="passItem()"
               >
@@ -131,5 +131,11 @@ td {
 }
 .open {
   transform: rotate(90deg);
+}
+.add {
+  outline: 5px outset #00000033;
+}
+.add:hover {
+  outline: 5px inset #00000033;
 }
 </style>

@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="w-full bg-bg pt-6 px-3 md:pt-12 pb-36 md:pb-16 md:px-12 text-font"
-  >
+  <div class="w-full pt-6 px-3 md:pt-12 pb-36 md:pb-16 md:px-12 text-font">
     <div>
       <h2 class="text-4xl my-4 border-b">Barbar</h2>
       <p class="pb-6">

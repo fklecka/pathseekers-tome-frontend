@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full h-full bg-bg flex justify-center items-center pb-24">
+  <div class="w-full h-full flex justify-center items-center pb-24">
     <div class="m-auto w-screen px-4 sm:w-400 pt-50">
       <img
         src="../../assets/tome_logo_white.svg"

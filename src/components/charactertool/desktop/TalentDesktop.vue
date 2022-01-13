@@ -7,12 +7,13 @@
           py-1
           text-2xl
           bg-card
-          border border-card
           hover:bg-bg
           cursor-pointer
           select-none
+          add
         "
         @click="passTalent()"
+        v-bind:class="{ active: this.add === '-' }"
       >
         {{ this.add }}
       </div>
@@ -48,5 +49,16 @@ export default {
 <style scoped>
 td {
   padding: 10px;
+}
+.add {
+  outline: 5px outset #00000033;
+}
+.active {
+  border: none;
+  box-sizing: content-box;
+  background: #2c3540;
+  outline: 5px inset #00000033;
+  transform: translate(2px, 2px);
+  box-shadow: 0px 0px 0px #00000020;
 }
 </style>

@@ -9,6 +9,7 @@ module.exports = {
     extend: {
       fontSize: {
         xs2: ".3rem",
+        sheetHeader: ".5rem",
       },
       borderStyle: ["responsive", "hover"],
       colors: {

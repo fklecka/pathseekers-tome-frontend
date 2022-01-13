@@ -1,9 +1,9 @@
 <template>
-  <div class="flex w-80">
+  <div class="talente m-1 sm:m-3 px-1 sm:px-3 pb-3">
     <div class="text-white w-full">
       <h2 class="text-xl text-center">Talente</h2>
-      <hr class="opacity-20 pb-3" />
-      <ul>
+      <hr class="opacity-20 mb-3" />
+      <ul class="mx-1 md:mx-3">
         <li
           v-for="talent in charactersheetData.character.talents"
           v-bind:key="talent.id"
@@ -33,5 +33,11 @@ td {
 }
 td:first-child {
   width: 150px;
+}
+.talente {
+  border: 3px inset #565d66;
+  background-color: #232a33;
+  background-image: url("../../assets/asfalt-dark.png");
+  background-repeat: repeat;
 }
 </style>

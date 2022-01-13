@@ -3,7 +3,6 @@
     class="
       w-full
       h-app
-      bg-bg
       px-3
       sm:px-12
       pt-3
@@ -120,9 +119,15 @@ export default {
   user-select: none;
   transition: 0.2s;
   box-shadow: 5px 10px 5px #00000020;
+  border: 10px outset #00000033;
+  background-image: url("../assets/asfalt-dark.png");
+  background-repeat: repeat;
 }
 .newChar:hover {
   transform: translate(2px, 2px);
   box-shadow: 0px 0px 0px #00000020;
+}
+.newChar:active {
+  border: 10px inset #00000033;
 }
 </style>

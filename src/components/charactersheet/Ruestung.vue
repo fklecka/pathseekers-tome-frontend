@@ -11,8 +11,11 @@
         </tr>
       </table>
     </div>
-    <div class="flex overflow-hidden p-2 justify-between bg-bg" v-if="!hidden">
-      <table class="border-opacity-10 border-font border-t w-full">
+    <div
+      class="flex overflow-hidden p-2 justify-between bg-dark"
+      v-if="!hidden"
+    >
+      <table class="w-full">
         <tr>
           <td>Rüstungsbonus:</td>
           <td>{{ this.item.rüstungsbonus }}</td>

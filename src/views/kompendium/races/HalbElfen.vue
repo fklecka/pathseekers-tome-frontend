@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full bg-bg pt-6 px-3 md:px-0 md:pt-12 pb-36 md:pb-16 text-font">
+  <div class="w-full pt-6 px-3 md:px-0 md:pt-12 pb-36 md:pb-16 text-font">
     <div class="md:w-758">
       <h2 class="text-4xl my-4 border-b">Halb-Elfen</h2>
       <p class="pb-6">

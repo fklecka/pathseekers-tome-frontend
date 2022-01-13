@@ -13,7 +13,7 @@
     "
     @click="linkToCharactersheet()"
   >
-    <div class="w-20 h-20 opacity-80">
+    <div class="w-16 opacity-80">
       <img
         v-if="this.character.character.classAttributes.classname === 'Barbar'"
         src="../assets/classicons/barbarian.svg"
@@ -79,11 +79,11 @@
         {{ this.character.character.name }}
       </p>
       <div class="flex opacity-60">
-        <p class="border-r border-orange pr-3">Level 1</p>
-        <p class="border-r border-orange px-3">
+        <p class="border-r border-orange pr-3 text-sm">Level 1</p>
+        <p class="border-r border-orange px-3 text-sm">
           {{ this.character.character.classAttributes.classname }}
         </p>
-        <p class="pl-3">{{ this.character.character.race }}</p>
+        <p class="pl-3 text-sm">{{ this.character.character.race }}</p>
       </div>
     </div>
   </div>
@@ -115,9 +115,15 @@ export default {
   user-select: none;
   transition: 0.2s;
   box-shadow: 5px 10px 5px #00000020;
+  border: 10px outset #00000033;
+  background-image: url("../assets/asfalt-dark.png");
+  background-repeat: repeat;
 }
 .card:hover {
   transform: translate(2px, 2px);
   box-shadow: 0px 0px 0px #00000020;
+}
+.card:active {
+  border: 10px inset #00000033;
 }
 </style>

@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div class="waffen m-1 sm:m-3 px-1 sm:px-3 pb-3">
     <div class="text-white">
       <h2 class="text-xl text-center">Waffen</h2>
-      <hr class="opacity-20 pb-3" />
+      <hr class="opacity-20 mb-3" />
       <ul>
         <li
           v-for="waffe in charactersheetData.character.items.weapons"
@@ -38,5 +38,11 @@ td:first-child {
 }
 li:nth-child(even) {
   background-color: rgba(255, 255, 255, 0.05);
+}
+.waffen {
+  border: 3px inset #565d66;
+  background-color: #232a33;
+  background-image: url("../../assets/asfalt-dark.png");
+  background-repeat: repeat;
 }
 </style>

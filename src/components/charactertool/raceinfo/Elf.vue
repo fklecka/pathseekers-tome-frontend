@@ -63,15 +63,12 @@
       aus den folgenden Sprachen aussuchen: Celestisch, Drakonisch, Gnollisch,
       Gnomisch, Goblinisch, Orkisch und Sylvanisch.
     </p>
-
-    <custom-button />
   </div>
 </template>
 
 <script>
-import CustomButton from "../../CustomButton.vue";
 export default {
-  components: { CustomButton },
+  components: {},
   data: () => {
     return {
       attribute: "",

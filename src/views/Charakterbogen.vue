@@ -1,6 +1,5 @@
 <template>
-  <div class="w-full h-app bg-bg pt-3 pb-36 md:pt-16 overflow-y-scroll">
-    <div @click="this.deleteConfirm = true">LÖSCHEN</div>
+  <div class="pb-36 overflow-y-scroll sheet md:w-758 xl:w-auto mt-3">
     <confirm-modal
       v-if="deleteConfirm"
       @close="this.deleteConfirm = false"
@@ -10,15 +9,19 @@
       <template v-slot:confirm>Charakter löschen</template>
     </confirm-modal>
     <div>
-      <div class="flex flex-col xl:flex-row gap-3">
+      <sheet-menu
+        @delete="this.deleteConfirm = true"
+        @save="this.saveCharacter"
+      />
+      <div class="inline-block xl:flex gap-3">
         <attribute :passedAttributes="this.character.attributes" />
         <div>
           <bewegungsraten />
           <charaktereigenschaften />
         </div>
       </div>
-      <div class="flex flex-col xl:flex-row gap-3">
-        <div>
+      <div class="flex flex-col justify-between xl:flex-row gap-3">
+        <div class="flex flex-col">
           <rettungswuerfe />
           <kampfmanoever />
         </div>
@@ -35,16 +38,15 @@
           <div class="flex flex-col xl:flex-row gap-3">
             <div>
               <fertigkeiten />
+            </div>
+            <div class="w-full">
               <waffen />
               <ruestungsgegenstaende />
-            </div>
-            <div>
               <sprachen />
               <talente />
             </div>
           </div>
         </div>
-        <div></div>
       </div>
     </div>
   </div>
@@ -70,6 +72,7 @@ import ConfirmModal from "../components/ConfirmModal.vue";
 import { useToast } from "vue-toastification";
 import CharacterService from "../../services/CharacterService";
 import AuthService from "../../services/AuthService";
+import SheetMenu from "../components/charactersheet/Menu.vue";
 
 export default {
   data: () => {
@@ -78,6 +81,7 @@ export default {
     };
   },
   components: {
+    SheetMenu,
     Attribute,
     Bewegungsraten,
     Charaktereigenschaften,
@@ -127,8 +131,43 @@ export default {
         this.$store.state.isLoading = false;
       }
     },
+    async saveCharacter() {
+      const toast = useToast();
+      this.$store.state.isLoading = true;
+      const config = {
+        headers: {
+          headers: {
+            Authorization: AuthService.getFullToken(),
+          },
+        },
+      };
+      try {
+        const response = await CharacterService.updateCharacter(
+          this.$config.apiUrl,
+          this.character,
+          config
+        );
+        if (response.success) {
+          this.saved = true;
+          toast.success(response.success);
+        } else if (response.error) {
+          toast.error(response.error);
+        }
+      } catch (e) {
+        console.log(e);
+      } finally {
+        this.$store.state.isLoading = false;
+      }
+    },
   },
 };
 </script>
 
-<style></style>
+<style>
+.sheet {
+  border: 3px inset #565d66;
+}
+hr {
+  border: 1px inset #a7a7a7;
+}
+</style>

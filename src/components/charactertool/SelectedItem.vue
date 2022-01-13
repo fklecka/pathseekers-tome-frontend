@@ -13,7 +13,6 @@
 
       <div
         class="
-          rounded-full
           px-4
           py-1
           text-2xl
@@ -22,6 +21,7 @@
           hover:bg-bg
           cursor-pointer
           select-none
+          sub
         "
         @click="deleteItem()"
       >
@@ -61,5 +61,11 @@ td {
 }
 .active {
   background-color: #2c3540;
+}
+.sub {
+  outline: 5px outset #00000033;
+}
+.sub:hover {
+  outline: 5px inset #00000033;
 }
 </style>

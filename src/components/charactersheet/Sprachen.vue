@@ -1,8 +1,8 @@
 <template>
-  <div class="flex w-80">
+  <div class="sprachen m-1 sm:m-3 px-1 sm:px-3 pb-3">
     <div class="text-white w-full">
       <h2 class="text-xl text-center">Sprachen</h2>
-      <hr class="opacity-20 pb-3" />
+      <hr class="opacity-20 mb-3" />
       <ul>
         <li
           v-for="language in charactersheetData.character.language"
@@ -34,5 +34,11 @@ td {
 }
 td:first-child {
   width: 150px;
+}
+.sprachen {
+  border: 3px inset #565d66;
+  background-color: #232a33;
+  background-image: url("../../assets/asfalt-dark.png");
+  background-repeat: repeat;
 }
 </style>
