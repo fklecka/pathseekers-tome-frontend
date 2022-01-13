@@ -231,10 +231,10 @@ export default {
       processing: false,
       confirm: false,
       form: {
-        username: "test",
-        email: "test@test.com",
-        password: "password123",
-        password_confirmation: "password123",
+        username: "",
+        email: "",
+        password: "",
+        password_confirmation: "",
       },
       errors: {},
     };
