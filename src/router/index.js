@@ -1,6 +1,8 @@
 import { createRouter, createWebHistory } from "vue-router";
 import store from "../store/index";
 
+import NotFound from "../views/NotFound.vue";
+
 import CharacterOverview from "../views/CharacterOverview.vue";
 import Kompendium from "../views/kompendium/Kompendium.vue";
 import DashBoard from "../views/Dashboard.vue";
@@ -47,6 +49,8 @@ import Barbar from "../views/kompendium/classes/Barbar.vue";
 import Barde from "../views/kompendium/classes/Barde.vue";
 
 const routes = [
+  { path: "/404", component: NotFound },
+  { path: "/:pathMatch(.*)*", redirect: "/404" },
   {
     path: "/dashboard",
     component: DashBoard,
@@ -56,6 +60,7 @@ const routes = [
         name: "Home",
         component: Home,
       },
+
       {
         path: "/login",
         name: "Login",

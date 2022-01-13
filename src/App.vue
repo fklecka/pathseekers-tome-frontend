@@ -51,36 +51,34 @@ export default {
     }),
   },
   async mounted() {
-    if (!this.authenticated) {
-      if (AuthService.getRememberToken()) {
-        this.$store.state.isLoading = true;
-        const params = {
-          remember_token: null,
-        };
-        params.remember_token = AuthService.getRememberToken();
-        try {
-          const token = await AuthService.rememberLogin(config.apiUrl, params);
-          if (token) {
-            AuthService.setCookie(token);
-            const config = {
-              apiUrl: this.$config.apiUrl,
+    if (AuthService.getRememberToken()) {
+      this.$store.state.isLoading = true;
+      const params = {
+        remember_token: null,
+      };
+      params.remember_token = AuthService.getRememberToken();
+      try {
+        const token = await AuthService.rememberLogin(config.apiUrl, params);
+        if (token) {
+          AuthService.setCookie(token);
+          const config = {
+            apiUrl: this.$config.apiUrl,
+            headers: {
               headers: {
-                headers: {
-                  Authorization: AuthService.getFullToken(),
-                },
+                Authorization: AuthService.getFullToken(),
               },
-            };
-            this.getUser(config);
-          }
-        } catch (e) {
-          console.log(e);
-        } finally {
-          this.$store.state.isLoading = false;
+            },
+          };
+          await this.getUser(config);
         }
-      } else {
-        AuthService.logout();
-        this.logout();
+      } catch (e) {
+        console.log(e);
+      } finally {
+        this.$store.state.isLoading = false;
       }
+    } else {
+      AuthService.logout();
+      this.logout();
     }
   },
 };

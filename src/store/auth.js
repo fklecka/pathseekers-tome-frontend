@@ -38,9 +38,10 @@ export default {
           commit("SET_AUTHENTICATED", true);
           commit("SET_USER", response.data);
         })
-        .catch(() => {
+        .catch((e) => {
           commit("SET_AUTHENTICATED", false);
           commit("SET_USER", null);
+          throw e.response;
         });
     },
     logout({ commit }) {

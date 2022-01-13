@@ -16,7 +16,7 @@ const app = createApp(App);
 app
   .use(store)
   .use(router)
-  .use(Toast, { position: POSITION.BOTTOM_RIGHT })
+  .use(Toast, { position: POSITION.TOP_RIGHT })
   .mount("#app");
 
 app.config.globalProperties.$config = config;
