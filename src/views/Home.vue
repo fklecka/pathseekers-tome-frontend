@@ -178,7 +178,9 @@
         2xl:px-32
         border-t
         py-8
-        border-opacity-50
+        border-opacity-5
+        pb-12
+        md:pb-0
       "
     >
       <img
