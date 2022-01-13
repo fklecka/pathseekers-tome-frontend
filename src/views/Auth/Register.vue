@@ -17,6 +17,7 @@
               name="username"
               id="username"
               placeholder="Benutzername"
+              autocomplete="off"
               class="
                 w-full
                 h-10
@@ -37,6 +38,7 @@
               name="email"
               id="email"
               placeholder="E-Mail"
+              autocomplete="off"
               class="
                 w-full
                 h-10
@@ -58,6 +60,7 @@
               name="password"
               id="password"
               placeholder="Passwort"
+              autocomplete="off"
               class="
                 w-full
                 h-10
@@ -93,6 +96,7 @@
               name="confirmpassword"
               id="confirmpassword"
               placeholder="Passwort bestätigen"
+              autocomplete="off"
               class="
                 w-full
                 h-10
