@@ -20,7 +20,6 @@ module.exports = {
         card: "#565D66",
         cardlight: "rgba(256,256,256,0.15)",
         orange: "#F28241",
-        green: "#33A162",
       },
       padding: {
         50: "50px",

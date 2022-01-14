@@ -1,8 +1,23 @@
+/**
+ *
+ * Enthält Store Settings und Charakter Store
+ *
+ */
+
+/**
+ * Plugins importieren
+ */
 import { createStore } from "vuex";
 import auth from "./auth";
 import createPersistedState from "vuex-persistedstate";
 
 export default createStore({
+  /**
+   * Ladestatus
+   * Charaktere State
+   * Charakterbogen State
+   * Charakter Tool Zwischenspeicher
+   */
   state: {
     isLoading: false,
     characters: {},

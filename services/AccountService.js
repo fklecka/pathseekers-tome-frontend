@@ -1,6 +1,30 @@
+/**
+ * Account Service
+ *
+ * Enthält Funktionen der Account Page
+ *
+ * -Password reset Email versenden
+ * -Neues Passwort abschicken
+ * -Accountdaten ändern
+ * -Abo ändern
+ * -Account löschen
+ *
+ */
+
+/**
+ * Axios Plugin importieren
+ */
 import axios from "axios";
 
 export default class AccountService {
+  /**
+   * Passwort Reset Email versenden.
+   *
+   * @param {*} apiUrl
+   * @param {*} email
+   * @returns Success Messgage
+   * @return Error Message
+   */
   static async sendPasswordResetMail(apiUrl, email) {
     const apiEndpoint = `${apiUrl}/password/email`;
     const request = {
@@ -17,6 +41,17 @@ export default class AccountService {
       });
   }
 
+  /**
+   * Neues Passwort abschicken
+   *
+   * Enthält Token aus der URL, E-Mail und neues Passwort
+   *
+   * @param {*} apiUrl
+   * @param {*} form
+   * @param {*} headers
+   * @returns Success Message
+   * @returns Error Message
+   */
   static async resetPassword(apiUrl, form, { headers }) {
     const apiEndpoint = `${apiUrl}/password/reset`;
     return await axios
@@ -30,6 +65,17 @@ export default class AccountService {
       });
   }
 
+  /**
+   * Accountdaten ändern
+   *
+   * Enthält neuen Username oder neue E-Mail
+   *
+   * @param {*} apiUrl
+   * @param {*} form
+   * @param {*} headers
+   * @returns Success Message
+   * @returns Error Message
+   */
   static async editAccount(apiUrl, form, { headers }) {
     const apiEndpoint = `${apiUrl}/account/edit`;
     return await axios
@@ -39,10 +85,21 @@ export default class AccountService {
         return response;
       })
       .catch((e) => {
-        throw e;
+        throw e.response.data;
       });
   }
 
+  /**
+   * Abo ändern
+   *
+   * Enthält neues Abo
+   *
+   * @param {*} apiUrl
+   * @param {*} abo
+   * @param {*} headers
+   * @returns Success Message
+   * @returns Error Message
+   */
   static async changeAbo(apiUrl, abo, { headers }) {
     const apiEndpoint = `${apiUrl}/account/abo`;
     return await axios
@@ -52,10 +109,18 @@ export default class AccountService {
         return response;
       })
       .catch((e) => {
-        throw e;
+        throw e.response.data;
       });
   }
 
+  /**
+   * Account löschen
+   *
+   * @param {*} apiUrl
+   * @param {*} param1
+   * @returns Success Message
+   * @returns Error Message
+   */
   static async deleteAccount(apiUrl, { headers }) {
     const apiEndpoint = `${apiUrl}/account/delete`;
     return await axios
@@ -65,7 +130,7 @@ export default class AccountService {
         return response;
       })
       .catch((e) => {
-        throw e;
+        throw e.response.data;
       });
   }
 }

@@ -1,38 +1,98 @@
+/**
+ * Auth Service
+ *
+ * Enthält Funktionen zur Autorisierung und setzen von Cookies
+ *
+ * -Check ob Authorization Token gesetzt ist
+ * -Authorization Cookie setzen
+ * -Authorization Cookie und Remember Cookie entfernen
+ * -Authorization Cookie abrufen
+ * -Remember Cookie setzen
+ * -Remember Cookie abrufen
+ * -Bearer Token erstellen
+ * -User einloggen
+ * -User mit Remember Token einloggen
+ * -User registrieren
+ *
+ */
+
+/**
+ * Axios und Cookie Plugin importieren
+ */
 import Cookies from "js-cookie";
 import axios from "axios";
 
+/**
+ * Konstante für Authorization Token und Remember Token deklarieren
+ */
 const authCookieKey = "authorization-token";
-
 const rememberMeKey = "remember-me-token";
 
 export default class AuthService {
+  /**
+   * Check ob Authorization Token gesetzt ist
+   *
+   * @returns Authorization Cookie
+   */
   static isLoggedIn = () => !!Cookies.get(authCookieKey);
 
+  /**
+   * Authorization Cookie setzen
+   * @param {*} token
+   */
+  static setCookie = (token) => {
+    return Cookies.set(authCookieKey, token);
+  };
+
+  /**
+   * Authorization Cookie und Remember Cookie entfernen
+   */
   static logout = () => {
     Cookies.remove(authCookieKey);
     Cookies.remove(rememberMeKey);
   };
 
+  /**
+   * Authorization Cookie abrufen
+   */
   static getToken = () => {
     return Cookies.get(authCookieKey);
   };
 
+  /**
+   * Remember Cookie setzen
+   * @param {*} token
+   */
   static setRememberToken = (token) => {
     return Cookies.set(rememberMeKey, token);
   };
 
+  /**
+   * Remember Cookie abrufen
+   */
   static getRememberToken = () => {
     return Cookies.get(rememberMeKey);
   };
 
-  static setCookie = (token) => {
-    return Cookies.set(authCookieKey, token);
-  };
-
+  /**
+   * Bearer Token erstellen
+   *
+   * @returns Bearer Token
+   */
   static getFullToken = () => {
     return `Bearer ${Cookies.get(authCookieKey)}`;
   };
 
+  /**
+   * User einloggen
+   *
+   * @param {*} apiUrl
+   * @param {*} params
+   * @returns Authorization Token
+   * @returns Remember Token wenn gewählt
+   * @returns Success Message
+   * @returns Error Message
+   */
   static async login(apiUrl, params) {
     const apiEndpoint = `${apiUrl}/login`;
     const returnValues = {
@@ -55,9 +115,15 @@ export default class AuthService {
       });
   }
 
+  /**
+   * User mit Remember Token einloggen
+   *
+   * @param {*} apiUrl
+   * @param {*} token
+   * @returns Authorization Token
+   */
   static async rememberLogin(apiUrl, token) {
     const apiEndpoint = `${apiUrl}/remember`;
-
     return await axios
       .post(apiEndpoint, token)
       .then((resp) => {
@@ -69,6 +135,13 @@ export default class AuthService {
       });
   }
 
+  /**
+   * User registrieren
+   *
+   * @param {*} apiUrl
+   * @param {*} params
+   * @returns Authorization Token
+   */
   static async register(apiUrl, params) {
     const apiEndpoint = `${apiUrl}/register`;
     return await axios
