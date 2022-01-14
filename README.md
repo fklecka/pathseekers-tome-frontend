@@ -1,4 +1,4 @@
-# Pathseeker's Tome
+# Pathseeker's Tome Frontend
 
 _Digitales Toolset für Pathfinder First Edition_
 
