@@ -72,7 +72,6 @@
       können sich noch weitere aus den folgenden Sprachen aussuchen: Drakonisch,
       Elfisch, Goblinisch, Orkisch, Riesisch und Zwergisch.
     </p>
-    <custom-button />
   </div>
 </template>
 

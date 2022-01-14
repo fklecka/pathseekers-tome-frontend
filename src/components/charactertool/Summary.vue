@@ -127,9 +127,6 @@
 <script>
 export default {
   props: ["character"],
-  created() {
-    console.log(this.character);
-  },
   computed: {
     calcStMod() {
       return Math.floor(

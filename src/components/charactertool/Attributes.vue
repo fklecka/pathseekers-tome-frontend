@@ -19,37 +19,67 @@
     </p>
     <div class="bg-white bg-opacity-5 p-3 md:p-6 my-6">
       <p class="pb-6 text-center text-xl">Wähle einen Kampagnentyp</p>
-      <div
-        class="flex flex-col space-y-3 md:space-y-0 md:flex-row justify-between"
-      >
-        <custom-button
-          class="bg-card border border-card hover:bg-bg text-center"
-          @click="setCampaignType('low')"
-          v-bind:class="{ active: campaignType === 'low' }"
-          >Low Fantasy <br />
-          <strong>10 Punkte</strong></custom-button
-        >
-        <custom-button
-          class="bg-card border border-card hover:bg-bg text-center"
-          @click="setCampaignType('standard')"
-          v-bind:class="{ active: campaignType === 'standard' }"
-          >Standard Fantasy <br />
-          <strong>15 Punkte</strong></custom-button
-        >
-        <custom-button
-          class="bg-card border border-card hover:bg-bg text-center"
-          @click="setCampaignType('high')"
-          v-bind:class="{ active: campaignType === 'high' }"
-          >High Fantasy <br />
-          <strong>20 Punkte</strong></custom-button
-        >
-        <custom-button
-          class="bg-card border border-card hover:bg-bg text-center"
-          @click="setCampaignType('epic')"
-          v-bind:class="{ active: campaignType === 'epic' }"
-          >Epic Fantasy <br />
-          <strong>25 Punkte</strong></custom-button
-        >
+      <div class="flex flex-col md:flex-row gap-3">
+        <div class="flex gap-3 flex-wrap">
+          <custom-button
+            class="
+              bg-card
+              border border-card
+              hover:bg-bg
+              text-center
+              w-full
+              xl:w-auto
+            "
+            @click="setCampaignType('low')"
+            v-bind:class="{ active: campaignType === 'low' }"
+            >Low Fantasy <br />
+            <strong>10 Punkte</strong></custom-button
+          >
+          <custom-button
+            class="
+              bg-card
+              border border-card
+              hover:bg-bg
+              text-center
+              w-full
+              xl:w-auto
+            "
+            @click="setCampaignType('standard')"
+            v-bind:class="{ active: campaignType === 'standard' }"
+            >Standard Fantasy <br />
+            <strong>15 Punkte</strong></custom-button
+          >
+        </div>
+        <div class="flex gap-3 flex-wrap">
+          <custom-button
+            class="
+              bg-card
+              border border-card
+              hover:bg-bg
+              text-center
+              w-full
+              xl:w-auto
+            "
+            @click="setCampaignType('high')"
+            v-bind:class="{ active: campaignType === 'high' }"
+            >High Fantasy <br />
+            <strong>20 Punkte</strong></custom-button
+          >
+          <custom-button
+            class="
+              bg-card
+              border border-card
+              hover:bg-bg
+              text-center
+              w-full
+              xl:w-auto
+            "
+            @click="setCampaignType('epic')"
+            v-bind:class="{ active: campaignType === 'epic' }"
+            >Epic Fantasy <br />
+            <strong>25 Punkte</strong></custom-button
+          >
+        </div>
       </div>
       <div class="pt-12">
         <p class="pb-6 text-center text-xl">Verteile die Attributspunkte</p>
@@ -68,7 +98,7 @@
               <th>Kosten</th>
             </tr>
             <tr>
-              <td class="text-sm md:text-base"><strong>Stärke</strong></td>
+              <td class="text-xs md:text-base"><strong>Stärke</strong></td>
               <td>{{ sum.st }}</td>
               <td>{{ Math.floor((sum.st - 10) / 2) }}</td>
               <td>{{ costs.st }}</td>
@@ -92,7 +122,7 @@
               </td>
             </tr>
             <tr>
-              <td class="text-sm md:text-base">
+              <td class="text-xs md:text-base">
                 <strong>Geschicklichkeit</strong>
               </td>
               <td>{{ sum.ge }}</td>
@@ -118,7 +148,7 @@
               </td>
             </tr>
             <tr>
-              <td class="text-sm md:text-base">
+              <td class="text-xs md:text-base">
                 <strong>Konstitution</strong>
               </td>
               <td>{{ sum.kon }}</td>
@@ -144,7 +174,7 @@
               </td>
             </tr>
             <tr>
-              <td class="text-sm md:text-base"><strong>Intelligenz</strong></td>
+              <td class="text-xs md:text-base"><strong>Intelligenz</strong></td>
               <td>{{ sum.int }}</td>
               <td>{{ Math.floor((sum.int - 10) / 2) }}</td>
               <td>{{ costs.int }}</td>
@@ -168,7 +198,7 @@
               </td>
             </tr>
             <tr>
-              <td class="text-sm md:text-base"><strong>Weisheit</strong></td>
+              <td class="text-xs md:text-base"><strong>Weisheit</strong></td>
               <td>{{ sum.wei }}</td>
               <td>{{ Math.floor((sum.wei - 10) / 2) }}</td>
               <td>{{ costs.wei }}</td>
@@ -192,7 +222,7 @@
               </td>
             </tr>
             <tr>
-              <td class="text-sm md:text-base"><strong>Charisma</strong></td>
+              <td class="text-xs md:text-base"><strong>Charisma</strong></td>
               <td>{{ sum.ch }}</td>
               <td>{{ Math.floor((sum.ch - 10) / 2) }}</td>
               <td>{{ costs.ch }}</td>

@@ -115,7 +115,7 @@ export default {
   user-select: none;
   transition: 0.2s;
   box-shadow: 5px 10px 5px #00000020;
-  border: 10px outset #00000033;
+  border: 10px outset #35353542;
   background-image: url("../assets/asfalt-dark.png");
   background-repeat: repeat;
 }
@@ -124,6 +124,6 @@ export default {
   box-shadow: 0px 0px 0px #00000020;
 }
 .card:active {
-  border: 10px inset #00000033;
+  border: 10px inset #35353542;
 }
 </style>

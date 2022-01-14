@@ -74,8 +74,6 @@
       sich noch weitere aus den folgenden Sprachen aussuchen: Riesisch,
       Gnomisch, Goblinisch, Orkisch, Terral und Finsterländisch.
     </p>
-
-    <custom-button />
   </div>
 </template>
 

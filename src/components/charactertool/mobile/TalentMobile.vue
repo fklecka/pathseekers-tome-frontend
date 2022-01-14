@@ -2,31 +2,30 @@
   <tr class="w-full cursor-pointer select-none" @click="openCard()">
     <td class="w-full flex justify-between items-center">
       <div class="flex items-center">
-        <div
-          class="
-            px-4
-            py-1
-            text-2xl
-            bg-card
-            border border-card
-            hover:bg-bg
-            cursor-pointer
-            select-none
-            w-12
-            h-12
-            mr-3
-            flex
-            justify-center
-            items-center
-          "
-          @click="passTalent()"
-        >
-          {{ this.add }}
-        </div>
+        <span class="transition mr-3" v-bind:class="{ open: !hidden }">></span>
         {{ this.item.name }}
       </div>
-
-      <span class="transition" v-bind:class="{ open: !hidden }">></span>
+      <div
+        class="
+          px-4
+          py-1
+          text-2xl
+          bg-card
+          border border-card
+          hover:bg-bg
+          cursor-pointer
+          select-none
+          w-12
+          h-12
+          mr-3
+          flex
+          justify-center
+          items-center
+        "
+        @click="passTalent()"
+      >
+        {{ this.add }}
+      </div>
     </td>
 
     <div

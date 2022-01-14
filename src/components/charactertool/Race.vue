@@ -9,45 +9,94 @@
     </p>
     <div class="bg-white bg-opacity-5 py-6 md:px-24 my-6">
       <p class="pb-6 text-center text-xl">Wähle ein Volk</p>
-      <div class="flex flex-wrap space gap-6 justify-center">
+      <div class="flex flex-wrap space gap-6 px-3 justify-center">
         <custom-button
-          class="bg-card border border-card hover:bg-bg"
+          class="
+            bg-card
+            border border-card
+            hover:bg-bg
+            w-full
+            md:w-36
+            text-center
+          "
           @click="setAndPassRace('Mensch')"
           v-bind:class="{ active: race.name === 'Mensch' }"
           >Mensch</custom-button
         >
         <custom-button
-          class="bg-card border border-card hover:bg-bg"
+          class="
+            bg-card
+            border border-card
+            hover:bg-bg
+            w-full
+            md:w-36
+            text-center
+          "
           @click="setAndPassRace('Elf')"
           v-bind:class="{ active: race.name === 'Elf' }"
           >Elf</custom-button
         >
         <custom-button
-          class="bg-card border border-card hover:bg-bg"
+          class="
+            bg-card
+            border border-card
+            hover:bg-bg
+            w-full
+            md:w-36
+            text-center
+          "
           @click="setAndPassRace('Halb-Elf')"
           v-bind:class="{ active: race.name === 'Halb-Elf' }"
           >Halb-Elf</custom-button
         >
         <custom-button
-          class="bg-card border border-card hover:bg-bg"
+          class="
+            bg-card
+            border border-card
+            hover:bg-bg
+            w-full
+            md:w-36
+            text-center
+          "
           @click="setAndPassRace('Zwerg')"
           v-bind:class="{ active: race.name === 'Zwerg' }"
           >Zwerg</custom-button
         >
         <custom-button
-          class="bg-card border border-card hover:bg-bg"
+          class="
+            bg-card
+            border border-card
+            hover:bg-bg
+            w-full
+            md:w-36
+            text-center
+          "
           @click="setAndPassRace('Gnom')"
           v-bind:class="{ active: race.name === 'Gnom' }"
           >Gnom</custom-button
         >
         <custom-button
-          class="bg-card border border-card hover:bg-bg"
+          class="
+            bg-card
+            border border-card
+            hover:bg-bg
+            w-full
+            md:w-36
+            text-center
+          "
           @click="setAndPassRace('Halb-Ork')"
           v-bind:class="{ active: race.name === 'Halb-Ork' }"
           >Halb-Ork</custom-button
         >
         <custom-button
-          class="bg-card border border-card hover:bg-bg"
+          class="
+            bg-card
+            border border-card
+            hover:bg-bg
+            w-full
+            md:w-36
+            text-center
+          "
           @click="setAndPassRace('Halbling')"
           v-bind:class="{ active: race.name === 'Halbling' }"
           >Halbling</custom-button

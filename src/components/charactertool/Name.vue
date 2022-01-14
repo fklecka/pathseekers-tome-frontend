@@ -14,17 +14,7 @@
         </p>
         <input
           type="text"
-          class="
-            w-full
-            h-10
-            px-5
-            text-xl
-            border
-            email
-            bg-bg
-            rounded-2xl
-            text-center
-          "
+          class="w-full h-10 px-5 text-xl border email bg-bg text-center"
           name="name"
           id="name"
           @input="passName"
@@ -88,5 +78,8 @@ export default {
   border: 5px inset #00000033;
   transform: translate(2px, 2px);
   box-shadow: 0px 0px 0px #00000020;
+}
+input {
+  border: 3px inset #565d66;
 }
 </style>

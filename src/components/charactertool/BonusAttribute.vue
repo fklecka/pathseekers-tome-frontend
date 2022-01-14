@@ -1,51 +1,49 @@
 <template>
-  <div class="bg-white bg-opacity-5 py-6 px-24 my-6">
+  <div class="bg-white bg-opacity-5 py-6 px-10 my-6">
     <p class="pb-6 text-center text-xl">Wähle ein Bonusattribut</p>
-    <div class="flex space-x-3 pb-6 justify-between">
-      <custom-button
+    <div class="flex flex-wrap gap-3 justify-center">
+      <attribute-card
+        :title="'Stärke'"
         class="bg-card border border-card hover:bg-bg text-center"
         @click="setAndPassAttribute('Stärke')"
         v-bind:class="{ active: attribute === 'Stärke' }"
-        >Stärke</custom-button
-      >
-      <custom-button
+      />
+      <attribute-card
+        :title="'Geschicklichkeit'"
         class="bg-card border border-card hover:bg-bg text-center"
         @click="setAndPassAttribute('Geschicklichkeit')"
         v-bind:class="{ active: attribute === 'Geschicklichkeit' }"
-        >Geschicklichkeit</custom-button
-      >
-      <custom-button
+      />
+      <attribute-card
+        :title="'Konstitution'"
         class="bg-card border border-card hover:bg-bg text-center"
         @click="setAndPassAttribute('Konstitution')"
         v-bind:class="{ active: attribute === 'Konstitution' }"
-        >Konstitution</custom-button
-      >
-    </div>
-    <div class="flex space-x-3 justify-between">
-      <custom-button
+      />
+      <attribute-card
+        :title="'Intelligenz'"
         class="bg-card border border-card hover:bg-bg text-center"
         @click="setAndPassAttribute('Intelligenz')"
         v-bind:class="{ active: attribute === 'Intelligenz' }"
-        >Intelligenz</custom-button
-      >
-      <custom-button
+      />
+      <attribute-card
+        :title="'Weisheit'"
         class="bg-card border border-card hover:bg-bg text-center"
         @click="setAndPassAttribute('Weisheit')"
         v-bind:class="{ active: attribute === 'Weisheit' }"
-        >Weisheit</custom-button
-      >
-      <custom-button
+      />
+      <attribute-card
+        :title="'Charisma'"
         class="bg-card border border-card hover:bg-bg text-center"
         @click="setAndPassAttribute('Charisma')"
         v-bind:class="{ active: attribute === 'Charisma' }"
-        >Charisma</custom-button
-      >
+      />
     </div>
   </div>
 </template>
 
 <script>
-import CustomButton from "../CustomButton";
+import AttributeCard from "../charactertool/AttributeCard.vue";
 export default {
   data: () => {
     return {
@@ -60,7 +58,7 @@ export default {
       },
     };
   },
-  components: { CustomButton },
+  components: { AttributeCard },
   methods: {
     setAndPassAttribute(value) {
       this.attribute = value;
@@ -83,7 +81,6 @@ export default {
         this.clearAttributes();
         this.bonusAttributes.ch = 2;
       }
-      console.log(this.bonusAttributes, "Bonus Attribute Component");
       this.$emit("setAndPassAttribute", this.bonusAttributes);
     },
     clearAttributes() {

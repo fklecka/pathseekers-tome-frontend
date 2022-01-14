@@ -61,7 +61,6 @@
       jede andere Sprache zusätzlich auswählen (mit Ausnahme geheimer Sprachen
       wie Druidisch).
     </p>
-    <custom-button />
   </div>
 </template>
 
@@ -84,7 +83,6 @@ export default {
   methods: {
     getAndPassBonusAttributes(attributes) {
       this.bonusAttributes = attributes;
-      console.log(this.bonusAttributes, "Mensch Component");
       this.$emit("passBonusAttributes", this.bonusAttributes);
     },
   },

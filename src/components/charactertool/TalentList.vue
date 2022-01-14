@@ -56,7 +56,6 @@ export default {
       } else {
         this.talents.push(talent);
       }
-      console.log(this.talents);
       this.passTalents();
     },
     passTalents() {

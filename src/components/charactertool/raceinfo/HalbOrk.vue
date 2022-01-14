@@ -59,7 +59,6 @@
       sich noch weitere aus den folgenden Sprachen aussuchen: Drakonisch,
       Riesisch, Gnollisch, Goblinisch und Abyssisch.
     </p>
-    <custom-button />
   </div>
 </template>
 

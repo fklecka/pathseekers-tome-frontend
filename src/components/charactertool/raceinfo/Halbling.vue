@@ -56,7 +56,6 @@
       können sich noch weitere aus den folgenden Sprachen aussuchen: Elfisch,
       Gnomisch, Goblinisch und Zwergisch.
     </p>
-    <custom-button />
   </div>
 </template>
 

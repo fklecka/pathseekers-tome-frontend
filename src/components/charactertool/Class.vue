@@ -108,7 +108,6 @@ export default {
       } else {
         this.classAttributes.bonusSkill = 0;
       }
-      console.log(this.classAttributes.hp);
       this.passClass();
     },
     passClass() {
