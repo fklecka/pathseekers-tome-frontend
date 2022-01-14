@@ -1,5 +1,15 @@
 <template>
-  <div class="w-full bg-bg overflow-y-scroll text-font">
+  <div
+    class="
+      w-full
+      bg-white bg-opacity-5
+      overflow-y-scroll
+      text-font
+      p-6
+      mb-6
+      inputhighlight
+    "
+  >
     <h2 class="font-headline text-4xl text-center">Zusammenfassung</h2>
     <div class="flex flex-col md:flex-row items-center gap-12 pt-12">
       <div class="md:w-2/4 w-full">

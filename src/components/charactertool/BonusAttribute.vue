@@ -6,37 +6,39 @@
         :title="'Stärke'"
         class="bg-card border border-card hover:bg-bg text-center"
         @click="setAndPassAttribute('Stärke')"
-        v-bind:class="{ active: attribute === 'Stärke' }"
+        v-bind:class="{ active: bonusAttributes.attribute === 'Stärke' }"
       />
       <attribute-card
         :title="'Geschicklichkeit'"
         class="bg-card border border-card hover:bg-bg text-center"
         @click="setAndPassAttribute('Geschicklichkeit')"
-        v-bind:class="{ active: attribute === 'Geschicklichkeit' }"
+        v-bind:class="{
+          active: bonusAttributes.attribute === 'Geschicklichkeit',
+        }"
       />
       <attribute-card
         :title="'Konstitution'"
         class="bg-card border border-card hover:bg-bg text-center"
         @click="setAndPassAttribute('Konstitution')"
-        v-bind:class="{ active: attribute === 'Konstitution' }"
+        v-bind:class="{ active: bonusAttributes.attribute === 'Konstitution' }"
       />
       <attribute-card
         :title="'Intelligenz'"
         class="bg-card border border-card hover:bg-bg text-center"
         @click="setAndPassAttribute('Intelligenz')"
-        v-bind:class="{ active: attribute === 'Intelligenz' }"
+        v-bind:class="{ active: bonusAttributes.attribute === 'Intelligenz' }"
       />
       <attribute-card
         :title="'Weisheit'"
         class="bg-card border border-card hover:bg-bg text-center"
         @click="setAndPassAttribute('Weisheit')"
-        v-bind:class="{ active: attribute === 'Weisheit' }"
+        v-bind:class="{ active: bonusAttributes.attribute === 'Weisheit' }"
       />
       <attribute-card
         :title="'Charisma'"
         class="bg-card border border-card hover:bg-bg text-center"
         @click="setAndPassAttribute('Charisma')"
-        v-bind:class="{ active: attribute === 'Charisma' }"
+        v-bind:class="{ active: bonusAttributes.attribute === 'Charisma' }"
       />
     </div>
   </div>
@@ -44,11 +46,12 @@
 
 <script>
 import AttributeCard from "../charactertool/AttributeCard.vue";
+import { mapGetters } from "vuex";
 export default {
   data: () => {
     return {
-      attribute: "",
       bonusAttributes: {
+        attribute: "",
         st: 0,
         ge: 0,
         kon: 0,
@@ -61,7 +64,6 @@ export default {
   components: { AttributeCard },
   methods: {
     setAndPassAttribute(value) {
-      this.attribute = value;
       if (value === "Stärke") {
         this.clearAttributes();
         this.bonusAttributes.st = 2;
@@ -81,10 +83,15 @@ export default {
         this.clearAttributes();
         this.bonusAttributes.ch = 2;
       }
+      this.bonusAttributes.attribute = value;
+      this.passAttribute();
+    },
+    passAttribute() {
       this.$emit("setAndPassAttribute", this.bonusAttributes);
     },
     clearAttributes() {
       this.bonusAttributes = {
+        attribute: "",
         st: 0,
         ge: 0,
         kon: 0,
@@ -93,6 +100,22 @@ export default {
         ch: 0,
       };
     },
+  },
+  computed: {
+    ...mapGetters({
+      charactertoolData: "charactertoolData",
+    }),
+  },
+  mounted() {
+    if (
+      this.charactertoolData.race === "Mensch" ||
+      this.charactertoolData.race === "Halb-Elf" ||
+      this.charactertoolData.race === "Halb-Ork"
+    ) {
+      this.setAndPassAttribute(
+        this.charactertoolData.attributes.raceBonusAttributes.attribute
+      );
+    }
   },
 };
 </script>

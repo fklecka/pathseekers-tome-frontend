@@ -14,7 +14,7 @@
         :url="require('../../../assets/classicons/bard.svg')"
       />
     </router-link>
-    <router-link to="/">
+    <router-link to="/kompendium/classes/druide">
       <category-card
         class="flex-grow-0"
         title="Druide"
@@ -28,7 +28,7 @@
         :url="require('../../../assets/classicons/warlock.svg')"
       />
     </router-link>
-    <router-link to="/">
+    <router-link to="/kompendium/classes/kaempfer">
       <category-card
         class="flex-grow-0"
         title="Kämpfer"

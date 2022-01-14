@@ -212,8 +212,8 @@ td:first-child {
 
 @media (min-width: 640px) {
   td {
-    padding: 0.5rem 0.5rem;
-    padding-bottom: 1rem;
+    padding: 0.3rem 0.3rem;
+    padding-bottom: 0rem;
   }
   td:first-child {
     width: 150px;

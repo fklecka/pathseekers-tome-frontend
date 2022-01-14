@@ -1,7 +1,7 @@
 <template>
-  <tr class="w-full cursor-pointer select-none" @click="openCard()">
+  <tr class="w-full cursor-pointer select-none">
     <td class="w-full flex justify-between items-center">
-      <div class="flex items-center">
+      <div class="flex items-center" @click="openCard()">
         <span class="transition mr-3" v-bind:class="{ open: !hidden }">></span>
         {{ this.item.name }}
       </div>
@@ -24,7 +24,7 @@
         "
         @click="passTalent()"
       >
-        {{ this.add }}
+        {{ button }}
       </div>
     </td>
 
@@ -51,12 +51,12 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 export default {
   props: ["item"],
   data: () => {
     return {
       hidden: true,
-      add: "+",
     };
   },
   methods: {
@@ -65,10 +65,17 @@ export default {
     },
     passTalent() {
       this.$emit("passTalent", this.item.name);
-      if (this.add === "-") {
-        this.add = "+";
+    },
+  },
+  computed: {
+    ...mapGetters({
+      charactertoolData: "charactertoolData",
+    }),
+    button() {
+      if (this.charactertoolData.talents.includes(this.item.name)) {
+        return "-";
       } else {
-        this.add = "-";
+        return "+";
       }
     },
   },

@@ -13,9 +13,9 @@
           add
         "
         @click="passTalent()"
-        v-bind:class="{ active: this.add === '-' }"
+        v-bind:class="{ active: button === '-' }"
       >
-        {{ this.add }}
+        {{ button }}
       </div>
     </td>
     <td class="hidden md:table-cell">{{ this.item.name }}</td>
@@ -26,22 +26,26 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 export default {
   props: ["item"],
   methods: {
     passTalent() {
       this.$emit("passTalent", this.item.name);
-      if (this.add === "-") {
-        this.add = "+";
-      } else {
-        this.add = "-";
-      }
     },
   },
-  data: () => {
-    return {
-      add: "+",
-    };
+
+  computed: {
+    ...mapGetters({
+      charactertoolData: "charactertoolData",
+    }),
+    button() {
+      if (this.charactertoolData.talents.includes(this.item.name)) {
+        return "-";
+      } else {
+        return "+";
+      }
+    },
   },
 };
 </script>

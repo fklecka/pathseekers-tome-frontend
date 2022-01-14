@@ -19,17 +19,7 @@
             <label for="username" class="text-xl"> Benutzername </label>
             <input
               type="text"
-              class="
-                w-full
-                h-10
-                px-5
-                text-xl
-                border
-                mb-6
-                email
-                bg-bg
-                rounded-2xl
-              "
+              class="w-full h-10 px-5 text-xl border mb-6 email bg-cardlight"
               name="username"
               id="username"
               v-model="this.form.username"
@@ -39,17 +29,7 @@
             <label for="email" class="text-xl"> E-Mail </label>
             <input
               type="text"
-              class="
-                w-full
-                mb-6
-                h-10
-                px-5
-                text-xl
-                border
-                email
-                bg-bg
-                rounded-2xl
-              "
+              class="w-full mb-6 h-10 px-5 text-xl border email bg-cardlight"
               name="email"
               id="email"
               v-model="this.form.email"
@@ -59,17 +39,7 @@
             <label for="name" class="text-xl"> E-Mail bestätigen </label>
             <input
               type="text"
-              class="
-                w-full
-                mb-6
-                h-10
-                px-5
-                text-xl
-                border
-                email
-                bg-bg
-                rounded-2xl
-              "
+              class="w-full mb-6 h-10 px-5 text-xl border email bg-cardlight"
               name="email_confirm"
               id="email_confirm"
               v-model="this.form.email_confirmation"
@@ -145,4 +115,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+input {
+  border: 3px inset #565d66;
+}
+</style>

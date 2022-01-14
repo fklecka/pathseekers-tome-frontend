@@ -12,19 +12,15 @@
       "
     />
     <div>
-      <steps-progress-bar
-        :options="progressOptions"
-        ref="progress"
-        class="mb-6"
-      />
+      <steps-progress-bar :options="progressOptions" ref="progress" />
     </div>
-    <div class="flex flex-col-reverse md:flex-row justify-center">
+    <div class="flex flex-col-reverse md:flex-row justify-center gap-3">
       <info-box
         :character="character"
         class="md:sticky top-0 w-full md:w-80 mt-16 md:mt-0"
         v-if="this.step !== 8"
       />
-      <div class="md:w-758 px-3">
+      <div class="md:w-758 p-1 py-6 md:p-6 stage flex flex-col justify-between">
         <intro v-if="this.step === 0" />
         <name
           v-if="this.step === 1"
@@ -50,22 +46,43 @@
           :money="this.character.money"
         />
         <sum v-if="this.step === 8" :character="this.character" />
-        <div class="relative pt-6">
+        <div class="relative pt-12">
           <custom-button
             v-if="step > 0"
-            class="bg-card border border-card hover:bg-bg absolute left-0"
+            class="
+              bg-card
+              border border-card
+              hover:bg-bg
+              absolute
+              left-0
+              bottom-0
+            "
             @click="stepDown()"
             >Zurück</custom-button
           >
           <custom-button
             v-if="step < 8"
-            class="bg-card border border-card hover:bg-bg absolute right-0"
+            class="
+              bg-card
+              border border-card
+              hover:bg-bg
+              absolute
+              right-0
+              bottom-0
+            "
             @click="stepUp()"
             >Weiter</custom-button
           >
           <custom-button
             v-if="step === 8"
-            class="bg-card border border-card hover:bg-bg absolute right-0"
+            class="
+              bg-card
+              border border-card
+              hover:bg-bg
+              absolute
+              right-0
+              bottom-0
+            "
             @click="saveCharacter()"
             >Charakter Speichern</custom-button
           >
@@ -101,7 +118,7 @@ export default {
       newCharacterModal: false,
       saved: false,
       progressOptions: {
-        maxWidth: "75%",
+        maxWidth: "65%",
         nodeWidth: 40,
         nodeHeight: 40,
         barHeight: 3,
@@ -133,15 +150,13 @@ export default {
           {
             content: "Ausrüstung",
           },
-          {
-            content: "Zusammenfassung",
-          },
         ],
       },
       character: {
         name: "",
         gender: "",
         race: "",
+        campaignType: "",
         sizeMod: 0,
         speed: 0,
         money: 0,
@@ -156,13 +171,23 @@ export default {
           next: 0,
         },
         attributes: {
+          campaignType: "standard",
           st: 10,
           ge: 10,
           kon: 10,
           int: 10,
           wei: 10,
           ch: 10,
+          costs: {
+            st: 0,
+            ge: 0,
+            kon: 0,
+            int: 0,
+            wei: 0,
+            ch: 0,
+          },
           raceBonusAttributes: {
+            attribute: "",
             st: 0,
             ge: 0,
             kon: 0,
@@ -231,7 +256,10 @@ export default {
         },
         talents: [],
         language: [],
-        items: {},
+        items: {
+          weapons: {},
+          armor: {},
+        },
       },
     };
   },
@@ -261,11 +289,13 @@ export default {
       this.step += 1;
       this.$refs.progress.next();
       this.$el.scrollTop = 0;
+      this.setCharactertoolData(this.character);
     },
     stepDown() {
       this.step -= 1;
       this.$refs.progress.prev();
       this.$el.scrollTop = 0;
+      this.setCharactertoolData(this.character);
     },
     getName(name) {
       this.character.name = name;
@@ -286,6 +316,8 @@ export default {
       this.character.attributes.int = attributes.int;
       this.character.attributes.wei = attributes.wei;
       this.character.attributes.ch = attributes.ch;
+      this.character.attributes.costs = attributes.costs;
+      this.character.campaignType = attributes.campaignType;
     },
     getClass(classInfo) {
       this.character.classAttributes.classname = classInfo.classname;
@@ -302,7 +334,6 @@ export default {
     },
     getSkills(skills) {
       this.character.skills = skills;
-      console.log(this.character.skills);
     },
     getTalents(talents) {
       this.character.talents = talents;
@@ -358,13 +389,13 @@ export default {
         this.progressOptions.nodeWidth = 40;
         this.progressOptions.nodeHeight = 40;
       } else {
-        this.progressOptions.nodeWidth = 30;
-        this.progressOptions.nodeHeight = 30;
+        this.progressOptions.nodeWidth = 35;
+        this.progressOptions.nodeHeight = 35;
       }
     },
   },
   created() {
-    if (Object.keys(this.charactertoolData) !== 0) {
+    if (Object.entries(this.charactertoolData).length !== 0) {
       this.newCharacterModal = true;
     }
     this.onResize();
@@ -378,4 +409,15 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.stage {
+  border: 3px inset #565d66;
+  background-image: url("../assets/asfalt-dark.png");
+  background-repeat: repeat;
+}
+.inputhighlight {
+  border: 3px outset #565d66;
+  background-image: url("../assets/asfalt-dark.png");
+  background-repeat: repeat;
+}
+</style>

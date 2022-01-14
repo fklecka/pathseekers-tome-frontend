@@ -7,7 +7,7 @@
       Wir beginnen damit dem Charakter einen Namen zu geben und sein Geschlecht
       zu bestimmen.
     </p>
-    <div class="bg-white bg-opacity-5 py-6 px-3 md:px-24 my-6">
+    <div class="bg-white bg-opacity-5 py-6 px-3 md:px-24 my-6 inputhighlight">
       <div class="pb-12">
         <p class="pb-6 text-center text-xl">
           Wie lautet der Name deines Charakters?
@@ -52,6 +52,7 @@
 
 <script>
 import CustomButton from "../CustomButton.vue";
+import { mapGetters } from "vuex";
 export default {
   components: { CustomButton },
   data: () => {
@@ -68,6 +69,20 @@ export default {
       this.gender = value;
       this.$emit("setAndPassGender", this.gender);
     },
+  },
+  computed: {
+    ...mapGetters({
+      user: "auth/user",
+      charactertoolData: "charactertoolData",
+    }),
+  },
+  mounted() {
+    if (this.charactertoolData.name) {
+      this.name = this.charactertoolData.name;
+    }
+    if (this.charactertoolData.gender) {
+      this.gender = this.charactertoolData.gender;
+    }
   },
 };
 </script>

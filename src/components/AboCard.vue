@@ -1,5 +1,5 @@
 <template>
-  <div class="p-3 bg-card opacity-80 text-white w-full shadow-card">
+  <div class="p-3 bg-card opacity-80 text-white w-full shadow-card abo-card">
     <h3 class="text-3xl font-semibold">{{ title }}</h3>
     <p class="text-base my-3">{{ text }}</p>
     <div class="flex justify-between">
@@ -35,4 +35,10 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.abo-card {
+  border: 10px outset #35353542;
+  background-image: url("../assets/asfalt-dark.png");
+  background-repeat: repeat;
+}
+</style>

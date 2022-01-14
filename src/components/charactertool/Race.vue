@@ -7,7 +7,7 @@
       Wähle ein Volk aus um Informationen über deren Volksmerkmale zu erhalten.
       Genauere Informationen erhältst du im Kompendium.
     </p>
-    <div class="bg-white bg-opacity-5 py-6 md:px-24 my-6">
+    <div class="bg-white bg-opacity-5 py-6 md:px-24 my-6 inputhighlight">
       <p class="pb-6 text-center text-xl">Wähle ein Volk</p>
       <div class="flex flex-wrap space gap-6 px-3 justify-center">
         <custom-button
@@ -126,6 +126,7 @@
 
 <script>
 import CustomButton from "../CustomButton.vue";
+import { mapGetters } from "vuex";
 
 import Mensch from "./raceinfo/Mensch.vue";
 import Elf from "./raceinfo/Elf.vue";
@@ -165,6 +166,7 @@ export default {
   },
   methods: {
     setAndPassRace(value) {
+      console.log(value);
       this.clearAttributes();
       if (this.race.name === value) {
         this.race.name = "";
@@ -209,6 +211,7 @@ export default {
     },
     clearAttributes() {
       this.race.bonusAttributes = {
+        attribute: "",
         st: 0,
         ge: 0,
         kon: 0,
@@ -220,6 +223,28 @@ export default {
     passRace() {
       this.$emit("passRace", this.race);
     },
+  },
+  computed: {
+    ...mapGetters({
+      charactertoolData: "charactertoolData",
+    }),
+  },
+  mounted() {
+    if (this.charactertoolData.race) {
+      if (
+        this.charactertoolData.race === "Mensch" ||
+        this.charactertoolData.race === "Halb-Elf" ||
+        this.charactertoolData.race === "Halb-Ork"
+      ) {
+        this.race.name = this.charactertoolData.race;
+        if (this.charactertoolData.attributes.raceBonusAttributes) {
+          this.race.bonusAttributes =
+            this.charactertoolData.attributes.raceBonusAttributes;
+        }
+      } else {
+        this.setAndPassRace(this.charactertoolData.race);
+      }
+    }
   },
 };
 </script>

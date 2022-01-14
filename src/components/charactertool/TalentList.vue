@@ -28,6 +28,7 @@
 <script>
 import TalentMobile from "./mobile/TalentMobile.vue";
 import TalentDesktop from "./desktop/TalentDesktop.vue";
+import { mapGetters } from "vuex";
 export default {
   props: ["listData", "searchKey"],
   components: { TalentMobile, TalentDesktop },
@@ -44,6 +45,9 @@ export default {
         );
       });
     },
+    ...mapGetters({
+      charactertoolData: "charactertoolData",
+    }),
   },
   methods: {
     selectTalent(talent) {
@@ -61,6 +65,12 @@ export default {
     passTalents() {
       this.$emit("passTalents", this.talents);
     },
+  },
+  mounted() {
+    if (this.charactertoolData.talents.length > 0) {
+      this.talents = this.charactertoolData.talents;
+      this.selectedTalents = this.charactertoolData.talents;
+    }
   },
 };
 </script>

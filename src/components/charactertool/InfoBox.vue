@@ -1,5 +1,5 @@
 <template>
-  <div class="w-72 h-full p-6 bg-white bg-opacity-5 text-white">
+  <div class="w-72 h-full p-6 text-white bg-dark infobox">
     <div class="pb-3">
       <p class="text-3xl">{{ character.name }}</p>
       <div class="text-xl">
@@ -199,4 +199,10 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.infobox {
+  border: 3px inset #565d66;
+  background-image: url("../../assets/asfalt-dark.png");
+  background-repeat: repeat;
+}
+</style>

@@ -17,7 +17,7 @@
         Charakter die Voraussetzungen nicht erfüllt!</strong
       >
     </p>
-    <div class="bg-white bg-opacity-5 py-6 my-6">
+    <div class="bg-white bg-opacity-5 pt-6 my-6 inputhighlight">
       <p class="pb-6 text-center text-xl">Wähle deine Ausrüstung</p>
       <p class="text-center text-2xl">{{ countSpent }} GM / {{ money }}GM</p>
       <searchBar
@@ -40,7 +40,7 @@
         @passArmor="getAndPassArmor($event)"
       />
     </div>
-    <div>
+    <div class="my-6 inputhighlight">
       <table class="w-full">
         <tr>
           <p class="font-bold col text-center border py-2">
@@ -69,6 +69,8 @@ import searchBar from "../kompendium/SearchBar.vue";
 import weaponList from "./WeaponList.vue";
 import axios from "axios";
 import SelectedItem from "./SelectedItem.vue";
+import { mapGetters } from "vuex";
+
 export default {
   components: { searchBar, weaponList, SelectedItem },
   props: ["money"],
@@ -123,6 +125,9 @@ export default {
     },
   },
   computed: {
+    ...mapGetters({
+      charactertoolData: "charactertoolData",
+    }),
     countSpent() {
       let sum = 0;
       for (let i = 0; i < this.selectedItems.weapons.length; i++) {
@@ -202,6 +207,11 @@ export default {
       this.shields = response.data;
     } catch (e) {
       this.errors.push(e);
+    }
+  },
+  mounted() {
+    if (this.charactertoolData.items) {
+      this.selectedItems = this.charactertoolData.items;
     }
   },
 };

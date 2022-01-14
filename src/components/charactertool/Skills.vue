@@ -18,13 +18,15 @@
       einberechnet werden. Ungeübte Fertigkeiten können auch dann eingesetzt
       werden wenn deren Rang 0 ist.
     </p>
-    <div class="bg-white bg-opacity-5 py-6 my-6 overflow-x-scroll">
+    <div
+      class="bg-white bg-opacity-5 py-6 my-6 overflow-x-scroll inputhighlight"
+    >
       <p class="pb-6 text-center text-xl">Erwerbe Fertigkeiten</p>
       <p
         class="text-center text-2xl pb-6"
-        v-bind:class="{ red: countSpent === this.calcSkillPoints }"
+        v-bind:class="{ red: skills.countSpent === this.calcSkillPoints }"
       >
-        Fertigkeitspunkte: {{ this.countSpent }} /
+        Fertigkeitspunkte: {{ skills.countSpent }} /
         {{ this.calcSkillPoints }}
       </p>
       <div class="flex md:justify-center">
@@ -79,14 +81,18 @@
 <script>
 import CustomButton from "../CustomButton.vue";
 import fertigkeiten from "../../assets/lists/fertigkeiten.json";
+import { mapGetters } from "vuex";
+
 export default {
   props: ["class", "character"],
   components: { CustomButton },
   data: () => {
     return {
       fertigkeiten: fertigkeiten,
-      countSpent: 0,
-      skills: {},
+
+      skills: {
+        countSpent: 0,
+      },
     };
   },
   methods: {
@@ -98,13 +104,13 @@ export default {
       }
     },
     addSkillRank(id) {
-      if (this.countSpent < this.calcSkillPoints) {
+      if (this.skills.countSpent < this.calcSkillPoints) {
         if (!this.skills[id]) {
           this.skills[id] = 1;
         } else {
           this.skills[id] += 1;
         }
-        this.countSpent += 1;
+        this.skills.countSpent += 1;
         this.passSkills();
       }
     },
@@ -115,8 +121,8 @@ export default {
           delete this.skills[id];
         }
       }
-      if (this.countSpent > 0) {
-        this.countSpent -= 1;
+      if (this.skills.countSpent > 0) {
+        this.skills.countSpent -= 1;
       }
       this.passSkills();
     },
@@ -138,6 +144,14 @@ export default {
       );
       return sum;
     },
+    ...mapGetters({
+      charactertoolData: "charactertoolData",
+    }),
+  },
+  mounted() {
+    if (Object.keys(this.charactertoolData.skills).length > 0) {
+      this.skills = this.charactertoolData.skills;
+    }
   },
 };
 </script>

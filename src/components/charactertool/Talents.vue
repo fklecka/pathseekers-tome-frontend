@@ -10,14 +10,14 @@
       Du kannst anfangs nur ein Talent wählen. Menschen und Kämpfer erhalten ein
       zusätzliches Talent.
     </p>
-    <p>Klicke auf den Namen des Talents um es hinzuzufügen!</p>
+    <p>Klicke auf den Namen des Talents um Details anzuzeigen</p>
     <p class="pt-3">
       <strong
         >Beachte dass du hier jedes Talent wählen kannst auch wenn dein
         Charakter die Voraussetzungen nicht erfüllt!</strong
       >
     </p>
-    <div class="bg-white bg-opacity-5 py-6 my-6">
+    <div class="bg-white bg-opacity-5 pt-6 my-6 inputhighlight">
       <p class="pb-6 text-center text-xl">Wähle deine Talente</p>
       <searchBar
         @passKeyword="getKeyword($event)"

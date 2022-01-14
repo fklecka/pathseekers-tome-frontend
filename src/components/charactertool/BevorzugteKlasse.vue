@@ -34,6 +34,7 @@
 
 <script>
 import ClassCard from "./ClassCard.vue";
+import { mapGetters } from "vuex";
 export default {
   components: { ClassCard },
   data: () => {
@@ -46,6 +47,16 @@ export default {
       this.bonus = value;
       this.$emit("setAndPassBonus", this.bonus);
     },
+  },
+  computed: {
+    ...mapGetters({
+      charactertoolData: "charactertoolData",
+    }),
+  },
+  created() {
+    if (this.charactertoolData.classAttributes.favoredBonus) {
+      this.bonus = this.charactertoolData.classAttributes.favoredBonus;
+    }
   },
 };
 </script>

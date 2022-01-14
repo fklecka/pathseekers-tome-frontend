@@ -6,7 +6,7 @@
       Beruf dar (zB. Kämpfer oder Magier) und bestimmt die Fähigkeiten deines
       Charakters. Wähle eine Klasse aus um weitere Informationen zu erhalten.
     </p>
-    <div class="bg-white bg-opacity-5 py-6 my-6">
+    <div class="bg-white bg-opacity-5 py-6 my-6 inputhighlight">
       <p class="pb-6 text-center text-xl">Wähle eine Klasse</p>
       <div class="flex gap-6 justify-evenly flex-wrap p-3">
         <class-card
@@ -68,6 +68,7 @@ import Kaempfer from "./classinfo/Kaempfer.vue";
 import Paladin from "./classinfo/Paladin.vue";
 import Schurke from "./classinfo/Schurke.vue";
 import Moench from "./classinfo/Moench.vue";
+import { mapGetters } from "vuex";
 export default {
   data: () => {
     return {
@@ -178,6 +179,18 @@ export default {
       this.classAttributes.wil = 0;
       this.classAttributes.zah = 0;
     },
+  },
+  computed: {
+    ...mapGetters({
+      charactertoolData: "charactertoolData",
+    }),
+  },
+  mounted() {
+    if (this.charactertoolData.classAttributes.classname) {
+      this.classAttributes.classname =
+        this.charactertoolData.classAttributes.classname;
+      console.log("test");
+    }
   },
 };
 </script>

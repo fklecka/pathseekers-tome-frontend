@@ -17,21 +17,21 @@
       stehen. Frage dafür deinen Spieleleiter welcher Kampagnentyp gespielt
       wird.
     </p>
-    <div class="bg-white bg-opacity-5 p-3 md:p-6 my-6">
+    <div class="bg-white bg-opacity-5 p-3 md:p-6 my-6 inputhighlight">
       <p class="pb-6 text-center text-xl">Wähle einen Kampagnentyp</p>
-      <div class="flex flex-col md:flex-row gap-3">
-        <div class="flex gap-3 flex-wrap">
+      <div class="gap-3">
+        <div class="flex flex-col md:flex-row gap-3 mb-3">
           <custom-button
             class="
               bg-card
               border border-card
               hover:bg-bg
               text-center
+              md:w-1/2
               w-full
-              xl:w-auto
             "
             @click="setCampaignType('low')"
-            v-bind:class="{ active: campaignType === 'low' }"
+            v-bind:class="{ active: sum.campaignType === 'low' }"
             >Low Fantasy <br />
             <strong>10 Punkte</strong></custom-button
           >
@@ -41,27 +41,27 @@
               border border-card
               hover:bg-bg
               text-center
+              md:w-1/2
               w-full
-              xl:w-auto
             "
             @click="setCampaignType('standard')"
-            v-bind:class="{ active: campaignType === 'standard' }"
+            v-bind:class="{ active: sum.campaignType === 'standard' }"
             >Standard Fantasy <br />
             <strong>15 Punkte</strong></custom-button
           >
         </div>
-        <div class="flex gap-3 flex-wrap">
+        <div class="flex flex-col md:flex-row gap-3 mb-3">
           <custom-button
             class="
               bg-card
               border border-card
               hover:bg-bg
               text-center
+              md:w-1/2
               w-full
-              xl:w-auto
             "
             @click="setCampaignType('high')"
-            v-bind:class="{ active: campaignType === 'high' }"
+            v-bind:class="{ active: sum.campaignType === 'high' }"
             >High Fantasy <br />
             <strong>20 Punkte</strong></custom-button
           >
@@ -71,11 +71,11 @@
               border border-card
               hover:bg-bg
               text-center
+              md:w-1/2
               w-full
-              xl:w-auto
             "
             @click="setCampaignType('epic')"
-            v-bind:class="{ active: campaignType === 'epic' }"
+            v-bind:class="{ active: sum.campaignType === 'epic' }"
             >Epic Fantasy <br />
             <strong>25 Punkte</strong></custom-button
           >
@@ -101,7 +101,7 @@
               <td class="text-xs md:text-base"><strong>Stärke</strong></td>
               <td>{{ sum.st }}</td>
               <td>{{ Math.floor((sum.st - 10) / 2) }}</td>
-              <td>{{ costs.st }}</td>
+              <td>{{ sum.costs.st }}</td>
               <td>
                 <custom-button
                   class="
@@ -127,7 +127,7 @@
               </td>
               <td>{{ sum.ge }}</td>
               <td>{{ Math.floor((sum.ge - 10) / 2) }}</td>
-              <td>{{ costs.ge }}</td>
+              <td>{{ sum.costs.ge }}</td>
               <td>
                 <custom-button
                   class="
@@ -153,7 +153,7 @@
               </td>
               <td>{{ sum.kon }}</td>
               <td>{{ Math.floor((sum.kon - 10) / 2) }}</td>
-              <td>{{ costs.kon }}</td>
+              <td>{{ sum.costs.kon }}</td>
               <td>
                 <custom-button
                   class="
@@ -177,7 +177,7 @@
               <td class="text-xs md:text-base"><strong>Intelligenz</strong></td>
               <td>{{ sum.int }}</td>
               <td>{{ Math.floor((sum.int - 10) / 2) }}</td>
-              <td>{{ costs.int }}</td>
+              <td>{{ sum.costs.int }}</td>
               <td>
                 <custom-button
                   class="
@@ -201,7 +201,7 @@
               <td class="text-xs md:text-base"><strong>Weisheit</strong></td>
               <td>{{ sum.wei }}</td>
               <td>{{ Math.floor((sum.wei - 10) / 2) }}</td>
-              <td>{{ costs.wei }}</td>
+              <td>{{ sum.costs.wei }}</td>
               <td>
                 <custom-button
                   class="
@@ -225,7 +225,7 @@
               <td class="text-xs md:text-base"><strong>Charisma</strong></td>
               <td>{{ sum.ch }}</td>
               <td>{{ Math.floor((sum.ch - 10) / 2) }}</td>
-              <td>{{ costs.ch }}</td>
+              <td>{{ sum.costs.ch }}</td>
               <td>
                 <custom-button
                   class="
@@ -254,47 +254,52 @@
 
 <script>
 import CustomButton from "../CustomButton.vue";
+import { mapGetters } from "vuex";
+
 export default {
   components: { CustomButton },
   data: () => {
     return {
-      campaignType: "standard",
       points: {
         sum: 15,
       },
       sum: {
+        campaignType: "standard",
         st: 10,
         ge: 10,
         kon: 10,
         int: 10,
         wei: 10,
         ch: 10,
-      },
-      costs: {
-        st: 0,
-        ge: 0,
-        kon: 0,
-        int: 0,
-        wei: 0,
-        ch: 0,
+        costs: {
+          st: 0,
+          ge: 0,
+          kon: 0,
+          int: 0,
+          wei: 0,
+          ch: 0,
+        },
       },
     };
   },
   methods: {
     setCampaignType(value) {
-      if (this.campaignType === value) {
-        this.campaignType = "";
+      if (this.sum.campaignType === value) {
+        this.sum.campaignType = "";
       } else {
-        this.campaignType = value;
+        this.sum.campaignType = value;
       }
-
-      if (this.campaignType === "low") {
+      this.setPointsToSpend();
+      this.passAttributes();
+    },
+    setPointsToSpend() {
+      if (this.sum.campaignType === "low") {
         this.points.sum = 10;
-      } else if (this.campaignType === "standard") {
+      } else if (this.sum.campaignType === "standard") {
         this.points.sum = 15;
-      } else if (this.campaignType === "high") {
+      } else if (this.sum.campaignType === "high") {
         this.points.sum = 20;
-      } else if (this.campaignType === "epic") {
+      } else if (this.sum.campaignType === "epic") {
         this.points.sum = 25;
       }
     },
@@ -302,15 +307,15 @@ export default {
       if (this.countSpent < this.points.sum) {
         if (this.sum[key] < 18) {
           if (this.sum[key] < 8) {
-            this.costs[key] += 2;
+            this.sum.costs[key] += 2;
           } else if (this.sum[key] < 13) {
-            this.costs[key] += 1;
+            this.sum.costs[key] += 1;
           } else if (this.sum[key] < 15) {
-            this.costs[key] += 2;
+            this.sum.costs[key] += 2;
           } else if (this.sum[key] < 17) {
-            this.costs[key] += 3;
+            this.sum.costs[key] += 3;
           } else if (this.sum[key] < 18) {
-            this.costs[key] += 4;
+            this.sum.costs[key] += 4;
           }
           this.sum[key] += 1;
           this.passAttributes();
@@ -320,15 +325,15 @@ export default {
     subSum(key) {
       if (this.sum[key] > 7) {
         if (this.sum[key] === 8) {
-          this.costs[key] -= 2;
+          this.sum.costs[key] -= 2;
         } else if (this.sum[key] <= 13) {
-          this.costs[key] -= 1;
+          this.sum.costs[key] -= 1;
         } else if (this.sum[key] <= 15) {
-          this.costs[key] -= 2;
+          this.sum.costs[key] -= 2;
         } else if (this.sum[key] <= 17) {
-          this.costs[key] -= 3;
+          this.sum.costs[key] -= 3;
         } else if (this.sum[key] <= 18) {
-          this.costs[key] -= 4;
+          this.sum.costs[key] -= 4;
         }
         this.sum[key] -= 1;
         this.passAttributes();
@@ -342,9 +347,17 @@ export default {
   computed: {
     countSpent() {
       let spent = 0;
-      Object.values(this.costs).forEach((val) => (spent += val));
+      Object.values(this.sum.costs).forEach((val) => (spent += val));
       return spent;
     },
+    ...mapGetters({
+      charactertoolData: "charactertoolData",
+    }),
+  },
+  mounted() {
+    if (this.charactertoolData.attributes)
+      this.sum = this.charactertoolData.attributes;
+    this.setPointsToSpend();
   },
 };
 </script>

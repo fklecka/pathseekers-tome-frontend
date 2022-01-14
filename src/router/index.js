@@ -47,6 +47,8 @@ import Zwerge from "../views/kompendium/races/Zwerge.vue";
 import ClassesOverview from "../views/kompendium/classes/ClassesOverview.vue";
 import Barbar from "../views/kompendium/classes/Barbar.vue";
 import Barde from "../views/kompendium/classes/Barde.vue";
+import Druide from "../views/kompendium/classes/Druide.vue";
+import Kaempfer from "../views/kompendium/classes/Kaempfer.vue";
 
 const routes = [
   { path: "/404", component: NotFound },
@@ -128,6 +130,16 @@ const routes = [
                 path: "barde",
                 name: "Barde",
                 component: Barde,
+              },
+              {
+                path: "druide",
+                name: "Druide",
+                component: Druide,
+              },
+              {
+                path: "kaempfer",
+                name: "Kaempfer",
+                component: Kaempfer,
               },
             ],
           },

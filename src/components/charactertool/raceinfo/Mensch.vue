@@ -68,7 +68,6 @@ export default {
   methods: {
     getAndPassBonusAttributes(attributes) {
       this.bonusAttributes = attributes;
-      console.log(this.bonusAttributes, "Mensch Component");
       this.$emit("passBonusAttributes", this.bonusAttributes);
     },
   },
