@@ -6,6 +6,19 @@
       :background-color="'#000000'"
       :lock-scroll="true"
     />
+    <div class="fixed bottom-0 w-full">
+      <vue-cookie-comply
+        :target="'#app'"
+        :preferences="preferences"
+        :preferencesLabel="'Cookies'"
+        :headerDescription="'Diese Seite nutzt sogenannte Cookies, kleine Dateien, die im Browser lokal gespeichert werden und die Funktion der Seite unterstützen. Wir verwenden nur Cookies welche für die Funktionalität der Website erforderlich sind.'"
+        :headerTitle="''"
+        :acceptAllLabel="'Akzeptieren'"
+        @on-accept-all-cookies="onAccept"
+        @on-save-cookie-preferences="onSavePreferences"
+      />
+    </div>
+
     <router-view />
   </div>
 </template>
@@ -35,6 +48,20 @@ import { mapActions, mapGetters } from "vuex";
 import config from "../config/index";
 export default {
   components: { Loading },
+  data: () => {
+    return {
+      preferences: [
+        {
+          title: "Autorisierung",
+          description:
+            "Diese Cookies sind notwendig um die Funktionalität ihres Accounts zu gewährleisten.",
+          items: [
+            { label: "Active", value: "Authorization", isRequired: true },
+          ],
+        },
+      ],
+    };
+  },
 
   computed: {
     loading() {

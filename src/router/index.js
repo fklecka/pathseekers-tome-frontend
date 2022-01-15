@@ -17,7 +17,6 @@ import ResetPassword from "../views/Auth/ResetPassword.vue";
 import ForgotPassword from "../views/Auth/ForgotPassword.vue";
 import AccountSubscriptions from "../views/account/AccountSubscriptions.vue";
 
-import Cookies from "../views/legal/Cookie.vue";
 import Imprint from "../views/legal/Imprint.vue";
 import Privacy from "../views/legal/Privacy.vue";
 
@@ -214,11 +213,6 @@ const routes = [
         name: "CharacterTool",
         component: CharacterTool,
         meta: { requiresAuth: true },
-      },
-      {
-        path: "/cookies",
-        name: "Cookies",
-        component: Cookies,
       },
       {
         path: "/privacy",

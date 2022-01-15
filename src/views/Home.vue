@@ -201,7 +201,6 @@
           <li class="opacity-50">Legal</li>
           <li><router-link to="/imprint">Impressum</router-link></li>
           <li><router-link to="/privacy">Datenschutz</router-link></li>
-          <li><router-link to="/cookies">Cookie Richtlinien</router-link></li>
         </ul>
         <ul class="space-y-3">
           <li class="opacity-50">Folge uns</li>
