@@ -257,8 +257,8 @@ export default {
         talents: [],
         language: [],
         items: {
-          weapons: {},
-          armor: {},
+          weapons: [],
+          armor: [],
         },
       },
     };

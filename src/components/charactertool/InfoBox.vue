@@ -129,9 +129,11 @@
     <p>Ausrüstung</p>
     <hr />
     <ul class="py-3">
-      <li v-for="item in this.character.items" :key="item.id">
-        <p v-if="item.waffe">{{ item.waffe }}</p>
+      <li v-for="item in this.character.items.armor" :key="item.id">
         <p v-if="item.rüstung">{{ item.rüstung }}</p>
+      </li>
+      <li v-for="item in this.character.items.weapons" :key="item.id">
+        <p v-if="item.waffe">{{ item.waffe }}</p>
       </li>
     </ul>
   </div>

@@ -8,7 +8,7 @@
       />
     </div>
     <div class="px-3 lg:px-6 z-50">
-      <div class="pt-8 md:pt-16 pb-80 h-full">
+      <div class="pt-8 md:pt-32 pb-64 h-full">
         <div class="flex justify-center">
           <img src="../assets/tome_logo_white.svg" alt="" class="pb-16 w-512" />
         </div>

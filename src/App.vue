@@ -14,8 +14,6 @@
         :headerDescription="'Diese Seite nutzt sogenannte Cookies, kleine Dateien, die im Browser lokal gespeichert werden und die Funktion der Seite unterstützen. Wir verwenden nur Cookies welche für die Funktionalität der Website erforderlich sind.'"
         :headerTitle="''"
         :acceptAllLabel="'Akzeptieren'"
-        @on-accept-all-cookies="onAccept"
-        @on-save-cookie-preferences="onSavePreferences"
       />
     </div>
 
