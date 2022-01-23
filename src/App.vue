@@ -6,7 +6,7 @@
       :background-color="'#000000'"
       :lock-scroll="true"
     />
-    <div class="fixed bottom-0 w-full">
+    <div class="fixed bottom-16 md:bottom-0 w-full">
       <vue-cookie-comply
         :target="'#app'"
         :preferences="preferences"
