@@ -184,11 +184,11 @@
       "
     >
       <img
-        class="w-96 pb-20 md:pb-0"
+        class="w-96 pb-20 md:pb-8"
         src="../assets/tome_logo_white.svg"
         alt="Tome Logo"
       />
-      <div class="text-sm flex space-x-8">
+      <div class="text-sm flex space-x-8 pb-8">
         <ul class="space-y-3">
           <li class="opacity-50">Quicklinks</li>
           <li>
